@@ -10,10 +10,9 @@ language:
 rmd_files: [
   'index.Rmd',
   'cheatsheets.Rmd',
-  'data.Rmd',
-  'results.Rmd',
-  'interactive.Rmd',
-  'conclusion.Rmd'
+  'Classification.Rmd',
+  'Regression.Rmd',
+  'Appendices.Rmd'
   ]
 
 
