@@ -16,6 +16,8 @@ Li, Lisha, Kevin G. Jamieson, Giulia DeSalvo, Afshin Rostamizadeh, and Ameet Tal
 
 Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. Geocomputation with r. CRC Press.
 
+mlr3pipelines. GitHub.https://github.com/mlr-org/mlr3pipelines. Accessed 15 Nov. 2022.
+
 “Mlr3viz.” GitHub, 11 Feb. 2022, github.com/mlr-org/mlr3viz/. Accessed 15 Nov. 2022.
 
 mlr3tuning. (2022, November 5). GitHub. https://github.com/mlr-org/mlr3tuning
