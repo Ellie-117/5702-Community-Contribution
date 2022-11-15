@@ -64,4 +64,36 @@ autos = auto_fselector(
 autos$train(my_task, row_ids = train_set)
 ```
 
-Here we can see that the regr.mse increases after performing feature selection.
+Here we can see that the regr.mse increases after performing feature selection, that means it does not get better.
+
+```{r, echo = TRUE}
+
+```
+
+## Visualization
+
+```{r}
+library(mlr3viz)
+```
+
+We will use mlr3viz to create some visualizations.
+
+```{r}
+autoplot(my_task)
+```
+
+Autoplot is the default plot for my task. Here it shows a boxplot for the red wine quality. We can see that the interquartile range is between 5-6 and the median is at 5.5. We also view that there are outliers.
+
+The resample result prediction plot and the prediction plot can only compare one or two features:
+
+```{r}
+my_task1 = my_task$select(c("citric.acid","alcohol"))
+rr = resample(my_task1, learner, rsmp("cv", folds = 5), store_models = TRUE)
+autoplot(rr, type = "prediction")
+```
+
+```{r}
+p = plot_learner_prediction(learner, my_task)
+print(p)
+
+```
