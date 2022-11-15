@@ -1,18 +1,28 @@
 # References
 
-Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. Geocomputation with r. CRC Press.
-
-Lang, Michel. 2017. “checkmate: Fast Argument Checks for Defensive R Programming.” The R Journal 9 (1): 437–45. https://doi.org/10.32614/RJ-2017-028.
-
-Funk, et al. (2020, July 27). mlr3gallery: Bike Sharing Demand - Use Case. Retrieved from https://mlr3gallery.mlr-org.com/posts/2020-07-27-bikesharing-demand/
+AutoFSelector — AutoFSelector. (n.d.). Mlr3fselect.mlr-Org.com. Retrieved November 15, 2022, from https://mlr3fselect.mlr-org.com/reference/AutoFSelector.html
 
 Binder & Pfisterer (2020, March 11). mlr3gallery: mlr3tuning Tutorial - German Credit. Retrieved from https://mlr3gallery.mlr-org.com/posts/2020-03-11-mlr3tuning-tutorial-german-credit/
 
-Pfisterer (2020, April 27). mlr3gallery: A Pipeline for the Titanic Data Set - Advanced. Retrieved from https://mlr3gallery.mlr-org.com/posts/2020-04-27-mlr3pipelines-Imputation-titanic/
+Funk, et al. (2020, July 27). mlr3gallery: Bike Sharing Demand - Use Case. Retrieved from https://mlr3gallery.mlr-org.com/posts/2020-07-27-bikesharing-demand/
+
+Lang, Michel. 2017. “checkmate: Fast Argument Checks for Defensive R Programming.” The R Journal 9 (1): 437–45. https://doi.org/10.32614/RJ-2017-028.
+
+Lang  [cre, Michel, et al. “Mlr3: Machine Learning in R - next Generation.” R-Packages, 2 Nov. 2022, cran.r-project.org/web/packages/mlr3/index.html. Accessed 15 Nov. 2022.
+
+Lang, M., Binder, M., Richter, J., Schratz, P., Pfisterer, F., Coors, S., Au, Q., Casalicchio, G., Kotthoff, L., & Bischl, B. (2019). mlr3: A modern object-oriented machine learning framework in R. Journal of Open Source Software, 4(44), 1903. https://doi.org/10.21105/joss.01903
 
 Li, Lisha, Kevin G. Jamieson, Giulia DeSalvo, Afshin Rostamizadeh, and Ameet Talwalkar. 2016. “Efficient Hyperparameter Optimization and Infinitely Many Armed Bandits.” CoRR abs/1603.06560. http://arxiv.org/abs/1603.06560.
 
+Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. Geocomputation with r. CRC Press.
+
+“Mlr3viz.” GitHub, 11 Feb. 2022, github.com/mlr-org/mlr3viz/. Accessed 15 Nov. 2022.
+
+mlr3tuning. (2022, November 5). GitHub. https://github.com/mlr-org/mlr3tuning
+
 P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis.
 Modeling wine preferences by data mining from physicochemical properties. In Decision Support Systems, Elsevier, 47(4):547-553, 2009.
+
+Pfisterer (2020, April 27). mlr3gallery: A Pipeline for the Titanic Data Set - Advanced. Retrieved from https://mlr3gallery.mlr-org.com/posts/2020-04-27-mlr3pipelines-Imputation-titanic/
 
 Schratz, Patrick, Jannes Muenchow, Eugenia Iturritxa, Jakob Richter, and Alexander Brenning. 2019. “Hyperparameter Tuning and Performance Assessment of Statistical and Machine-Learning Algorithms Using Spatial Data.” Ecological Modelling 406 (August): 109–20. https://doi.org/10.1016/j.ecolmodel.2019.06.002.
