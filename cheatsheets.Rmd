@@ -145,35 +145,35 @@ Machine learning workflows can be written as directed "Graphs"/"Pipelines" that 
 
 Single computational steps can be represented as so-called PipeOps, which can then be connected with directed edges in a Graph. The scope of mlr3pipelines is still growing. Currently supported features are:
 
-\- Data manipulation and preprocessing operations, e.g. PCA, feature filtering, imputation
+- Data manipulation and preprocessing operations, e.g. PCA, feature filtering, imputation
 
-\- Task subsampling for speed and outcome class imbalance handling
+- Task subsampling for speed and outcome class imbalance handling
 
-\- mlr3 Learner operations for prediction and stacking
+- mlr3 Learner operations for prediction and stacking
 
-\- Ensemble methods and aggregation of predictions
+- Ensemble methods and aggregation of predictions
 
 Additionally, we implement several meta operators that can be used to construct powerful pipelines:
 
-\- Simultaneous path branching (data going both ways)
+- Simultaneous path branching (data going both ways)
 
-\- Alternative path branching (data going one specific way, controlled by hyperparameters)
+- Alternative path branching (data going one specific way, controlled by hyperparameters)
 
-Using methods from \`mlr3tuning\`, it is even possible to simultaneously optimize parameters of multiple processing units.
+Using methods from `mlr3tuning`, it is even possible to simultaneously optimize parameters of multiple processing units.
 
-\### The Building Blocks: PipeOps
+### The Building Blocks: PipeOps
 
 The building blocks of mlr3pipelines are PipeOp-objects (PO). They can be constructed directly using PipeOp\<NAME\>\$new(), but the recommended way is to retrieve them from the mlr_pipeops dictionary:
 
-\`\`\`{r,echo=TRUE}
+```{r,echo=TRUE}
 
 library("mlr3pipelines")
 
 as.data.table(mlr_pipeops)
 
-\`\`\`
+```
 
-\### Nodes, Edges and Graphs
+### Nodes, Edges and Graphs
 
 POs are combined into Graphs.
 
@@ -183,17 +183,17 @@ Connects PipeOps with edges to control data flow during training and prediction.
 
 Important methods and slots:
 
-\`\`\`
+```
 
 Display:print(gr),gr\$plot(html = TRUE) Accessing PipeOps: gr\$pipeops
 
 Named list of all contained POs.
 
-\`\`\`
+```
 
 The %\>\>% operator takes either a PipeOp or a Graph on each of its sides and connects all left-hand outputs to the right-hand inputs. For full control, connect PipeOps explicitly:
 
-\`\`\`
+```
 
 gr = Graph\$new()
 
@@ -203,32 +203,31 @@ gr\$add_pipeop(lrn("classif.rpart"))
 
 gr\$add_edge("pca", "classif.rpart")
 
-\`\`\`
+```
 
 GraphLearner behave like Learner and enable all mlr3 features:
 
-\`\`\`
+```
 
 grl = GraphLearner\$new(gr).
 
-\`\`\`
+```
 
 See slots \$encapsulate for debugging and \$model for results after training.
 
 Concatenate POs with %\>\>% to get linear graph.
 
-\### Modeling
+### Modeling
 
 The main purpose of a Graph is to build combined preprocessing and model fitting pipelines that can be used as mlr3 Learner.
 
-\#### Setting Hyperparameters
+#### Setting Hyperparameters
 
 Individual POs offer hyperparameters because they contain \$param_set slots that can be read and written from \$param_set\$values (via the paradox package). The parameters get passed down to the Graph, and finally to the GraphLearner . This makes it not only possible to easily change the behavior of a Graph / GraphLearner and try different settings manually, but also to perform tuning using the mlr3tuning package.
 
 For POs: Exactly as in a Learner.
 
-\`\`\`
-
+```
 enc = po("encode")
 
 enc\$param_set
@@ -237,17 +236,17 @@ enc\$param_set\$values = list(method="one-hot")
 
 po("encode", param_vals = list(method="one-hot"))
 
-\`\`\`
+```
 
 For Graph / GraphLearner: All HPs are collected in a global ParamSet stored in \$param_set. IDs are prefixed with the respective PipeOp's id.
 
-\#### Tuning
+#### Tuning
 
 Can jointly tune any Pipeline. Usage of AutoTuner is identical.
 
 Details could be seen in below section.
 
-\### Non-Linear Graphs
+### Non-Linear Graphs
 
 The Graphs seen so far all have a linear structure. Some POs may have multiple input or output channels. These channels make it possible to create non-linear Graphs with alternative paths taken by the data.
 
@@ -259,15 +258,15 @@ Copying: Splitting of a node into several paths, all paths will be executed (seq
 
 Stacking: Single graphs are stacked onto each other, i.e. the output of one Graph is the input for another. In machine learning this means that the prediction of one Graph is used as input for another Graph.
 
-\#### Common functions:
+#### Common functions:
 
-\`gunion()\` arranges PipeOps or Graphs next to each other in a disjoint graph union.
+`gunion()` arranges PipeOps or Graphs next to each other in a disjoint graph union.
 
 pipeline_greplicate() creates a new Graph containing n copies of the input (PipeOp or Graph).
 
 PipeOpFeatureUnion aggregates features from all input tasks into a single Task.
 
-\#### Branching & Copying
+#### Branching & Copying
 
 The PipeOpBranch and PipeOpUnbranch POs make it possible to specify multiple alternative paths. Only one path is actually executed, the others are ignored. The active path is determined by a hyperparameter. This concept makes it possible to tune alternative preprocessing paths (or learner models).
 
@@ -275,7 +274,7 @@ They controls the path execution. Only one branch can be active. Which one is co
 
 Example:
 
-\`\`\`
+```
 
 gr = ppl("branch", list(
 
@@ -283,11 +282,11 @@ pca = po("pca"), scale = po("scale"))
 
 )
 
-\# set the "pca" path as the active one:
+# set the "pca" path as the active one:
 
 gr\$param_set\$values\$branch.selection = "pca"
 
-\`\`\`
+```
 
 Tuning the branching selection enables powerful model selection.
 
