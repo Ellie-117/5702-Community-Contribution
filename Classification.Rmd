@@ -1,4 +1,337 @@
 # Sample for Classification Problems
 
+## Load the R Environment
+
+```{r,echo=TRUE}
+library(mlr3)
+library(mlr3learners)
+library(mlr3viz)
+library(ggplot2)
+library(data.table)
+library(tidyverse)
+```
+
+## Data Description
+To help readers quickly get started with this package, this section uses the the `German credit` dataset as an example to show full steps of machine learning.
+
+### Load the Data
+```{r,echo=TRUE}
+#install.packages("rchallenge")
+data("german", package = "rchallenge") 
+
+#observe the data
+glimpse(german) # Data Type
+
+```
+```{r,echo=TRUE}
+dim(german) # dimension of data
+
+```
+
+Through observation, it is found that the dataset has a total of 2000 observations and 21 attributes (columns). The dependent variable we want to predict is creadit_risk (good or bad), and there are 20 independent variables in total, among which duration, age and amount are numerical variables, and the rest are factor variables.
+
+`skimr` packages can be used for a more detailed look at understanding variables.
+
+```{r,echo=TRUE}
+#install.packages("skimr")
+skimr::skim(german)
+```
+## Modeling
+
+When solving the credit risk classification problem by using the mlr3 package, typical problems that arise when building machine learning workflows are: 
+ 
+What is the problem we are trying to solve? 
+What is the appropriate learning algorithm? 
+How do we evaluate "good" performance? 
+
+
+More systematically in mlr3, they can be represented by five components: 
+
+1. Task Definition
+2. Learner Definition
+3. Training
+4. Prediction
+5. Performance Evaluation
+
+### Task Definition
+
+Firstly, we need to determine the goal of the modeling. Most supervised machine learning problems are regression or classification problems. In mlr3, we define tasks to distinguish between these problems. If we want to solve a classification problem, we define a classification task, `TaskClassif`. For the regression problem, we define a regression task, `TaskRegr`. 
+ 
+In our example, our goal is clearly to model or predict the two-factor variable credit_risk. Therefore, we define a `TaskClassif`:
+
+```{r,echo=TRUE}
+task = TaskClassif$new("germancredit", german , target = "credit_risk")
+```
+
+### Leaner Definition
+
+After defining the task, we need to decide how to model. This means we need to decide what learning algorithms or Learners are appropriate. Using prior knowledge (for example, knowing that this is a classification task or assuming that the class is linearly divisible) will eventually result in one or more suitable learners. 
+ 
+Many learners are available through the `mlr3learners` package. In addition, many of the learners are provided via the `mlr3extralearners` package on GitHub. Together, these two resources account for a large portion of standard learning algorithms. 
+
+```{r,echo=TRUE}
+mlr_learners
+```
+
+A suitable learner for our problem could be one of the following: Logistic regression, CART, random forest, etc. 
+ 
+The learner can be initialized using the `lrn()` function and the name of the learner, such as `lrn(" classif.xxx ")`. Use `mlr_learners_xxx` opens the help page for a learner named xxx. 
+ 
+For example, logistic regression can be initialized by the following way (logistic regression uses R's glm() function, provided by the mlr3learners package) :
+
+```{r,echo=TRUE}
+library("mlr3learners")
+learner_logreg = lrn("classif.log_reg")
+print(learner_logreg)
+```
+
+### Training
+
+Training is the process of fitting a model to data.
+
+1. logistic regression
+
+Let's start with an example of logistic regression. However, you will immediately see that this process is very easy to generalize to any learner. 
+ 
+You can use `$train()` to train the initialized learner:
+
+```{r,echo=TRUE}
+learner_logreg$train(task)
+```
+
+Typically, in machine learning, we don't use the full data available, but instead use a subset, the so-called training data. To perform data splitting effectively, you can do the following:
+
+```{r,echo=TRUE}
+train_set = sample(task$row_ids, 0.8 * task$nrow)
+test_set = setdiff(task$row_ids, train_set)
+```
+
+80% of the data is used for training. The remaining 20% is used for subsequent evaluation. train_set is an integer vector that refers to the selected rows of the original dataset. In mlr3, you can declare training using a subset of the data by attaching the parameter row_ids = train_set:
+
+```{r,echo=TRUE}
+learner_logreg$train(task, row_ids = train_set)
+```
+
+The model after training fitting can be displayed through the following commands:
+
+```{r,echo=TRUE}
+learner_logreg$model
+```
+
+You can check the type and summary of the model after Logistic regression training:
+
+```{r,echo=TRUE}
+class(learner_logreg$model)
+```
+
+```{r,echo=TRUE}
+summary(learner_logreg$model)
+```
+
+2. Random Forest
+
+Just like logistic regression, we can train a random forest. We use the ranger package to do this quickly. To do this, we first need to define the learner and then actually train it. 
+ 
+We now provide additional importance parameters (importance = "permutation"). In doing so, we override the default and let the learner determine the importance of the feature based on the ranking of the importance of the feature:
+
+```{r,echo=TRUE}
+learner_rf = lrn("classif.ranger", importance = "permutation")
+learner_rf$train(task, row_ids = train_set)
+
+```
+
+```{r,echo=TRUE}
+learner_rf$importance()
+
+```
+
+To get a graph of importance values, we convert importance to data.table format and process it with ggplot2:
+
+```{r,echo=TRUE}
+importance = as.data.table(learner_rf$importance(), keep.rownames = TRUE)
+colnames(importance) = c("Feature", "Importance")
+
+ggplot(data=importance,
+       aes(x = reorder(Feature, Importance), y = Importance)) + 
+  geom_col() + coord_flip() + xlab("")
+
+```
+It can be seen that the first seven variables play an important role in predicting the dependent variable.
+
+
+## Prediction
+
+Next we will use the trained model to make predictions. After training the model, the model can be used for prediction. In general, prediction is the main purpose of machine learning models. 
+ 
+In our case, the model can be used to classify new credit applicants. They are based on the associated credit risk (good and bad) of the feature. Typically, machine learning models predict numerical values. In a regression situation, this is natural. For classification, most models predict scores or probabilities. Based on these values, category predictions can be made.
+
+1. Predict Classes
+
+```{r,echo=TRUE}
+pred_logreg = learner_logreg$predict(task, row_ids = test_set)
+pred_rf = learner_rf$predict(task, row_ids = test_set)
+
+pred_logreg
+```
+```{r,echo=TRUE}
+pred_rf
+
+```
+
+The $predict() method returns a Prediction object. If you want to use it later, you can convert it to data.table format. We can also display the prediction results in the confusion matrix:
+
+```{r,echo=TRUE}
+pred_logreg$confusion
+```
+
+```{r,echo=TRUE}
+pred_rf$confusion
+```
+
+2. Predict Probabilities
+
+Most learning period Learner can not only predict category variables (" response "), but also predict their "confidence"/" uncertainty "degree to a given response. Typically, we do this by setting the Learner's $predict_type to "prob". Sometimes this needs to be done before the learner is trained. Alternatively, we can create the learner directly using this option: `lrn(" classif.log_reg ", predict_type= "prob")`
+
+```{r,echo=TRUE}
+learner_logreg$predict_type = "prob"
+learner_logreg$predict(task, row_ids = test_set)
+
+```
+
+
+### Performance Evaluation
+
+To measure the learner's performance on new data, we usually simulate a sight unseen data by dividing the data into training sets and test sets. The training set is used to train the learner, and the test set is only used to predict and evaluate the performance of the trained learner. Many resampling methods (cross-validation, bootstrap) repeat the segmentation process in different ways. 
+ 
+In mlr3, we need to specify the resampling strategy using the rsmp() function:
+
+```{r,echo=TRUE}
+resampling = rsmp("holdout", ratio = 2/3)
+print(resampling)
+
+```
+
+In this case, we use a "holdout," which is a simple train-test split (only one iteration). We use the resample() function for resampling calculation:
+
+```{r,echo=TRUE}
+res = resample(task, learner = learner_logreg, resampling = resampling)
+res
+```
+
+The default score for the measure is included in `$aggregate() `:
+```{r,echo=TRUE}
+res$aggregate()
+
+```
+
+The default metric in this case is classification error. The lower the better. 
+ 
+We can run different resampling strategies, such as repeated adherence (" secondary sampling "), or cross-validation. Most methods perform repeated training/prediction cycles on different subsets of data and aggregate the results (usually as averages). Doing this manually requires us to write a loop. mlr3 does the job for us:
+
+```{r,echo=TRUE}
+resampling = rsmp("subsampling", repeats=10)
+rr = resample(task, learner = learner_logreg, resampling = resampling)
+```
+
+```{r,echo=TRUE}
+rr$aggregate()
+```
+
+In addition, we can also use cross validation:
+
+```{r,echo=TRUE}
+resampling = resampling = rsmp("cv", folds=10)
+rr = resample(task, learner = learner_logreg, resampling = resampling)
+```
+
+```{r,echo=TRUE}
+rr$aggregate()
+```
+
+### Performance Comparision and Benchmarks
+
+We can compare the learner by manually evaluating the resample() for each learning period. However, benchmark() automatically performs resampling evaluations for multiple learners and tasks. benchmark_grid() Create a fully interleaved design: compare multiple learners on multiple tasks. Resampling multiple times.
+
+```{r,echo=TRUE}
+learners = lrns(c("classif.log_reg", "classif.ranger"), predict_type = "prob")
+
+bm_design = benchmark_grid(
+  tasks = task,
+  learners = learners,
+  resamplings = rsmp("cv", folds = 50)
+)
+
+bmr = benchmark(bm_design)
+```
+
+In benchmarking, we can compare different measures. Here, we look at the misclassification rate and the AUC:
+
+```{r,echo=TRUE}
+measures = msrs(c("classif.ce", "classif.auc"))
+performances = bmr$aggregate(measures)
+performances[, c("learner_id", "classif.ce", "classif.auc")]
+```
+### Deviating from hyperparameters defaults
+
+The techniques previously demonstrated build the backbone of the machine learning workflow that features mlr3. However, in most cases, people will never proceed as we did. While many R packages have carefully chosen default Settings, they do not operate optimally under any circumstances. In general, we can choose the value of such a hyperparameter. The learner's (super) parameter can be accessed and set via its ParamSet $param_set:
+
+```{r,echo=TRUE}
+learner_rf$param_set
+```
+```{r,echo=TRUE}
+learner_rf$param_set$values = list(verbose = FALSE)
+```
+
+We can choose parameters for our learners in two different ways. If we had a prior knowledge of how the learner should be (hyper-) parameterized, the way to go would be to manually enter the parameters in the parameter set. In most cases, however, we want to tune the learner so that it can search for "good" model configurations on its own. For now, we only want to compare a few models. 
+ 
+To see which parameters can be manipulated, we can investigate the original package version's parameters or look at the learner's parameter set:
+
+```{r,echo=TRUE}
+as.data.table(learner_rf$param_set)[,.(id, class, lower, upper)]
+```
+
+For a random forest, two meaningful parameters that control the complexity of the model are num.trees and mtry. num.trees default to 500 and mtry to floor(sqrt(ncol(data) -1)), or 4 in our example. 
+ 
+Our goal here is to train three different learners: 
+1) Default random forest. 
+2) Random forest with low num.trees and low mtry. 
+3) Random forest with high num.trees and high mtry. 
+
+We will benchmark their performance against the German credit data set. To do this, we built three learners and set the parameters accordingly: 
+
+```{r,echo=TRUE}
+rf_med = lrn("classif.ranger", id = "med", predict_type = "prob")
+
+rf_low = lrn("classif.ranger", id = "low", predict_type = "prob",
+  num.trees = 5, mtry = 2)
+
+rf_high = lrn("classif.ranger", id = "high", predict_type = "prob",
+  num.trees = 1000, mtry = 11)
+```
+
+Once the learner is defined, we can benchmark them:
+
+```{r,echo=TRUE}
+learners = list(rf_low, rf_med, rf_high)
+bm_design = benchmark_grid(
+  tasks = task,
+  learners = learners,
+  resamplings = rsmp("cv", folds = 10)
+)
+bmr = benchmark(bm_design)
+bmr
+```
+
+We can compare the classification error rate and AUC of different learners:
+
+```{r,echo=TRUE}
+measures = msrs(c("classif.ce", "classif.auc"))
+performances = bmr$aggregate(measures)
+performances[, .(learner_id, classif.ce, classif.auc)]
+autoplot(bmr)
+```
+
+Compared with the three parameter tuning models, the default parameter model in this example is better.
+
 
 

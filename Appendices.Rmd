@@ -1,2 +1,15 @@
-# Appendices
+# References
 
+Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. Geocomputation with r. CRC Press.
+
+Lang, Michel. 2017. “checkmate: Fast Argument Checks for Defensive R Programming.” The R Journal 9 (1): 437–45. https://doi.org/10.32614/RJ-2017-028.
+
+Funk, et al. (2020, July 27). mlr3gallery: Bike Sharing Demand - Use Case. Retrieved from https://mlr3gallery.mlr-org.com/posts/2020-07-27-bikesharing-demand/
+
+Binder & Pfisterer (2020, March 11). mlr3gallery: mlr3tuning Tutorial - German Credit. Retrieved from https://mlr3gallery.mlr-org.com/posts/2020-03-11-mlr3tuning-tutorial-german-credit/
+
+Pfisterer (2020, April 27). mlr3gallery: A Pipeline for the Titanic Data Set - Advanced. Retrieved from https://mlr3gallery.mlr-org.com/posts/2020-04-27-mlr3pipelines-Imputation-titanic/
+
+Li, Lisha, Kevin G. Jamieson, Giulia DeSalvo, Afshin Rostamizadeh, and Ameet Talwalkar. 2016. “Efficient Hyperparameter Optimization and Infinitely Many Armed Bandits.” CoRR abs/1603.06560. http://arxiv.org/abs/1603.06560.
+
+Schratz, Patrick, Jannes Muenchow, Eugenia Iturritxa, Jakob Richter, and Alexander Brenning. 2019. “Hyperparameter Tuning and Performance Assessment of Statistical and Machine-Learning Algorithms Using Spatial Data.” Ecological Modelling 406 (August): 109–20. https://doi.org/10.1016/j.ecolmodel.2019.06.002.

@@ -1,0 +1,27 @@
+# Package Prepare
+
+## Installation
+We recommend installing the full universe at once:
+```{r}
+install.packages("mlr3verse")
+```
+
+You can also just install the base package:
+```{r}
+install.packages("mlr3")
+```
+
+## Package Ecosystem
+mlr3 makes use of the following packages not developed by core members of the mlr3 team:
+
+R6: Reference class objects.
+data.table: Extension of R’s data.frame.
+digest: Hash digests.
+uuid: Unique string identifiers.
+lgr: Logging facility.
+mlbench: A collection of machine learning data sets.
+evaluate: For capturing output, warnings, and exceptions.
+future / future.apply: For parallelization.
+These are core packages within the R ecosystem.
+
+The mlr3 package itself provides the base functionality that the rest of ecosystem (mlr3verse) rely on and some fundamental building blocks for machine learning.

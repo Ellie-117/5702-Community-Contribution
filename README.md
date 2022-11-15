@@ -1,17 +1,9 @@
 
 Description:
+In this community contribution project, we design and make a book to give the tutorial of mlr3 package in R (which is commonly used for machine learning).
 
+Rendered bookdown book: https://ellie-117.github.io/mlr3_tutorial/
 
-Render
-
-2. Render locally with `bookdown::render_book("index.Rmd")` or clicking the *Build book* button which should appear in the Build tab (in the same pane as Environment, History, Connections, ...).
-
-3. Use `browseURL("docs/index.html")` to view your book locally (or just open `index.html` in a browser).
-
-
-
-
-*This repo was initially generated from a bookdown template available here: https://github.com/jtr13/EDAVtemplate.*	
 
 
 

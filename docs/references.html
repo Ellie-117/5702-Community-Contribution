@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Community Contribution – mlr3 tutorial</title>
-  <meta name="description" content="Community Contribution – mlr3 tutorial" />
+  <title>Chapter 6 References | Community Contribution – mlr3 tutorial</title>
+  <meta name="description" content="Chapter 6 References | Community Contribution – mlr3 tutorial" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Community Contribution – mlr3 tutorial" />
+  <meta property="og:title" content="Chapter 6 References | Community Contribution – mlr3 tutorial" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Community Contribution – mlr3 tutorial" />
+  <meta name="twitter:title" content="Chapter 6 References | Community Contribution – mlr3 tutorial" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="sample-for-regression-problems.html"/>
 
-<link rel="next" href="package-prepare.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -196,37 +196,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Community Contribution – mlr3 tutorial</h1>
-<p class="author"><em>YLingjun Zhang, Michelle Sun</em></p>
-<p class="date"><em>2022-11-15</em></p>
-</div>
-<div id="introduction" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="background" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Background<a href="index.html#background" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The mlr3 (Lang et al. 2019) package and ecosystem provide a generic, object-oriented, and extensible framework for classification, regression, survival analysis, and other machine learning tasks for the R language (R Core Team 2019). This unified interface provides functionality to extend and combine existing machine learning algorithms (learners), intelligently select and tune the most appropriate technique for a specific machine learning task, and perform large-scale comparisons that enable meta-learning. Examples of this advanced functionality include hyperparameter tuning and feature selection. Parallelization of many operations is natively supported.</p>
-</div>
-<div id="target-users" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Target Users<a href="index.html#target-users" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We assume that users of mlr3 have the equivalent knowledge of an introductory machine learning course and some experience in R. A background in computer science or statistics will provide a strong basis for understanding the advanced functionality described in the later chapters of this book. “An Introduction to Statistical Learning” provides a comprehensive introduction for those getting started in machine learning. mlr3 is suitable for complex projects that utilize the high degree of control as well as the highly abstracted “syntactic sugar” to mock-up specific tasks.</p>
-<p>mlr3 provides a domain-specific language for machine learning in R. We target both practitioners who want to quickly apply machine learning algorithms and researchers who want to implement, benchmark, and compare their new methods in a structured environment.</p>
-</div>
-<div id="development" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Development<a href="index.html#development" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>mlr (Bischl et al. 2016) was first released to CRAN in 2013, with the core design and architecture dating back much further. Over time, the addition of many features has led to a considerably more complex design that made it harder to build, maintain, and extend than we had hoped for. With hindsight, we saw that some design and architecture choices in mlr made it difficult to support new features, in particular with respect to pipelines. Furthermore, the R ecosystem as well as helpful packages such as data.table have undergone major changes in the meantime.</p>
-<p>Bischl, Bernd, Michel Lang, Lars Kotthoff, Julia Schiffner, Jakob Richter, Erich Studerus, Giuseppe Casalicchio, and Zachary M. Jones. 2016. “mlr: Machine Learning in R.” Journal of Machine Learning Research 17 (170): 1–5. <a href="http://jmlr.org/papers/v17/15-066.html" class="uri">http://jmlr.org/papers/v17/15-066.html</a>.
-It would have been nearly impossible to integrate all of these changes into the original design of mlr. Instead, we decided to start working on a reimplementation in 2018, which resulted in the first release of mlr3 on CRAN in July 2019. The new design and the integration of further and newly-developed R packages (especially R6, future, and data.table) makes mlr3 much easier to use, maintain, and in many regards more efficient compared to its predecessor mlr.</p>
+<div id="references" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Lovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019. Geocomputation with r. CRC Press.</p>
+<p>Lang, Michel. 2017. “checkmate: Fast Argument Checks for Defensive R Programming.” The R Journal 9 (1): 437–45. <a href="https://doi.org/10.32614/RJ-2017-028" class="uri">https://doi.org/10.32614/RJ-2017-028</a>.</p>
+<p>Funk, et al. (2020, July 27). mlr3gallery: Bike Sharing Demand - Use Case. Retrieved from <a href="https://mlr3gallery.mlr-org.com/posts/2020-07-27-bikesharing-demand/" class="uri">https://mlr3gallery.mlr-org.com/posts/2020-07-27-bikesharing-demand/</a></p>
+<p>Binder &amp; Pfisterer (2020, March 11). mlr3gallery: mlr3tuning Tutorial - German Credit. Retrieved from <a href="https://mlr3gallery.mlr-org.com/posts/2020-03-11-mlr3tuning-tutorial-german-credit/" class="uri">https://mlr3gallery.mlr-org.com/posts/2020-03-11-mlr3tuning-tutorial-german-credit/</a></p>
+<p>Pfisterer (2020, April 27). mlr3gallery: A Pipeline for the Titanic Data Set - Advanced. Retrieved from <a href="https://mlr3gallery.mlr-org.com/posts/2020-04-27-mlr3pipelines-Imputation-titanic/" class="uri">https://mlr3gallery.mlr-org.com/posts/2020-04-27-mlr3pipelines-Imputation-titanic/</a></p>
+<p>Li, Lisha, Kevin G. Jamieson, Giulia DeSalvo, Afshin Rostamizadeh, and Ameet Talwalkar. 2016. “Efficient Hyperparameter Optimization and Infinitely Many Armed Bandits.” CoRR abs/1603.06560. <a href="http://arxiv.org/abs/1603.06560" class="uri">http://arxiv.org/abs/1603.06560</a>.</p>
+<p>Schratz, Patrick, Jannes Muenchow, Eugenia Iturritxa, Jakob Richter, and Alexander Brenning. 2019. “Hyperparameter Tuning and Performance Assessment of Statistical and Machine-Learning Algorithms Using Spatial Data.” Ecological Modelling 406 (August): 109–20. <a href="https://doi.org/10.1016/j.ecolmodel.2019.06.002" class="uri">https://doi.org/10.1016/j.ecolmodel.2019.06.002</a>.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="sample-for-regression-problems.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="package-prepare.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -257,7 +244,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/Ellie-117/mlr3_tutorial/edit/main/index.Rmd",
+"link": "https://github.com/Ellie-117/mlr3_tutorial/edit/main/Appendices.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -265,7 +252,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/Ellie-117/mlr3_tutorial/blob/main/index.Rmd",
+"link": "https://github.com/Ellie-117/mlr3_tutorial/blob/main/Appendices.Rmd",
 "text": null
 },
 "download": null,

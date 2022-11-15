@@ -9,6 +9,7 @@ language:
 
 rmd_files: [
   'index.Rmd',
+  'installation.Rmd',
   'cheatsheets.Rmd',
   'Classification.Rmd',
   'Regression.Rmd',

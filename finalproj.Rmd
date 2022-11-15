@@ -4,6 +4,13 @@ author: "YLingjun Zhang, Michelle Sun"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
+```{r include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
 
 # Introduction
 
@@ -20,4 +27,101 @@ mlr (Bischl et al. 2016) was first released to CRAN in 2013, with the core desig
 
 Bischl, Bernd, Michel Lang, Lars Kotthoff, Julia Schiffner, Jakob Richter, Erich Studerus, Giuseppe Casalicchio, and Zachary M. Jones. 2016. “mlr: Machine Learning in R.” Journal of Machine Learning Research 17 (170): 1–5. http://jmlr.org/papers/v17/15-066.html.
 It would have been nearly impossible to integrate all of these changes into the original design of mlr. Instead, we decided to start working on a reimplementation in 2018, which resulted in the first release of mlr3 on CRAN in July 2019. The new design and the integration of further and newly-developed R packages (especially R6, future, and data.table) makes mlr3 much easier to use, maintain, and in many regards more efficient compared to its predecessor mlr.
+
+
+<!--chapter:end:index.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+# Package Prepare
+
+## Installation
+We recommend installing the full universe at once:
+```{r}
+install.packages("mlr3verse")
+```
+
+You can also just install the base package:
+```{r}
+install.packages("mlr3")
+```
+
+## Package Ecosystem
+mlr3 makes use of the following packages not developed by core members of the mlr3 team:
+
+R6: Reference class objects.
+data.table: Extension of R’s data.frame.
+digest: Hash digests.
+uuid: Unique string identifiers.
+lgr: Logging facility.
+mlbench: A collection of machine learning data sets.
+evaluate: For capturing output, warnings, and exceptions.
+future / future.apply: For parallelization.
+These are core packages within the R ecosystem.
+
+The mlr3 package itself provides the base functionality that the rest of ecosystem (mlr3verse) rely on and some fundamental building blocks for machine learning.
+
+<!--chapter:end:installation.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+# Cheat Sheets
+
+## Basic Function
+
+## Pipeline
+
+## Hyperparameter Tuning
+
+## Feature Selection
+
+
+<!--chapter:end:cheatsheets.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+# Sample for Classification Problems
+
+
+
+
+<!--chapter:end:Classification.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+# Sample for Regression Problems
+
+<!--chapter:end:Regression.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+# Appendices
+
+
+<!--chapter:end:Appendices.Rmd-->
 
