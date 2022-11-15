@@ -198,15 +198,189 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 3</span> Cheat Sheets<a href="cheat-sheets.html#cheat-sheets" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="basic-function" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Basic Function<a href="cheat-sheets.html#basic-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>as_bench_result(x, ) converts object to benchmark result for visualization</p></li>
+<li><p>mlr3 Dictionaries The dictionaries stores all the classes with functions that we can use in this mlr3 library.</p>
+<p>-mlr_tasks</p>
+<p>-mlr_task_generators</p>
+<p>-mlr_learners</p>
+<p>-mlr_measures</p>
+<p>-mlr_resampling</p></li>
+</ul>
+<p>Example usages: The function keys() returns all learners keys prebuilt in mlr3 package. If we install mlr3learners package, we will get an extension version of it. Installing the according libraries and extend the dictionaries.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="cheat-sheets.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3)</span>
+<span id="cb7-2"><a href="cheat-sheets.html#cb7-2" aria-hidden="true" tabindex="-1"></a>mlr_learners<span class="sc">$</span><span class="fu">keys</span>(<span class="at">pattern =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;classif.cv_glmnet&quot;   &quot;classif.debug&quot;       &quot;classif.featureless&quot;
+##  [4] &quot;classif.glmnet&quot;      &quot;classif.kknn&quot;        &quot;classif.lda&quot;        
+##  [7] &quot;classif.log_reg&quot;     &quot;classif.multinom&quot;    &quot;classif.naive_bayes&quot;
+## [10] &quot;classif.nnet&quot;        &quot;classif.qda&quot;         &quot;classif.ranger&quot;     
+## [13] &quot;classif.rpart&quot;       &quot;classif.svm&quot;         &quot;classif.xgboost&quot;    
+## [16] &quot;regr.cv_glmnet&quot;      &quot;regr.debug&quot;          &quot;regr.featureless&quot;   
+## [19] &quot;regr.glmnet&quot;         &quot;regr.kknn&quot;           &quot;regr.km&quot;            
+## [22] &quot;regr.lm&quot;             &quot;regr.nnet&quot;           &quot;regr.ranger&quot;        
+## [25] &quot;regr.rpart&quot;          &quot;regr.svm&quot;            &quot;regr.xgboost&quot;</code></pre>
+<p>For a brief introduction, we will explain the keywords in these six to get a better understanding:</p>
+<p>-classif means it is used to solve classification related problems, regr means it is used to solve regression related problems.</p>
+<p>-featureless means that the learner will ignore all the features during train and only consider the response.</p>
+<p>-classif.rpart is a LearnerClassif for a classification tree implemented and regr.rpart is a LearnerRegr for a regression tree implemented. These two functions will take in features during training.</p>
+<p>-debug learner used for debugging purposes.</p>
+<p>The function get() retrieves object by key. It will show all the information about the key.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="cheat-sheets.html#cb9-1" aria-hidden="true" tabindex="-1"></a>mlr_learners<span class="sc">$</span><span class="fu">get</span>(<span class="st">&quot;classif.rpart&quot;</span>)</span></code></pre></div>
+<pre><code>## &lt;LearnerClassifRpart:classif.rpart&gt;: Classification Tree
+## * Model: -
+## * Parameters: xval=0
+## * Packages: mlr3, rpart
+## * Predict Types:  [response], prob
+## * Feature Types: logical, integer, numeric, factor, ordered
+## * Properties: importance, missings, multiclass, selected_features,
+##   twoclass, weights</code></pre>
+<p>The function makes dictionary to data.table form.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="cheat-sheets.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">as.data.table</span>(mlr_tasks))</span></code></pre></div>
+<pre><code>##               key                   label task_type nrow ncol properties lgl
+## 1: boston_housing   Boston Housing Prices      regr  506   19              0
+## 2:  breast_cancer Wisconsin Breast Cancer   classif  683   10   twoclass   0
+## 3:  german_credit           German Credit   classif 1000   21   twoclass   0
+## 4:           iris            Iris Flowers   classif  150    5 multiclass   0
+## 5:         mtcars            Motor Trends      regr   32   11              0
+## 6:       penguins         Palmer Penguins   classif  344    8 multiclass   0
+##    int dbl chr fct ord pxc
+## 1:   3  13   0   2   0   0
+## 2:   0   0   0   0   9   0
+## 3:   3   0   0  14   3   0
+## 4:   0   4   0   0   0   0
+## 5:   0  10   0   0   0   0
+## 6:   3   2   0   2   0   0</code></pre>
+<ul>
+<li>Tasks</li>
+</ul>
+<p>Target determines the machine learning Task. We can create a classification task:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="cheat-sheets.html#cb13-1" aria-hidden="true" tabindex="-1"></a>task1 <span class="ot">=</span> <span class="fu">as_task_classif</span>(<span class="at">x =</span> iris, <span class="at">target =</span> <span class="st">&quot;Species&quot;</span>)</span>
+<span id="cb13-2"><a href="cheat-sheets.html#cb13-2" aria-hidden="true" tabindex="-1"></a>task1</span></code></pre></div>
+<pre><code>## &lt;TaskClassif:iris&gt; (150 x 5)
+## * Target: Species
+## * Properties: multiclass
+## * Features (4):
+##   - dbl (4): Petal.Length, Petal.Width, Sepal.Length, Sepal.Width</code></pre>
+<p>We can create a regression task:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="cheat-sheets.html#cb15-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">33</span>, <span class="dv">55</span>, <span class="dv">25</span>)</span>
+<span id="cb15-2"><a href="cheat-sheets.html#cb15-2" aria-hidden="true" tabindex="-1"></a>salary <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20000</span>, <span class="dv">50000</span>, <span class="dv">15000</span>)</span>
+<span id="cb15-3"><a href="cheat-sheets.html#cb15-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(age, salary)</span>
+<span id="cb15-4"><a href="cheat-sheets.html#cb15-4" aria-hidden="true" tabindex="-1"></a>task2 <span class="ot">=</span> <span class="fu">as_task_regr</span>(<span class="at">x=</span> df, <span class="at">target =</span> <span class="st">&quot;salary&quot;</span>)</span>
+<span id="cb15-5"><a href="cheat-sheets.html#cb15-5" aria-hidden="true" tabindex="-1"></a>task2</span></code></pre></div>
+<pre><code>## &lt;TaskRegr:df&gt; (3 x 2)
+## * Target: salary
+## * Properties: -
+## * Features (1):
+##   - dbl (1): age</code></pre>
+<p>We can also use the example tasks in mlr_tasks by calling tsk(task_name):</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="cheat-sheets.html#cb17-1" aria-hidden="true" tabindex="-1"></a>task3 <span class="ot">=</span> <span class="fu">tsk</span>(<span class="st">&quot;zoo&quot;</span>)</span>
+<span id="cb17-2"><a href="cheat-sheets.html#cb17-2" aria-hidden="true" tabindex="-1"></a>task3</span></code></pre></div>
+<pre><code>## &lt;TaskClassif:zoo&gt; (101 x 17): Zoo Animals
+## * Target: type
+## * Properties: multiclass
+## * Features (16):
+##   - lgl (15): airborne, aquatic, backbone, breathes, catsize, domestic,
+##     eggs, feathers, fins, hair, milk, predator, tail, toothed, venomous
+##   - int (1): legs</code></pre>
+<p>We can perform some functions on the task: task$positive = “<argument>” sets positive class for binary classification</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="cheat-sheets.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#return number of rows</span></span>
+<span id="cb19-2"><a href="cheat-sheets.html#cb19-2" aria-hidden="true" tabindex="-1"></a>task1<span class="sc">$</span>nrow</span></code></pre></div>
+<pre><code>## [1] 150</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="cheat-sheets.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#return number of columns</span></span>
+<span id="cb21-2"><a href="cheat-sheets.html#cb21-2" aria-hidden="true" tabindex="-1"></a>task1<span class="sc">$</span>ncol</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="cheat-sheets.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#subset the task by selecting features</span></span>
+<span id="cb23-2"><a href="cheat-sheets.html#cb23-2" aria-hidden="true" tabindex="-1"></a>task1<span class="sc">$</span><span class="fu">select</span>(<span class="st">&quot;Sepal.Length&quot;</span>)</span></code></pre></div>
+<p>task$cbind(data) adds columns</p>
+<p>task$rbind(data) adds rows</p>
+<p>task$feature_names return feature names in the task</p>
+<ul>
+<li>Learner</li>
+</ul>
+<p>To use a learner, we can call the method using:</p>
+<p>learner = mlr_learners$get(method) or</p>
+<p>learner = lrn(method)</p>
+<p>Here is an example:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="cheat-sheets.html#cb24-1" aria-hidden="true" tabindex="-1"></a>learner <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;regr.rpart&quot;</span>)</span>
+<span id="cb24-2"><a href="cheat-sheets.html#cb24-2" aria-hidden="true" tabindex="-1"></a>learner</span></code></pre></div>
+<pre><code>## &lt;LearnerRegrRpart:regr.rpart&gt;: Regression Tree
+## * Model: -
+## * Parameters: xval=0
+## * Packages: mlr3, rpart
+## * Predict Types:  [response]
+## * Feature Types: logical, integer, numeric, factor, ordered
+## * Properties: importance, missings, selected_features, weights</code></pre>
+<ul>
+<li>Train</li>
+</ul>
+<p>We train our task using the learner we chose:</p>
+<p>learner$train(task, row_ids)</p>
+<p>learner$model: the model is stored and viewed</p>
+<p>Split on test/train:</p>
+<p>train_set = sample(task$nrow, (percentage) * my_task$nrow)</p>
+<p>test_set = setdiff(seq_len(task$nrow), train_set)</p>
+<ul>
+<li>Predict</li>
+</ul>
+<p>These two methods will predict on the select data:
+prediction = learner$predict(task, row_ids)</p>
+<p>prediction = learner$predict_newdata(data)</p>
+<ul>
+<li>Model Evaluation</li>
+</ul>
+<p>Here are the model evaluation metrics in the mlr_measures library:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="cheat-sheets.html#cb26-1" aria-hidden="true" tabindex="-1"></a>mlr_measures<span class="sc">$</span><span class="fu">keys</span>(<span class="at">pattern =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<pre><code>##  [1] &quot;aic&quot;                 &quot;bic&quot;                 &quot;classif.acc&quot;        
+##  [4] &quot;classif.auc&quot;         &quot;classif.bacc&quot;        &quot;classif.bbrier&quot;     
+##  [7] &quot;classif.ce&quot;          &quot;classif.costs&quot;       &quot;classif.dor&quot;        
+## [10] &quot;classif.fbeta&quot;       &quot;classif.fdr&quot;         &quot;classif.fn&quot;         
+## [13] &quot;classif.fnr&quot;         &quot;classif.fomr&quot;        &quot;classif.fp&quot;         
+## [16] &quot;classif.fpr&quot;         &quot;classif.logloss&quot;     &quot;classif.mauc_au1p&quot;  
+## [19] &quot;classif.mauc_au1u&quot;   &quot;classif.mauc_aunp&quot;   &quot;classif.mauc_aunu&quot;  
+## [22] &quot;classif.mbrier&quot;      &quot;classif.mcc&quot;         &quot;classif.npv&quot;        
+## [25] &quot;classif.ppv&quot;         &quot;classif.prauc&quot;       &quot;classif.precision&quot;  
+## [28] &quot;classif.recall&quot;      &quot;classif.sensitivity&quot; &quot;classif.specificity&quot;
+## [31] &quot;classif.tn&quot;          &quot;classif.tnr&quot;         &quot;classif.tp&quot;         
+## [34] &quot;classif.tpr&quot;         &quot;debug&quot;               &quot;oob_error&quot;          
+## [37] &quot;regr.bias&quot;           &quot;regr.ktau&quot;           &quot;regr.mae&quot;           
+## [40] &quot;regr.mape&quot;           &quot;regr.maxae&quot;          &quot;regr.medae&quot;         
+## [43] &quot;regr.medse&quot;          &quot;regr.mse&quot;            &quot;regr.msle&quot;          
+## [46] &quot;regr.pbias&quot;          &quot;regr.rae&quot;            &quot;regr.rmse&quot;          
+## [49] &quot;regr.rmsle&quot;          &quot;regr.rrse&quot;           &quot;regr.rse&quot;           
+## [52] &quot;regr.rsq&quot;            &quot;regr.sae&quot;            &quot;regr.smape&quot;         
+## [55] &quot;regr.srho&quot;           &quot;regr.sse&quot;            &quot;selected_features&quot;  
+## [58] &quot;sim.jaccard&quot;         &quot;sim.phi&quot;             &quot;time_both&quot;          
+## [61] &quot;time_predict&quot;        &quot;time_train&quot;</code></pre>
+<p>prediction$score(measures): returns the model evaluation metrics of the selected learner</p>
 </div>
 <div id="pipeline" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Pipeline<a href="cheat-sheets.html#pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
 <div id="hyperparameter-tuning" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Hyperparameter Tuning<a href="cheat-sheets.html#hyperparameter-tuning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="cheat-sheets.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3learners)</span>
+<span id="cb28-2"><a href="cheat-sheets.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3tuning)</span></code></pre></div>
+<p>The auto tuner:</p>
+<p>auto_tuner(</p>
+<p>method = tnr(&lt;method&gt;),</p>
+<p>learner = lrn(&lt;learner&gt;, cp = to_tune(lower bound, upperbound, logscale = &lt;TRUE/FALSE&gt;)),</p>
+<p>resampling = rsmp(&lt;method&gt;),</p>
+<p>measure = msr(&lt;measure&gt;),</p>
+<p>term_evals = &lt;#&gt;,</p>
+<p>batch_size = &lt;#&gt;</p>
+<p>)</p>
 </div>
 <div id="feature-selection" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Feature Selection<a href="cheat-sheets.html#feature-selection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="cheat-sheets.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3fselect)</span></code></pre></div>
+<p>Here is the auto feature selector：</p>
+<p>auto_fselector(</p>
+<p>method = &lt;method&gt;,</p>
+<p>learner = &lt;your learner&gt;,</p>
+<p>resampling = rsmp(&lt;method&gt;),</p>
+<p>measure = msr(&lt;measure&gt;),</p>
+<p>term_evals = &lt;#&gt;,</p>
+<p>batch_size = &lt;#&gt;)</p>
 
 </div>
 </div>

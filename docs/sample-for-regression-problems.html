@@ -196,6 +196,263 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="sample-for-regression-problems" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Sample for Regression Problems<a href="sample-for-regression-problems.html#sample-for-regression-problems" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Here we will perform and solve a classification problem using the mlr3 package.</p>
+<p>First, we load the data and create a machine learning task.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="sample-for-regression-problems.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3)</span>
+<span id="cb97-2"><a href="sample-for-regression-problems.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="sample-for-regression-problems.html#cb97-3" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">=</span><span class="fu">read.csv</span>(<span class="st">&quot;./winequality-red.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;;&quot;</span>)</span>
+<span id="cb97-4"><a href="sample-for-regression-problems.html#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_data)</span></code></pre></div>
+<pre><code>##   fixed.acidity volatile.acidity citric.acid residual.sugar chlorides
+## 1           7.4             0.70        0.00            1.9     0.076
+## 2           7.8             0.88        0.00            2.6     0.098
+## 3           7.8             0.76        0.04            2.3     0.092
+## 4          11.2             0.28        0.56            1.9     0.075
+## 5           7.4             0.70        0.00            1.9     0.076
+## 6           7.4             0.66        0.00            1.8     0.075
+##   free.sulfur.dioxide total.sulfur.dioxide density   pH sulphates alcohol
+## 1                  11                   34  0.9978 3.51      0.56     9.4
+## 2                  25                   67  0.9968 3.20      0.68     9.8
+## 3                  15                   54  0.9970 3.26      0.65     9.8
+## 4                  17                   60  0.9980 3.16      0.58     9.8
+## 5                  11                   34  0.9978 3.51      0.56     9.4
+## 6                  13                   40  0.9978 3.51      0.56     9.4
+##   quality
+## 1       5
+## 2       5
+## 3       5
+## 4       6
+## 5       5
+## 6       5</code></pre>
+<p>We create a machine learning task:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="sample-for-regression-problems.html#cb99-1" aria-hidden="true" tabindex="-1"></a>my_task <span class="ot">=</span> <span class="fu">as_task_regr</span>(<span class="at">x =</span> my_data, <span class="at">target =</span> <span class="st">&quot;quality&quot;</span>)</span>
+<span id="cb99-2"><a href="sample-for-regression-problems.html#cb99-2" aria-hidden="true" tabindex="-1"></a>my_task</span></code></pre></div>
+<pre><code>## &lt;TaskRegr:my_data&gt; (1599 x 12)
+## * Target: quality
+## * Properties: -
+## * Features (11):
+##   - dbl (11): alcohol, chlorides, citric.acid, density, fixed.acidity,
+##     free.sulfur.dioxide, pH, residual.sugar, sulphates,
+##     total.sulfur.dioxide, volatile.acidity</code></pre>
+<p>Next we choose a learner to perform a regression task:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="sample-for-regression-problems.html#cb101-1" aria-hidden="true" tabindex="-1"></a>learner <span class="ot">=</span> mlr_learners<span class="sc">$</span><span class="fu">get</span>(<span class="st">&quot;regr.rpart&quot;</span>)</span>
+<span id="cb101-2"><a href="sample-for-regression-problems.html#cb101-2" aria-hidden="true" tabindex="-1"></a>learner</span></code></pre></div>
+<pre><code>## &lt;LearnerRegrRpart:regr.rpart&gt;: Regression Tree
+## * Model: -
+## * Parameters: xval=0
+## * Packages: mlr3, rpart
+## * Predict Types:  [response]
+## * Feature Types: logical, integer, numeric, factor, ordered
+## * Properties: importance, missings, selected_features, weights</code></pre>
+<p>Since we have 1599 observations, we will split them into test/train using 2:8.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="sample-for-regression-problems.html#cb103-1" aria-hidden="true" tabindex="-1"></a>train_set <span class="ot">=</span> <span class="fu">sample</span>(my_task<span class="sc">$</span>nrow, <span class="fl">0.8</span> <span class="sc">*</span> my_task<span class="sc">$</span>nrow)</span>
+<span id="cb103-2"><a href="sample-for-regression-problems.html#cb103-2" aria-hidden="true" tabindex="-1"></a>test_set <span class="ot">=</span> <span class="fu">setdiff</span>(<span class="fu">seq_len</span>(my_task<span class="sc">$</span>nrow), train_set)</span></code></pre></div>
+<p>We train the model using the test set:</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="sample-for-regression-problems.html#cb104-1" aria-hidden="true" tabindex="-1"></a>learner<span class="sc">$</span><span class="fu">train</span>(my_task, <span class="at">row_ids =</span> train_set)</span>
+<span id="cb104-2"><a href="sample-for-regression-problems.html#cb104-2" aria-hidden="true" tabindex="-1"></a>learner<span class="sc">$</span>model</span></code></pre></div>
+<pre><code>## n= 1279 
+## 
+## node), split, n, deviance, yval
+##       * denotes terminal node
+## 
+##  1) root 1279 863.813900 5.630962  
+##    2) alcohol&lt; 11.55 1081 608.105500 5.488437  
+##      4) volatile.acidity&gt;=0.385 871 407.628000 5.363949  
+##        8) sulphates&lt; 0.555 268 102.667900 5.093284  
+##         16) volatile.acidity&gt;=0.8025 46  33.739130 4.695652 *
+##         17) volatile.acidity&lt; 0.8025 222  60.148650 5.175676 *
+##        9) sulphates&gt;=0.555 603 276.600300 5.484245  
+##         18) alcohol&lt; 9.975 294 106.843500 5.292517 *
+##         19) alcohol&gt;=9.975 309 148.666700 5.666667  
+##           38) total.sulfur.dioxide&lt; 14.5 29  21.862070 5.068966  
+##             76) sulphates&lt; 0.625 15   7.733333 4.533333 *
+##             77) sulphates&gt;=0.625 14   5.214286 5.642857 *
+##           39) total.sulfur.dioxide&gt;=14.5 280 115.371400 5.728571  
+##             78) total.sulfur.dioxide&gt;=76 31   7.419355 5.225806 *
+##             79) total.sulfur.dioxide&lt; 76 249  99.140560 5.791165 *
+##      5) volatile.acidity&lt; 0.385 210 130.995200 6.004762  
+##       10) sulphates&lt; 0.645 69  25.072460 5.550725 *
+##       11) sulphates&gt;=0.645 141  84.737590 6.226950  
+##         22) alcohol&lt; 9.75 29  14.551720 5.655172 *
+##         23) alcohol&gt;=9.75 112  58.250000 6.375000  
+##           46) pH&gt;=3.255 58  22.568970 6.086207 *
+##           47) pH&lt; 3.255 54  25.648150 6.685185 *
+##    3) alcohol&gt;=11.55 198 113.863600 6.409091  
+##      6) sulphates&lt; 0.615 72  34.875000 5.958333 *
+##      7) sulphates&gt;=0.615 126  56.000000 6.666667 *</code></pre>
+<p>We then predict using the test set:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="sample-for-regression-problems.html#cb106-1" aria-hidden="true" tabindex="-1"></a>prediction <span class="ot">=</span> learner<span class="sc">$</span><span class="fu">predict</span>(my_task, <span class="at">row_ids =</span> test_set)</span>
+<span id="cb106-2"><a href="sample-for-regression-problems.html#cb106-2" aria-hidden="true" tabindex="-1"></a>prediction<span class="sc">$</span><span class="fu">score</span>()</span></code></pre></div>
+<pre><code>##  regr.mse 
+## 0.4051785</code></pre>
+<p>We can select the best feature set by using mlr3fselect package and use the auto tuner:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="sample-for-regression-problems.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3fselect)</span>
+<span id="cb108-2"><a href="sample-for-regression-problems.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="co"># auto tuner</span></span>
+<span id="cb108-3"><a href="sample-for-regression-problems.html#cb108-3" aria-hidden="true" tabindex="-1"></a>autos <span class="ot">=</span> <span class="fu">auto_fselector</span>(</span>
+<span id="cb108-4"><a href="sample-for-regression-problems.html#cb108-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">&quot;random_search&quot;</span>,</span>
+<span id="cb108-5"><a href="sample-for-regression-problems.html#cb108-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">learner =</span> <span class="fu">lrn</span>(<span class="st">&quot;regr.rpart&quot;</span>),</span>
+<span id="cb108-6"><a href="sample-for-regression-problems.html#cb108-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">resampling =</span> <span class="fu">rsmp</span>(<span class="st">&quot;cv&quot;</span>),</span>
+<span id="cb108-7"><a href="sample-for-regression-problems.html#cb108-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">measure =</span> <span class="fu">msr</span>(<span class="st">&quot;regr.mse&quot;</span>),</span>
+<span id="cb108-8"><a href="sample-for-regression-problems.html#cb108-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">term_evals =</span> <span class="dv">10</span>,</span>
+<span id="cb108-9"><a href="sample-for-regression-problems.html#cb108-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">batch_size =</span> <span class="dv">5</span></span>
+<span id="cb108-10"><a href="sample-for-regression-problems.html#cb108-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb108-11"><a href="sample-for-regression-problems.html#cb108-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-12"><a href="sample-for-regression-problems.html#cb108-12" aria-hidden="true" tabindex="-1"></a>autos<span class="sc">$</span><span class="fu">train</span>(my_task, <span class="at">row_ids =</span> train_set)</span></code></pre></div>
+<pre><code>## INFO  [02:44:00.357] [bbotk] Starting to optimize 11 parameter(s) with &#39;&lt;FSelectorRandomSearch&gt;&#39; and &#39;&lt;TerminatorEvals&gt; [n_evals=10, k=0]&#39;
+## INFO  [02:44:00.358] [bbotk] Evaluating 5 configuration(s)
+## INFO  [02:44:00.554] [mlr3] Running benchmark with 50 resampling iterations
+## INFO  [02:44:00.558] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:00.598] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:00.632] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:00.665] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:00.698] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:00.732] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:00.770] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:00.804] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:00.837] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:00.870] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:00.904] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:00.939] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:00.981] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:01.017] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:01.054] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:01.091] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:01.127] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:01.169] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:01.203] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:01.236] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:01.269] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:01.304] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:01.339] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:01.379] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:01.414] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:01.460] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:01.501] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:01.539] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:01.581] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:01.617] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:01.655] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:01.690] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:01.725] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:01.764] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:01.797] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:01.831] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:01.865] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:01.900] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:01.934] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:01.973] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:02.006] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:02.042] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:02.079] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:02.115] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:02.156] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:02.191] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:02.227] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:02.264] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:02.300] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:02.340] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:02.380] [mlr3] Finished benchmark
+## INFO  [02:44:02.836] [bbotk] Result of batch 1:
+## INFO  [02:44:02.838] [bbotk]  alcohol chlorides citric.acid density fixed.acidity free.sulfur.dioxide    pH
+## INFO  [02:44:02.838] [bbotk]    FALSE     FALSE       FALSE    TRUE         FALSE                TRUE FALSE
+## INFO  [02:44:02.838] [bbotk]    FALSE     FALSE       FALSE   FALSE         FALSE                TRUE  TRUE
+## INFO  [02:44:02.838] [bbotk]     TRUE      TRUE        TRUE    TRUE         FALSE                TRUE  TRUE
+## INFO  [02:44:02.838] [bbotk]     TRUE     FALSE       FALSE   FALSE         FALSE               FALSE FALSE
+## INFO  [02:44:02.838] [bbotk]     TRUE      TRUE        TRUE    TRUE          TRUE                TRUE FALSE
+## INFO  [02:44:02.838] [bbotk]  residual.sugar sulphates total.sulfur.dioxide volatile.acidity  regr.mse
+## INFO  [02:44:02.838] [bbotk]            TRUE     FALSE                FALSE            FALSE 0.6531754
+## INFO  [02:44:02.838] [bbotk]           FALSE     FALSE                FALSE            FALSE 0.6781009
+## INFO  [02:44:02.838] [bbotk]            TRUE      TRUE                 TRUE             TRUE 0.4767217
+## INFO  [02:44:02.838] [bbotk]           FALSE     FALSE                FALSE             TRUE 0.4867314
+## INFO  [02:44:02.838] [bbotk]            TRUE      TRUE                FALSE             TRUE 0.4701894
+## INFO  [02:44:02.838] [bbotk]  runtime_learners                                uhash
+## INFO  [02:44:02.838] [bbotk]             0.283 aadc3229-3853-4290-b801-7f6e80596637
+## INFO  [02:44:02.838] [bbotk]             0.303 20ed9301-e88e-4f0c-bb92-325ee0a67d33
+## INFO  [02:44:02.838] [bbotk]             0.325 e9676b64-60d6-447f-9310-35908ce8252f
+## INFO  [02:44:02.838] [bbotk]             0.291 eac6c49b-c7a6-4201-a6f1-6968de543b11
+## INFO  [02:44:02.838] [bbotk]             0.309 02dcfec6-8f87-439e-ae96-0d4a6a533028
+## INFO  [02:44:02.839] [bbotk] Evaluating 5 configuration(s)
+## INFO  [02:44:02.986] [mlr3] Running benchmark with 50 resampling iterations
+## INFO  [02:44:02.994] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:03.030] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:03.067] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:03.103] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:03.140] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:03.181] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:03.217] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:03.253] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:03.289] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:03.326] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:03.369] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:03.403] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:03.438] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:03.472] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:03.508] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:03.596] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:03.636] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:03.670] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:03.704] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:03.739] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:03.775] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:03.824] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:03.857] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:03.891] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:03.924] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:03.958] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:03.992] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:04.038] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:04.072] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:04.106] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:04.139] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:04.174] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:04.217] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:04.257] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:04.292] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:04.326] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:04.361] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:04.396] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:04.444] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:04.478] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:04.513] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 1/10)
+## INFO  [02:44:04.548] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 2/10)
+## INFO  [02:44:04.583] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 3/10)
+## INFO  [02:44:04.623] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 4/10)
+## INFO  [02:44:04.666] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 5/10)
+## INFO  [02:44:04.701] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 6/10)
+## INFO  [02:44:04.736] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 7/10)
+## INFO  [02:44:04.770] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 8/10)
+## INFO  [02:44:04.805] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 9/10)
+## INFO  [02:44:04.851] [mlr3] Applying learner &#39;select.regr.rpart&#39; on task &#39;my_data&#39; (iter 10/10)
+## INFO  [02:44:04.893] [mlr3] Finished benchmark
+## INFO  [02:44:05.375] [bbotk] Result of batch 2:
+## INFO  [02:44:05.377] [bbotk]  alcohol chlorides citric.acid density fixed.acidity free.sulfur.dioxide    pH
+## INFO  [02:44:05.377] [bbotk]     TRUE      TRUE        TRUE    TRUE          TRUE                TRUE  TRUE
+## INFO  [02:44:05.377] [bbotk]    FALSE      TRUE        TRUE    TRUE         FALSE                TRUE FALSE
+## INFO  [02:44:05.377] [bbotk]     TRUE      TRUE       FALSE   FALSE          TRUE               FALSE FALSE
+## INFO  [02:44:05.377] [bbotk]     TRUE      TRUE        TRUE   FALSE          TRUE                TRUE FALSE
+## INFO  [02:44:05.377] [bbotk]    FALSE      TRUE        TRUE    TRUE          TRUE                TRUE FALSE
+## INFO  [02:44:05.377] [bbotk]  residual.sugar sulphates total.sulfur.dioxide volatile.acidity  regr.mse
+## INFO  [02:44:05.377] [bbotk]            TRUE      TRUE                 TRUE             TRUE 0.4767217
+## INFO  [02:44:05.377] [bbotk]           FALSE     FALSE                FALSE             TRUE 0.5665966
+## INFO  [02:44:05.377] [bbotk]           FALSE     FALSE                FALSE            FALSE 0.5307512
+## INFO  [02:44:05.377] [bbotk]            TRUE     FALSE                 TRUE            FALSE 0.5012905
+## INFO  [02:44:05.377] [bbotk]           FALSE      TRUE                FALSE             TRUE 0.5563537
+## INFO  [02:44:05.377] [bbotk]  runtime_learners                                uhash
+## INFO  [02:44:05.377] [bbotk]             0.316 6a528ce2-819c-4840-9fc4-b41295300842
+## INFO  [02:44:05.377] [bbotk]             0.345 37e2043a-cebc-4cf2-98eb-263728ff4ed7
+## INFO  [02:44:05.377] [bbotk]             0.301 f5fed5d1-7d34-410f-bf22-d417726ebf50
+## INFO  [02:44:05.377] [bbotk]             0.312 9b86d3ed-111c-4265-a0c8-13088cd44e74
+## INFO  [02:44:05.377] [bbotk]             0.308 5a0d5de5-28a9-4b97-a641-27d6b0efee8d
+## INFO  [02:44:05.379] [bbotk] Finished optimizing after 10 evaluation(s)
+## INFO  [02:44:05.380] [bbotk] Result:
+## INFO  [02:44:05.380] [bbotk]  alcohol chlorides citric.acid density fixed.acidity free.sulfur.dioxide    pH
+## INFO  [02:44:05.380] [bbotk]     TRUE      TRUE        TRUE    TRUE          TRUE                TRUE FALSE
+## INFO  [02:44:05.380] [bbotk]  residual.sugar sulphates total.sulfur.dioxide volatile.acidity
+## INFO  [02:44:05.380] [bbotk]            TRUE      TRUE                FALSE             TRUE
+## INFO  [02:44:05.380] [bbotk]                                                                     features
+## INFO  [02:44:05.380] [bbotk]  alcohol,chlorides,citric.acid,density,fixed.acidity,free.sulfur.dioxide,...
+## INFO  [02:44:05.380] [bbotk]   regr.mse
+## INFO  [02:44:05.380] [bbotk]  0.4701894</code></pre>
+<p>Here we can see that the regr.mse increases after performing feature selection.</p>
 
 </div>
             </section>
