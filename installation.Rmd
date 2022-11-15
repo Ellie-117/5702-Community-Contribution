@@ -2,12 +2,12 @@
 
 ## Installation
 We recommend installing the full universe at once:
-```{r}
+```
 install.packages("mlr3verse")
 ```
 
 You can also just install the base package:
-```{r}
+```
 install.packages("mlr3")
 ```
 
@@ -25,3 +25,26 @@ future / future.apply: For parallelization.
 These are core packages within the R ecosystem.
 
 The mlr3 package itself provides the base functionality that the rest of ecosystem (mlr3verse) rely on and some fundamental building blocks for machine learning.
+
+## Packages Installation
+All packages in the mlr3 ecosystem can be installed from GitHub and R-universe and the majority (but not all) can be installed from CRAN. We recommend adding the mlr-org R-universe1 to your R options so that you can install all packages with install.packages() without having to worry whether it’s being downloaded from CRAN or R-universe. To do this run the following:
+```
+usethis::edit_r_profile()
+```
+And in the file that opens add or change the repos argument in options so it looks something like this (you might need to add the full code block below or just edit the existing options function).
+```
+options(repos = c(
+  mlrorg = "https://mlr-org.r-universe.dev",
+  CRAN = "https://cloud.r-project.org/"
+))
+```
+Save the file then restart your R session and you’re ready to go!
+```
+install.packages("mlr3verse")
+```
+If you want latest development versions of any of our packages you can just run
+```
+remotes::install_github("mlr-org/{pkg}")
+
+```
+
