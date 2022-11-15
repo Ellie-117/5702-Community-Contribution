@@ -149,11 +149,41 @@ library(mlr3learners)
 library(mlr3tuning)
 ```
 
+The table shows the terminator methods:
+
+```{r}
+as.data.table(mlr_terminators)
+```
+
+The table shows tuner search strategy we can choose from:
+
+```{r,echo = TRUE}
+as.data.table(mlr_tuners) 
+```
+
+The parameter set is combined in mutivariate search space SS:
+ss = ps(\<id\> = p_int(lower, upper), \<id\>= p_dbl(lower, upper), \<id\> = p_dct(levels), \<id\> = p_lgl())
+
+The \<id\> represents identifier, and lower, upper, levels are the bounds.
+
+Or, we can use to_tune() to set SS for each parameter.
+
+To tune by hand, we need to fill define all the arguments in the equation:
+instance = TuningInstanceSingleCrit\$new(task,learner, resampling, measure,terminator, ss)
+tuner = tnr(\<tuner\>)
+We need to use TunningInstanceMultiCrit for multi-criteria tuning.
+
+Then we access the results:
+
+tuner\$optimize(instance)
+as.data.table(instance\$archive)
+learner\$param_set\$values = instance\$result_learner_param_vals
+
 The auto tuner:
 
 auto_tuner(
 
-method = tnr(\<method\>),
+method = tnr(\<tuner search strategy\>),
 
 learner = lrn(\<learner\>, cp = to_tune(lower bound, upperbound, logscale = \<TRUE/FALSE\>)),
 
@@ -176,9 +206,26 @@ library(mlr3fselect)
 
 Here is the auto feature selector：
 
-auto_fselector(
+The table shows fselectors method we can choose from:
 
-method = \<method\>,
+```{r, echo =TRUE}
+as.data.table(mlr_fselectors) 
+```
+
+First, we make feature selection by hand, and the process is similar to hyper parameter tuning, we need to define all the arguments and then we can get the result:
+instance = FSelectInstanceSingleCrit\$new(task, learner, resampling, measure, terminator)
+fselector = fs(\<fs method\>, batch_size = \<number\>)
+fselector\$optimize(instance)
+instance\$result
+
+We can reselect the features we want using the code:
+task\$select(instance\$result_feature_set)
+
+Next, we will introduce the auto feature selector that eases the process:
+
+autot=auto_fselector(
+
+method = \<fselector\>,
 
 learner = \<your learner\>,
 
@@ -189,3 +236,9 @@ measure = msr(\<measure\>),
 term_evals = \<#\>,
 
 batch_size = \<#\>)
+autot\$train(task, row_ids)
+autot\$predict(task, row_ids)
+
+We can check the feature selection subset by calling the learner again:
+
+autot\$learner
