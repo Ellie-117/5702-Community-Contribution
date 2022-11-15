@@ -1,6 +1,6 @@
 --- 
 title: "Community Contribution -- mlr3 tutorial"
-author: "YLingjun Zhang, Michelle Sun"
+author: "Lingjun Zhang, Michelle Sun"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
