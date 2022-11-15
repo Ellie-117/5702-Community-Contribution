@@ -20,7 +20,7 @@
   
   
 
-<meta name="author" content="YLingjun Zhang, Michelle Sun" />
+<meta name="author" content="Lingjun Zhang, Michelle Sun" />
 
 
 <meta name="date" content="2022-11-15" />
@@ -167,12 +167,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.1" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#task-definition"><i class="fa fa-check"></i><b>4.3.1</b> Task Definition</a></li>
 <li class="chapter" data-level="4.3.2" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#leaner-definition"><i class="fa fa-check"></i><b>4.3.2</b> Leaner Definition</a></li>
 <li class="chapter" data-level="4.3.3" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#training"><i class="fa fa-check"></i><b>4.3.3</b> Training</a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#prediction"><i class="fa fa-check"></i><b>4.4</b> Prediction</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#performance-evaluation"><i class="fa fa-check"></i><b>4.4.1</b> Performance Evaluation</a></li>
-<li class="chapter" data-level="4.4.2" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#performance-comparision-and-benchmarks"><i class="fa fa-check"></i><b>4.4.2</b> Performance Comparision and Benchmarks</a></li>
-<li class="chapter" data-level="4.4.3" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#deviating-from-hyperparameters-defaults"><i class="fa fa-check"></i><b>4.4.3</b> Deviating from hyperparameters defaults</a></li>
+<li class="chapter" data-level="4.3.4" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#prediction"><i class="fa fa-check"></i><b>4.3.4</b> Prediction</a></li>
+<li class="chapter" data-level="4.3.5" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#performance-evaluation"><i class="fa fa-check"></i><b>4.3.5</b> Performance Evaluation</a></li>
+<li class="chapter" data-level="4.3.6" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#performance-comparision-and-benchmarks"><i class="fa fa-check"></i><b>4.3.6</b> Performance Comparision and Benchmarks</a></li>
+<li class="chapter" data-level="4.3.7" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#deviating-from-hyperparameters-defaults"><i class="fa fa-check"></i><b>4.3.7</b> Deviating from Hyperparameters Defaults</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="sample-for-regression-problems.html"><a href="sample-for-regression-problems.html"><i class="fa fa-check"></i><b>5</b> Sample for Regression Problems</a></li>
@@ -597,119 +595,119 @@ How do we evaluate “good” performance?</p>
 ## 
 ## Coefficients:
 ##                                               (Intercept)  
-##                                                 0.8581755  
+##                                                 0.7393024  
 ##                                                       age  
-##                                                -0.0134562  
+##                                                -0.0103150  
 ##                                                    amount  
-##                                                 0.0001399  
+##                                                 0.0001586  
 ##    credit_historycritical account/other credits elsewhere  
-##                                                -0.1533328  
+##                                                 0.2470500  
 ## credit_historyno credits taken/all credits paid back duly  
-##                                                -0.7394986  
+##                                                -0.5043088  
 ##    credit_historyexisting credits paid back duly till now  
-##                                                -1.2312315  
+##                                                -0.8117585  
 ##     credit_historyall credits at this bank paid back duly  
-##                                                -1.5491495  
+##                                                -1.2901215  
 ##                                                  duration  
-##                                                 0.0302540  
+##                                                 0.0157534  
 ##                                 employment_duration&lt; 1 yr  
-##                                                 0.1118118  
+##                                                -0.2407276  
 ##                       employment_duration1 &lt;= ... &lt; 4 yrs  
-##                                                -0.2052523  
+##                                                -0.4283570  
 ##                       employment_duration4 &lt;= ... &lt; 7 yrs  
-##                                                -0.9275865  
+##                                                -1.0132959  
 ##                               employment_duration&gt;= 7 yrs  
-##                                                -0.1503952  
+##                                                -0.3181201  
 ##                                          foreign_workerno  
-##                                                 2.1382590  
+##                                                 1.4930677  
 ##                                               housingrent  
-##                                                -0.4427178  
+##                                                -0.8032630  
 ##                                                housingown  
-##                                                -0.3512201  
+##                                                -0.9057892  
 ##                                        installment_rate.L  
-##                                                 0.7554584  
+##                                                 0.7182113  
 ##                                        installment_rate.Q  
-##                                                -0.0622299  
+##                                                 0.0856488  
 ##                                        installment_rate.C  
-##                                                 0.0799246  
+##                                                -0.0095899  
 ##                                   jobunskilled - resident  
-##                                                 0.3786091  
+##                                                 0.3889215  
 ##                              jobskilled employee/official  
-##                                                 0.4421256  
+##                                                 0.2737369  
 ##             jobmanager/self-empl./highly qualif. employee  
-##                                                 0.4098225  
+##                                                 0.0706391  
 ##                                          number_credits.L  
-##                                                 0.6870849  
+##                                                -0.2086566  
 ##                                          number_credits.Q  
-##                                                 0.0991970  
+##                                                -0.3404571  
 ##                                          number_credits.C  
-##                                                 0.2653675  
+##                                                 0.0561097  
 ##                                 other_debtorsco-applicant  
-##                                                 0.4872337  
+##                                                 0.4413128  
 ##                                    other_debtorsguarantor  
-##                                                -0.8452995  
+##                                                -0.6490479  
 ##                             other_installment_plansstores  
-##                                                -0.1813985  
+##                                                 0.0882786  
 ##                               other_installment_plansnone  
-##                                                -0.7244259  
+##                                                -0.4582146  
 ##                                       people_liable0 to 2  
-##                                                -0.3975315  
+##                                                -0.2696636  
 ##   personal_status_sexfemale : non-single or male : single  
-##                                                -0.3242585  
+##                                                -0.2811773  
 ##                 personal_status_sexmale : married/widowed  
-##                                                -0.9029088  
+##                                                -0.7107909  
 ##                        personal_status_sexfemale : single  
-##                                                -0.3733041  
+##                                                -0.5110095  
 ##                                       present_residence.L  
-##                                                 0.0800920  
+##                                                 0.1059484  
 ##                                       present_residence.Q  
-##                                                -0.3474337  
+##                                                -0.4996117  
 ##                                       present_residence.C  
-##                                                 0.3052616  
+##                                                 0.1126060  
 ##                                      propertycar or other  
-##                                                 0.2344431  
+##                                                 0.5622138  
 ##         propertybuilding soc. savings agr./life insurance  
-##                                                 0.0134200  
+##                                                 0.2997796  
 ##                                       propertyreal estate  
-##                                                 0.2687556  
+##                                                 0.8703685  
 ##                                          purposecar (new)  
-##                                                -1.7025757  
+##                                                -1.5784282  
 ##                                         purposecar (used)  
-##                                                -0.8844013  
+##                                                -0.6611569  
 ##                                purposefurniture/equipment  
-##                                                -0.8951083  
+##                                                -0.5825260  
 ##                                   purposeradio/television  
-##                                                -0.5701578  
+##                                                -1.1724203  
 ##                                purposedomestic appliances  
-##                                                -0.2278890  
+##                                                 0.2088118  
 ##                                            purposerepairs  
-##                                                 0.2908071  
+##                                                 0.4235540  
 ##                                           purposevacation  
-##                                                -1.5593405  
+##                                                -1.6464046  
 ##                                         purposeretraining  
-##                                                -0.7081279  
+##                                                -0.3732084  
 ##                                           purposebusiness  
-##                                                -1.4977935  
+##                                                -1.6202009  
 ##                                      savings... &lt;  100 DM  
-##                                                -0.3756259  
+##                                                -0.2514161  
 ##                               savings100 &lt;= ... &lt;  500 DM  
-##                                                -0.3372338  
+##                                                -0.7138744  
 ##                               savings500 &lt;= ... &lt; 1000 DM  
-##                                                -0.6243132  
+##                                                -1.0130046  
 ##                                     savings... &gt;= 1000 DM  
-##                                                -0.9171936  
+##                                                -0.9017536  
 ##                                          status... &lt; 0 DM  
-##                                                -0.6287901  
+##                                                -0.5149461  
 ##                                    status0&lt;= ... &lt; 200 DM  
-##                                                -1.2927716  
+##                                                -0.8929955  
 ##          status... &gt;= 200 DM / salary for at least 1 year  
-##                                                -2.1134490  
+##                                                -1.7608146  
 ##                        telephoneyes (under customer name)  
-##                                                -0.2780796  
+##                                                -0.2743350  
 ## 
 ## Degrees of Freedom: 799 Total (i.e. Null);  745 Residual
-## Null Deviance:       977.4 
-## Residual Deviance: 687.1     AIC: 797.1</code></pre>
+## Null Deviance:       982.4 
+## Residual Deviance: 720.9     AIC: 830.9</code></pre>
 <p>You can check the type and summary of the model after Logistic regression training:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="sample-for-classification-problems.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(learner_logreg<span class="sc">$</span>model)</span></code></pre></div>
 <pre><code>## [1] &quot;glm&quot; &quot;lm&quot;</code></pre>
@@ -721,129 +719,129 @@ How do we evaluate “good” performance?</p>
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -2.2508  -0.6835  -0.3374   0.6562   2.6880  
+## -2.2577  -0.7179  -0.3859   0.7124   2.5359  
 ## 
 ## Coefficients:
 ##                                                             Estimate Std. Error
-## (Intercept)                                                8.582e-01  1.450e+00
-## age                                                       -1.346e-02  1.099e-02
-## amount                                                     1.399e-04  5.284e-05
-## credit_historycritical account/other credits elsewhere    -1.533e-01  6.525e-01
-## credit_historyno credits taken/all credits paid back duly -7.395e-01  5.032e-01
-## credit_historyexisting credits paid back duly till now    -1.231e+00  5.400e-01
-## credit_historyall credits at this bank paid back duly     -1.549e+00  5.040e-01
-## duration                                                   3.025e-02  1.091e-02
-## employment_duration&lt; 1 yr                                  1.118e-01  5.303e-01
-## employment_duration1 &lt;= ... &lt; 4 yrs                       -2.053e-01  5.110e-01
-## employment_duration4 &lt;= ... &lt; 7 yrs                       -9.276e-01  5.548e-01
-## employment_duration&gt;= 7 yrs                               -1.504e-01  5.069e-01
-## foreign_workerno                                           2.138e+00  9.145e-01
-## housingrent                                               -4.427e-01  2.749e-01
-## housingown                                                -3.512e-01  5.727e-01
-## installment_rate.L                                         7.555e-01  2.445e-01
-## installment_rate.Q                                        -6.223e-02  2.245e-01
-## installment_rate.C                                         7.992e-02  2.337e-01
-## jobunskilled - resident                                    3.786e-01  7.281e-01
-## jobskilled employee/official                               4.421e-01  7.008e-01
-## jobmanager/self-empl./highly qualif. employee              4.098e-01  7.135e-01
-## number_credits.L                                           6.871e-01  8.302e-01
-## number_credits.Q                                           9.920e-02  6.933e-01
-## number_credits.C                                           2.654e-01  4.999e-01
-## other_debtorsco-applicant                                  4.872e-01  4.783e-01
-## other_debtorsguarantor                                    -8.453e-01  4.783e-01
-## other_installment_plansstores                             -1.814e-01  4.869e-01
-## other_installment_plansnone                               -7.244e-01  2.881e-01
-## people_liable0 to 2                                       -3.975e-01  2.903e-01
-## personal_status_sexfemale : non-single or male : single   -3.243e-01  4.367e-01
-## personal_status_sexmale : married/widowed                 -9.029e-01  4.297e-01
-## personal_status_sexfemale : single                        -3.733e-01  5.161e-01
-## present_residence.L                                        8.009e-02  2.358e-01
-## present_residence.Q                                       -3.474e-01  2.304e-01
-## present_residence.C                                        3.053e-01  2.299e-01
-## propertycar or other                                       2.344e-01  2.865e-01
-## propertybuilding soc. savings agr./life insurance          1.342e-02  2.719e-01
-## propertyreal estate                                        2.688e-01  5.110e-01
-## purposecar (new)                                          -1.703e+00  4.370e-01
-## purposecar (used)                                         -8.844e-01  2.982e-01
-## purposefurniture/equipment                                -8.951e-01  2.837e-01
-## purposeradio/television                                   -5.702e-01  9.159e-01
-## purposedomestic appliances                                -2.279e-01  5.954e-01
-## purposerepairs                                             2.908e-01  4.662e-01
-## purposevacation                                           -1.559e+00  1.288e+00
-## purposeretraining                                         -7.081e-01  3.859e-01
-## purposebusiness                                           -1.498e+00  8.145e-01
-## savings... &lt;  100 DM                                      -3.756e-01  3.353e-01
-## savings100 &lt;= ... &lt;  500 DM                               -3.372e-01  4.903e-01
-## savings500 &lt;= ... &lt; 1000 DM                               -6.243e-01  5.829e-01
-## savings... &gt;= 1000 DM                                     -9.172e-01  3.030e-01
-## status... &lt; 0 DM                                          -6.288e-01  2.528e-01
-## status0&lt;= ... &lt; 200 DM                                    -1.293e+00  4.472e-01
-## status... &gt;= 200 DM / salary for at least 1 year          -2.113e+00  2.765e-01
-## telephoneyes (under customer name)                        -2.781e-01  2.337e-01
+## (Intercept)                                                0.7393024  1.2493778
+## age                                                       -0.0103150  0.0101651
+## amount                                                     0.0001586  0.0000495
+## credit_historycritical account/other credits elsewhere     0.2470499  0.6109180
+## credit_historyno credits taken/all credits paid back duly -0.5043088  0.4737427
+## credit_historyexisting credits paid back duly till now    -0.8117585  0.5214737
+## credit_historyall credits at this bank paid back duly     -1.2901215  0.4843968
+## duration                                                   0.0157534  0.0104132
+## employment_duration&lt; 1 yr                                 -0.2407276  0.4713861
+## employment_duration1 &lt;= ... &lt; 4 yrs                       -0.4283570  0.4486026
+## employment_duration4 &lt;= ... &lt; 7 yrs                       -1.0132959  0.4925025
+## employment_duration&gt;= 7 yrs                               -0.3181201  0.4503263
+## foreign_workerno                                           1.4930677  0.6354834
+## housingrent                                               -0.8032630  0.2691221
+## housingown                                                -0.9057892  0.5438347
+## installment_rate.L                                         0.7182114  0.2444771
+## installment_rate.Q                                         0.0856488  0.2198757
+## installment_rate.C                                        -0.0095899  0.2261949
+## jobunskilled - resident                                    0.3889215  0.7071465
+## jobskilled employee/official                               0.2737369  0.6837783
+## jobmanager/self-empl./highly qualif. employee              0.0706391  0.6909866
+## number_credits.L                                          -0.2086566  0.9494678
+## number_credits.Q                                          -0.3404571  0.7760037
+## number_credits.C                                           0.0561097  0.5545555
+## other_debtorsco-applicant                                  0.4413128  0.4517712
+## other_debtorsguarantor                                    -0.6490479  0.4645057
+## other_installment_plansstores                              0.0882786  0.4905346
+## other_installment_plansnone                               -0.4582146  0.2862939
+## people_liable0 to 2                                       -0.2696636  0.2840207
+## personal_status_sexfemale : non-single or male : single   -0.2811773  0.4514250
+## personal_status_sexmale : married/widowed                 -0.7107909  0.4460512
+## personal_status_sexfemale : single                        -0.5110095  0.5225887
+## present_residence.L                                        0.1059484  0.2382842
+## present_residence.Q                                       -0.4996117  0.2265493
+## present_residence.C                                        0.1126060  0.2199322
+## propertycar or other                                       0.5622139  0.2899486
+## propertybuilding soc. savings agr./life insurance          0.2997796  0.2691999
+## propertyreal estate                                        0.8703685  0.4770472
+## purposecar (new)                                          -1.5784282  0.4107929
+## purposecar (used)                                         -0.6611569  0.2989669
+## purposefurniture/equipment                                -0.5825260  0.2800507
+## purposeradio/television                                   -1.1724203  1.0097400
+## purposedomestic appliances                                 0.2088118  0.5791930
+## purposerepairs                                             0.4235540  0.4335391
+## purposevacation                                           -1.6464046  1.2169225
+## purposeretraining                                         -0.3732084  0.3731087
+## purposebusiness                                           -1.6202009  0.8768578
+## savings... &lt;  100 DM                                      -0.2514161  0.3144987
+## savings100 &lt;= ... &lt;  500 DM                               -0.7138744  0.5200657
+## savings500 &lt;= ... &lt; 1000 DM                               -1.0130046  0.5648259
+## savings... &gt;= 1000 DM                                     -0.9017536  0.2974495
+## status... &lt; 0 DM                                          -0.5149461  0.2512535
+## status0&lt;= ... &lt; 200 DM                                    -0.8929955  0.4196694
+## status... &gt;= 200 DM / salary for at least 1 year          -1.7608146  0.2611354
+## telephoneyes (under customer name)                        -0.2743350  0.2257623
 ##                                                           z value Pr(&gt;|z|)    
-## (Intercept)                                                 0.592  0.55403    
-## age                                                        -1.225  0.22076    
-## amount                                                      2.648  0.00810 ** 
-## credit_historycritical account/other credits elsewhere     -0.235  0.81422    
-## credit_historyno credits taken/all credits paid back duly  -1.470  0.14166    
-## credit_historyexisting credits paid back duly till now     -2.280  0.02260 *  
-## credit_historyall credits at this bank paid back duly      -3.073  0.00212 ** 
-## duration                                                    2.772  0.00557 ** 
-## employment_duration&lt; 1 yr                                   0.211  0.83299    
-## employment_duration1 &lt;= ... &lt; 4 yrs                        -0.402  0.68795    
-## employment_duration4 &lt;= ... &lt; 7 yrs                        -1.672  0.09455 .  
-## employment_duration&gt;= 7 yrs                                -0.297  0.76669    
-## foreign_workerno                                            2.338  0.01937 *  
-## housingrent                                                -1.611  0.10724    
-## housingown                                                 -0.613  0.53972    
-## installment_rate.L                                          3.090  0.00200 ** 
-## installment_rate.Q                                         -0.277  0.78160    
-## installment_rate.C                                          0.342  0.73233    
-## jobunskilled - resident                                     0.520  0.60308    
-## jobskilled employee/official                                0.631  0.52809    
-## jobmanager/self-empl./highly qualif. employee               0.574  0.56572    
-## number_credits.L                                            0.828  0.40789    
-## number_credits.Q                                            0.143  0.88623    
-## number_credits.C                                            0.531  0.59555    
-## other_debtorsco-applicant                                   1.019  0.30833    
-## other_debtorsguarantor                                     -1.767  0.07715 .  
-## other_installment_plansstores                              -0.373  0.70948    
-## other_installment_plansnone                                -2.514  0.01193 *  
-## people_liable0 to 2                                        -1.369  0.17091    
-## personal_status_sexfemale : non-single or male : single    -0.743  0.45772    
-## personal_status_sexmale : married/widowed                  -2.101  0.03563 *  
-## personal_status_sexfemale : single                         -0.723  0.46948    
-## present_residence.L                                         0.340  0.73410    
-## present_residence.Q                                        -1.508  0.13149    
-## present_residence.C                                         1.328  0.18429    
-## propertycar or other                                        0.818  0.41323    
-## propertybuilding soc. savings agr./life insurance           0.049  0.96063    
-## propertyreal estate                                         0.526  0.59890    
-## purposecar (new)                                           -3.896 9.78e-05 ***
-## purposecar (used)                                          -2.966  0.00302 ** 
-## purposefurniture/equipment                                 -3.155  0.00160 ** 
-## purposeradio/television                                    -0.623  0.53361    
-## purposedomestic appliances                                 -0.383  0.70190    
-## purposerepairs                                              0.624  0.53276    
-## purposevacation                                            -1.211  0.22588    
-## purposeretraining                                          -1.835  0.06647 .  
-## purposebusiness                                            -1.839  0.06594 .  
-## savings... &lt;  100 DM                                       -1.120  0.26257    
-## savings100 &lt;= ... &lt;  500 DM                                -0.688  0.49161    
-## savings500 &lt;= ... &lt; 1000 DM                                -1.071  0.28417    
-## savings... &gt;= 1000 DM                                      -3.027  0.00247 ** 
-## status... &lt; 0 DM                                           -2.488  0.01286 *  
-## status0&lt;= ... &lt; 200 DM                                     -2.891  0.00384 ** 
-## status... &gt;= 200 DM / salary for at least 1 year           -7.643 2.12e-14 ***
-## telephoneyes (under customer name)                         -1.190  0.23412    
+## (Intercept)                                                 0.592 0.554027    
+## age                                                        -1.015 0.310225    
+## amount                                                      3.204 0.001357 ** 
+## credit_historycritical account/other credits elsewhere      0.404 0.685925    
+## credit_historyno credits taken/all credits paid back duly  -1.065 0.287093    
+## credit_historyexisting credits paid back duly till now     -1.557 0.119551    
+## credit_historyall credits at this bank paid back duly      -2.663 0.007737 ** 
+## duration                                                    1.513 0.130323    
+## employment_duration&lt; 1 yr                                  -0.511 0.609575    
+## employment_duration1 &lt;= ... &lt; 4 yrs                        -0.955 0.339644    
+## employment_duration4 &lt;= ... &lt; 7 yrs                        -2.057 0.039644 *  
+## employment_duration&gt;= 7 yrs                                -0.706 0.479926    
+## foreign_workerno                                            2.349 0.018799 *  
+## housingrent                                                -2.985 0.002838 ** 
+## housingown                                                 -1.666 0.095801 .  
+## installment_rate.L                                          2.938 0.003306 ** 
+## installment_rate.Q                                          0.390 0.696882    
+## installment_rate.C                                         -0.042 0.966182    
+## jobunskilled - resident                                     0.550 0.582328    
+## jobskilled employee/official                                0.400 0.688914    
+## jobmanager/self-empl./highly qualif. employee               0.102 0.918575    
+## number_credits.L                                           -0.220 0.826057    
+## number_credits.Q                                           -0.439 0.660856    
+## number_credits.C                                            0.101 0.919408    
+## other_debtorsco-applicant                                   0.977 0.328643    
+## other_debtorsguarantor                                     -1.397 0.162327    
+## other_installment_plansstores                               0.180 0.857181    
+## other_installment_plansnone                                -1.601 0.109487    
+## people_liable0 to 2                                        -0.949 0.342392    
+## personal_status_sexfemale : non-single or male : single    -0.623 0.533373    
+## personal_status_sexmale : married/widowed                  -1.594 0.111044    
+## personal_status_sexfemale : single                         -0.978 0.328152    
+## present_residence.L                                         0.445 0.656587    
+## present_residence.Q                                        -2.205 0.027432 *  
+## present_residence.C                                         0.512 0.608649    
+## propertycar or other                                        1.939 0.052500 .  
+## propertybuilding soc. savings agr./life insurance           1.114 0.265453    
+## propertyreal estate                                         1.824 0.068078 .  
+## purposecar (new)                                           -3.842 0.000122 ***
+## purposecar (used)                                          -2.211 0.027003 *  
+## purposefurniture/equipment                                 -2.080 0.037519 *  
+## purposeradio/television                                    -1.161 0.245597    
+## purposedomestic appliances                                  0.361 0.718457    
+## purposerepairs                                              0.977 0.328585    
+## purposevacation                                            -1.353 0.176080    
+## purposeretraining                                          -1.000 0.317181    
+## purposebusiness                                            -1.848 0.064641 .  
+## savings... &lt;  100 DM                                       -0.799 0.424048    
+## savings100 &lt;= ... &lt;  500 DM                                -1.373 0.169857    
+## savings500 &lt;= ... &lt; 1000 DM                                -1.793 0.072896 .  
+## savings... &gt;= 1000 DM                                      -3.032 0.002432 ** 
+## status... &lt; 0 DM                                           -2.050 0.040412 *  
+## status0&lt;= ... &lt; 200 DM                                     -2.128 0.033349 *  
+## status... &gt;= 200 DM / salary for at least 1 year           -6.743 1.55e-11 ***
+## telephoneyes (under customer name)                         -1.215 0.224309    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
-##     Null deviance: 977.38  on 799  degrees of freedom
-## Residual deviance: 687.07  on 745  degrees of freedom
-## AIC: 797.07
+##     Null deviance: 982.41  on 799  degrees of freedom
+## Residual deviance: 720.91  on 745  degrees of freedom
+## AIC: 830.91
 ## 
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <ol start="2" style="list-style-type: decimal">
@@ -855,19 +853,19 @@ How do we evaluate “good” performance?</p>
 <span id="cb27-2"><a href="sample-for-classification-problems.html#cb27-2" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span><span class="fu">train</span>(task, <span class="at">row_ids =</span> train_set)</span></code></pre></div>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="sample-for-classification-problems.html#cb28-1" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span><span class="fu">importance</span>()</span></code></pre></div>
 <pre><code>##                  status                duration                  amount 
-##            0.0416829784            0.0151093820            0.0107790696 
-##          credit_history                 savings                 purpose 
-##            0.0095855254            0.0074409852            0.0040758618 
-##           other_debtors                property other_installment_plans 
-##            0.0033979602            0.0033761843            0.0029194502 
-##        installment_rate                     age                     job 
-##            0.0027028427            0.0023539745            0.0022958331 
-##     personal_status_sex               telephone     employment_duration 
-##            0.0021592658            0.0012838410            0.0008079655 
-##           people_liable                 housing          foreign_worker 
-##            0.0007864887            0.0002829865            0.0002408694 
-##       present_residence          number_credits 
-##           -0.0001716909           -0.0006796375</code></pre>
+##            0.0354184416            0.0162090730            0.0123043308 
+##          credit_history                 savings                property 
+##            0.0093680090            0.0082123808            0.0077066093 
+##     employment_duration        installment_rate                     job 
+##            0.0035315300            0.0027344004            0.0027228244 
+##       present_residence                     age           other_debtors 
+##            0.0027105217            0.0026407311            0.0026180095 
+##                 housing                 purpose          number_credits 
+##            0.0024825109            0.0021642260            0.0015904113 
+##           people_liable     personal_status_sex other_installment_plans 
+##            0.0010299556            0.0006810170            0.0005749214 
+##               telephone          foreign_worker 
+##            0.0005376060            0.0001642216</code></pre>
 <p>To get a graph of importance values, we convert importance to data.table format and process it with ggplot2:</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="sample-for-classification-problems.html#cb30-1" aria-hidden="true" tabindex="-1"></a>importance <span class="ot">=</span> <span class="fu">as.data.table</span>(learner_rf<span class="sc">$</span><span class="fu">importance</span>(), <span class="at">keep.rownames =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb30-2"><a href="sample-for-classification-problems.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(importance) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Feature&quot;</span>, <span class="st">&quot;Importance&quot;</span>)</span>
@@ -878,9 +876,8 @@ How do we evaluate “good” performance?</p>
 <p><img src="cc-mlr3tutorial_files/figure-html/unnamed-chunk-20-1.png" width="672" />
 It can be seen that the first seven variables play an important role in predicting the dependent variable.</p>
 </div>
-</div>
-<div id="prediction" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Prediction<a href="sample-for-classification-problems.html#prediction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="prediction" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Prediction<a href="sample-for-classification-problems.html#prediction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Next we will use the trained model to make predictions. After training the model, the model can be used for prediction. In general, prediction is the main purpose of machine learning models.</p>
 <p>In our case, the model can be used to classify new credit applicants. They are based on the associated credit risk (good and bad) of the feature. Typically, machine learning models predict numerical values. In a regression situation, this is natural. For classification, most models predict scores or probabilities. Based on these values, category predictions can be made.</p>
 <ol style="list-style-type: decimal">
@@ -892,34 +889,34 @@ It can be seen that the first seven variables play an important role in predicti
 <span id="cb31-4"><a href="sample-for-classification-problems.html#cb31-4" aria-hidden="true" tabindex="-1"></a>pred_logreg</span></code></pre></div>
 <pre><code>## &lt;PredictionClassif&gt; for 200 observations:
 ##     row_ids truth response
-##           4  good     good
-##           5  good     good
-##          24  good     good
+##          11  good      bad
+##          21  good     good
+##          22  good     good
 ## ---                       
-##         987   bad     good
-##         992   bad      bad
-##         996   bad      bad</code></pre>
+##         995   bad      bad
+##         996   bad      bad
+##         997   bad      bad</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="sample-for-classification-problems.html#cb33-1" aria-hidden="true" tabindex="-1"></a>pred_rf</span></code></pre></div>
 <pre><code>## &lt;PredictionClassif&gt; for 200 observations:
 ##     row_ids truth response
-##           4  good     good
-##           5  good     good
-##          24  good     good
+##          11  good     good
+##          21  good     good
+##          22  good     good
 ## ---                       
-##         987   bad      bad
-##         992   bad      bad
-##         996   bad     good</code></pre>
+##         995   bad      bad
+##         996   bad     good
+##         997   bad      bad</code></pre>
 <p>The $predict() method returns a Prediction object. If you want to use it later, you can convert it to data.table format. We can also display the prediction results in the confusion matrix:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="sample-for-classification-problems.html#cb35-1" aria-hidden="true" tabindex="-1"></a>pred_logreg<span class="sc">$</span>confusion</span></code></pre></div>
 <pre><code>##         truth
 ## response bad good
-##     bad   26   20
-##     good  34  120</code></pre>
+##     bad   25   16
+##     good  32  127</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="sample-for-classification-problems.html#cb37-1" aria-hidden="true" tabindex="-1"></a>pred_rf<span class="sc">$</span>confusion</span></code></pre></div>
 <pre><code>##         truth
 ## response bad good
-##     bad   25   17
-##     good  35  123</code></pre>
+##     bad   22    9
+##     good  35  134</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Predict Probabilities</li>
 </ol>
@@ -927,16 +924,17 @@ It can be seen that the first seven variables play an important role in predicti
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="sample-for-classification-problems.html#cb39-1" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span>predict_type <span class="ot">=</span> <span class="st">&quot;prob&quot;</span></span>
 <span id="cb39-2"><a href="sample-for-classification-problems.html#cb39-2" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span><span class="fu">predict</span>(task, <span class="at">row_ids =</span> test_set)</span></code></pre></div>
 <pre><code>## &lt;PredictionClassif&gt; for 200 observations:
-##     row_ids truth response   prob.bad prob.good
-##           4  good     good 0.17828549 0.8217145
-##           5  good     good 0.18934356 0.8106564
-##          24  good     good 0.09551314 0.9044869
+##     row_ids truth response  prob.bad  prob.good
+##          11  good      bad 0.5953696 0.40463043
+##          21  good     good 0.4406688 0.55933120
+##          22  good     good 0.3221651 0.67783491
 ## ---                                            
-##         987   bad     good 0.22545501 0.7745450
-##         992   bad      bad 0.65830217 0.3416978
-##         996   bad      bad 0.50570030 0.4942997</code></pre>
-<div id="performance-evaluation" class="section level3 hasAnchor" number="4.4.1">
-<h3><span class="header-section-number">4.4.1</span> Performance Evaluation<a href="sample-for-classification-problems.html#performance-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+##         995   bad      bad 0.9094086 0.09059142
+##         996   bad      bad 0.5018693 0.49813068
+##         997   bad      bad 0.5734202 0.42657977</code></pre>
+</div>
+<div id="performance-evaluation" class="section level3 hasAnchor" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Performance Evaluation<a href="sample-for-classification-problems.html#performance-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To measure the learner’s performance on new data, we usually simulate a sight unseen data by dividing the data into training sets and test sets. The training set is used to train the learner, and the test set is only used to predict and evaluate the performance of the trained learner. Many resampling methods (cross-validation, bootstrap) repeat the segmentation process in different ways.</p>
 <p>In mlr3, we need to specify the resampling strategy using the rsmp() function:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="sample-for-classification-problems.html#cb41-1" aria-hidden="true" tabindex="-1"></a>resampling <span class="ot">=</span> <span class="fu">rsmp</span>(<span class="st">&quot;holdout&quot;</span>, <span class="at">ratio =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
@@ -947,7 +945,7 @@ It can be seen that the first seven variables play an important role in predicti
 ## * Parameters: ratio=0.6667</code></pre>
 <p>In this case, we use a “holdout,” which is a simple train-test split (only one iteration). We use the resample() function for resampling calculation:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="sample-for-classification-problems.html#cb43-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">resample</span>(task, <span class="at">learner =</span> learner_logreg, <span class="at">resampling =</span> resampling)</span></code></pre></div>
-<pre><code>## INFO  [00:44:05.994] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/1)</code></pre>
+<pre><code>## INFO  [00:55:48.556] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/1)</code></pre>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="sample-for-classification-problems.html#cb45-1" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
 <pre><code>## &lt;ResampleResult&gt; of 1 iterations
 ## * Task: germancredit
@@ -957,43 +955,43 @@ It can be seen that the first seven variables play an important role in predicti
 <p>The default score for the measure is included in <code>$aggregate()</code>:</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="sample-for-classification-problems.html#cb47-1" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span><span class="fu">aggregate</span>()</span></code></pre></div>
 <pre><code>## classif.ce 
-##  0.2882883</code></pre>
+##  0.2942943</code></pre>
 <p>The default metric in this case is classification error. The lower the better.</p>
 <p>We can run different resampling strategies, such as repeated adherence (” secondary sampling “), or cross-validation. Most methods perform repeated training/prediction cycles on different subsets of data and aggregate the results (usually as averages). Doing this manually requires us to write a loop. mlr3 does the job for us:</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="sample-for-classification-problems.html#cb49-1" aria-hidden="true" tabindex="-1"></a>resampling <span class="ot">=</span> <span class="fu">rsmp</span>(<span class="st">&quot;subsampling&quot;</span>, <span class="at">repeats=</span><span class="dv">10</span>)</span>
 <span id="cb49-2"><a href="sample-for-classification-problems.html#cb49-2" aria-hidden="true" tabindex="-1"></a>rr <span class="ot">=</span> <span class="fu">resample</span>(task, <span class="at">learner =</span> learner_logreg, <span class="at">resampling =</span> resampling)</span></code></pre></div>
-<pre><code>## INFO  [00:44:06.095] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [00:44:06.125] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [00:44:06.169] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [00:44:06.193] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [00:44:06.234] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [00:44:06.276] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [00:44:06.301] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [00:44:06.324] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [00:44:06.391] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [00:44:06.415] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/10)</code></pre>
+<pre><code>## INFO  [00:55:48.675] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [00:55:48.724] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [00:55:48.747] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [00:55:48.785] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [00:55:48.825] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [00:55:48.862] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [00:55:48.904] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [00:55:48.927] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [00:55:48.968] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [00:55:48.992] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/10)</code></pre>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="sample-for-classification-problems.html#cb51-1" aria-hidden="true" tabindex="-1"></a>rr<span class="sc">$</span><span class="fu">aggregate</span>()</span></code></pre></div>
 <pre><code>## classif.ce 
-##  0.2594595</code></pre>
+##   0.254955</code></pre>
 <p>In addition, we can also use cross validation:</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="sample-for-classification-problems.html#cb53-1" aria-hidden="true" tabindex="-1"></a>resampling <span class="ot">=</span> resampling <span class="ot">=</span> <span class="fu">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="at">folds=</span><span class="dv">10</span>)</span>
 <span id="cb53-2"><a href="sample-for-classification-problems.html#cb53-2" aria-hidden="true" tabindex="-1"></a>rr <span class="ot">=</span> <span class="fu">resample</span>(task, <span class="at">learner =</span> learner_logreg, <span class="at">resampling =</span> resampling)</span></code></pre></div>
-<pre><code>## INFO  [00:44:06.488] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [00:44:06.520] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [00:44:06.550] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [00:44:06.577] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [00:44:06.607] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [00:44:06.734] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [00:44:06.761] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [00:44:06.787] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [00:44:06.815] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [00:44:06.845] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/10)</code></pre>
+<pre><code>## INFO  [00:55:49.050] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [00:55:49.081] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [00:55:49.109] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [00:55:49.139] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [00:55:49.181] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [00:55:49.208] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [00:55:49.238] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [00:55:49.264] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [00:55:49.291] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [00:55:49.341] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/10)</code></pre>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sample-for-classification-problems.html#cb55-1" aria-hidden="true" tabindex="-1"></a>rr<span class="sc">$</span><span class="fu">aggregate</span>()</span></code></pre></div>
 <pre><code>## classif.ce 
-##      0.255</code></pre>
+##      0.249</code></pre>
 </div>
-<div id="performance-comparision-and-benchmarks" class="section level3 hasAnchor" number="4.4.2">
-<h3><span class="header-section-number">4.4.2</span> Performance Comparision and Benchmarks<a href="sample-for-classification-problems.html#performance-comparision-and-benchmarks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="performance-comparision-and-benchmarks" class="section level3 hasAnchor" number="4.3.6">
+<h3><span class="header-section-number">4.3.6</span> Performance Comparision and Benchmarks<a href="sample-for-classification-problems.html#performance-comparision-and-benchmarks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can compare the learner by manually evaluating the resample() for each learning period. However, benchmark() automatically performs resampling evaluations for multiple learners and tasks. benchmark_grid() Create a fully interleaved design: compare multiple learners on multiple tasks. Resampling multiple times.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="sample-for-classification-problems.html#cb57-1" aria-hidden="true" tabindex="-1"></a>learners <span class="ot">=</span> <span class="fu">lrns</span>(<span class="fu">c</span>(<span class="st">&quot;classif.log_reg&quot;</span>, <span class="st">&quot;classif.ranger&quot;</span>), <span class="at">predict_type =</span> <span class="st">&quot;prob&quot;</span>)</span>
 <span id="cb57-2"><a href="sample-for-classification-problems.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1004,118 +1002,118 @@ It can be seen that the first seven variables play an important role in predicti
 <span id="cb57-7"><a href="sample-for-classification-problems.html#cb57-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb57-8"><a href="sample-for-classification-problems.html#cb57-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-9"><a href="sample-for-classification-problems.html#cb57-9" aria-hidden="true" tabindex="-1"></a>bmr <span class="ot">=</span> <span class="fu">benchmark</span>(bm_design)</span></code></pre></div>
-<pre><code>## INFO  [00:44:06.966] [mlr3] Running benchmark with 100 resampling iterations
-## INFO  [00:44:06.969] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/50)
-## INFO  [00:44:07.004] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/50)
-## INFO  [00:44:07.031] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/50)
-## INFO  [00:44:07.057] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/50)
-## INFO  [00:44:07.084] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/50)
-## INFO  [00:44:07.114] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/50)
-## INFO  [00:44:07.140] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/50)
-## INFO  [00:44:07.167] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/50)
-## INFO  [00:44:07.197] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/50)
-## INFO  [00:44:07.223] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/50)
-## INFO  [00:44:07.250] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 11/50)
-## INFO  [00:44:07.279] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 12/50)
-## INFO  [00:44:07.305] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 13/50)
-## INFO  [00:44:07.332] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 14/50)
-## INFO  [00:44:07.361] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 15/50)
-## INFO  [00:44:07.388] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 16/50)
-## INFO  [00:44:07.420] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 17/50)
-## INFO  [00:44:07.446] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 18/50)
-## INFO  [00:44:07.473] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 19/50)
-## INFO  [00:44:07.499] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 20/50)
-## INFO  [00:44:07.531] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 21/50)
-## INFO  [00:44:07.558] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 22/50)
-## INFO  [00:44:07.586] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 23/50)
-## INFO  [00:44:07.620] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 24/50)
-## INFO  [00:44:07.650] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 25/50)
-## INFO  [00:44:07.678] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 26/50)
-## INFO  [00:44:07.711] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 27/50)
-## INFO  [00:44:07.739] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 28/50)
-## INFO  [00:44:07.767] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 29/50)
-## INFO  [00:44:07.797] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 30/50)
-## INFO  [00:44:07.824] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 31/50)
-## INFO  [00:44:07.854] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 32/50)
-## INFO  [00:44:07.881] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 33/50)
-## INFO  [00:44:07.907] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 34/50)
-## INFO  [00:44:07.936] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 35/50)
-## INFO  [00:44:07.963] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 36/50)
-## INFO  [00:44:07.992] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 37/50)
-## INFO  [00:44:08.019] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 38/50)
-## INFO  [00:44:08.050] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 39/50)
-## INFO  [00:44:08.102] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 40/50)
-## INFO  [00:44:08.134] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 41/50)
-## INFO  [00:44:08.160] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 42/50)
-## INFO  [00:44:08.187] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 43/50)
-## INFO  [00:44:08.217] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 44/50)
-## INFO  [00:44:08.244] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 45/50)
-## INFO  [00:44:08.270] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 46/50)
-## INFO  [00:44:08.301] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 47/50)
-## INFO  [00:44:08.327] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 48/50)
-## INFO  [00:44:08.353] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 49/50)
-## INFO  [00:44:08.384] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 50/50)
-## INFO  [00:44:08.410] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 1/50)
-## INFO  [00:44:08.621] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 2/50)
-## INFO  [00:44:08.837] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 3/50)
-## INFO  [00:44:09.045] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 4/50)
-## INFO  [00:44:09.257] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 5/50)
-## INFO  [00:44:09.469] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 6/50)
-## INFO  [00:44:09.676] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 7/50)
-## INFO  [00:44:09.893] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 8/50)
-## INFO  [00:44:10.100] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 9/50)
-## INFO  [00:44:10.307] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 10/50)
-## INFO  [00:44:10.517] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 11/50)
-## INFO  [00:44:10.732] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 12/50)
-## INFO  [00:44:10.953] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 13/50)
-## INFO  [00:44:11.170] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 14/50)
-## INFO  [00:44:11.394] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 15/50)
-## INFO  [00:44:11.613] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 16/50)
-## INFO  [00:44:11.846] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 17/50)
-## INFO  [00:44:12.058] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 18/50)
-## INFO  [00:44:12.267] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 19/50)
-## INFO  [00:44:12.475] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 20/50)
-## INFO  [00:44:12.700] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 21/50)
-## INFO  [00:44:12.918] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 22/50)
-## INFO  [00:44:13.136] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 23/50)
-## INFO  [00:44:13.361] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 24/50)
-## INFO  [00:44:13.580] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 25/50)
-## INFO  [00:44:13.806] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 26/50)
-## INFO  [00:44:14.014] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 27/50)
-## INFO  [00:44:14.221] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 28/50)
-## INFO  [00:44:14.428] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 29/50)
-## INFO  [00:44:14.642] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 30/50)
-## INFO  [00:44:14.851] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 31/50)
-## INFO  [00:44:15.059] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 32/50)
-## INFO  [00:44:15.272] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 33/50)
-## INFO  [00:44:15.479] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 34/50)
-## INFO  [00:44:15.799] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 35/50)
-## INFO  [00:44:16.005] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 36/50)
-## INFO  [00:44:16.212] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 37/50)
-## INFO  [00:44:16.419] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 38/50)
-## INFO  [00:44:16.626] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 39/50)
-## INFO  [00:44:16.835] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 40/50)
-## INFO  [00:44:17.051] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 41/50)
-## INFO  [00:44:17.257] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 42/50)
-## INFO  [00:44:17.465] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 43/50)
-## INFO  [00:44:17.671] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 44/50)
-## INFO  [00:44:17.878] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 45/50)
-## INFO  [00:44:18.085] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 46/50)
-## INFO  [00:44:18.299] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 47/50)
-## INFO  [00:44:18.506] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 48/50)
-## INFO  [00:44:18.714] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 49/50)
-## INFO  [00:44:18.920] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 50/50)
-## INFO  [00:44:19.141] [mlr3] Finished benchmark</code></pre>
+<pre><code>## INFO  [00:55:49.448] [mlr3] Running benchmark with 100 resampling iterations
+## INFO  [00:55:49.452] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/50)
+## INFO  [00:55:49.485] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/50)
+## INFO  [00:55:49.529] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/50)
+## INFO  [00:55:49.557] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/50)
+## INFO  [00:55:49.585] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/50)
+## INFO  [00:55:49.612] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/50)
+## INFO  [00:55:49.643] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/50)
+## INFO  [00:55:49.670] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/50)
+## INFO  [00:55:49.696] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/50)
+## INFO  [00:55:49.727] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/50)
+## INFO  [00:55:49.754] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 11/50)
+## INFO  [00:55:49.780] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 12/50)
+## INFO  [00:55:49.814] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 13/50)
+## INFO  [00:55:49.844] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 14/50)
+## INFO  [00:55:49.897] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 15/50)
+## INFO  [00:55:49.924] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 16/50)
+## INFO  [00:55:49.956] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 17/50)
+## INFO  [00:55:49.983] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 18/50)
+## INFO  [00:55:50.011] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 19/50)
+## INFO  [00:55:50.046] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 20/50)
+## INFO  [00:55:50.075] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 21/50)
+## INFO  [00:55:50.109] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 22/50)
+## INFO  [00:55:50.138] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 23/50)
+## INFO  [00:55:50.171] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 24/50)
+## INFO  [00:55:50.200] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 25/50)
+## INFO  [00:55:50.341] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 26/50)
+## INFO  [00:55:50.367] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 27/50)
+## INFO  [00:55:50.394] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 28/50)
+## INFO  [00:55:50.421] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 29/50)
+## INFO  [00:55:50.448] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 30/50)
+## INFO  [00:55:50.479] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 31/50)
+## INFO  [00:55:50.505] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 32/50)
+## INFO  [00:55:50.532] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 33/50)
+## INFO  [00:55:50.559] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 34/50)
+## INFO  [00:55:50.586] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 35/50)
+## INFO  [00:55:50.616] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 36/50)
+## INFO  [00:55:50.643] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 37/50)
+## INFO  [00:55:50.669] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 38/50)
+## INFO  [00:55:50.695] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 39/50)
+## INFO  [00:55:50.722] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 40/50)
+## INFO  [00:55:50.754] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 41/50)
+## INFO  [00:55:50.781] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 42/50)
+## INFO  [00:55:50.807] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 43/50)
+## INFO  [00:55:50.833] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 44/50)
+## INFO  [00:55:50.859] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 45/50)
+## INFO  [00:55:50.890] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 46/50)
+## INFO  [00:55:50.916] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 47/50)
+## INFO  [00:55:50.942] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 48/50)
+## INFO  [00:55:50.969] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 49/50)
+## INFO  [00:55:50.995] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 50/50)
+## INFO  [00:55:51.025] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 1/50)
+## INFO  [00:55:51.233] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 2/50)
+## INFO  [00:55:51.439] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 3/50)
+## INFO  [00:55:51.648] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 4/50)
+## INFO  [00:55:51.855] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 5/50)
+## INFO  [00:55:52.067] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 6/50)
+## INFO  [00:55:52.274] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 7/50)
+## INFO  [00:55:52.482] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 8/50)
+## INFO  [00:55:52.689] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 9/50)
+## INFO  [00:55:52.896] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 10/50)
+## INFO  [00:55:53.109] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 11/50)
+## INFO  [00:55:53.317] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 12/50)
+## INFO  [00:55:53.524] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 13/50)
+## INFO  [00:55:53.734] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 14/50)
+## INFO  [00:55:53.947] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 15/50)
+## INFO  [00:55:54.155] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 16/50)
+## INFO  [00:55:54.363] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 17/50)
+## INFO  [00:55:54.577] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 18/50)
+## INFO  [00:55:54.784] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 19/50)
+## INFO  [00:55:54.991] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 20/50)
+## INFO  [00:55:55.210] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 21/50)
+## INFO  [00:55:55.417] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 22/50)
+## INFO  [00:55:55.624] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 23/50)
+## INFO  [00:55:55.831] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 24/50)
+## INFO  [00:55:56.039] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 25/50)
+## INFO  [00:55:56.247] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 26/50)
+## INFO  [00:55:56.460] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 27/50)
+## INFO  [00:55:56.667] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 28/50)
+## INFO  [00:55:56.873] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 29/50)
+## INFO  [00:55:57.077] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 30/50)
+## INFO  [00:55:57.285] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 31/50)
+## INFO  [00:55:57.497] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 32/50)
+## INFO  [00:55:57.703] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 33/50)
+## INFO  [00:55:57.910] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 34/50)
+## INFO  [00:55:58.117] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 35/50)
+## INFO  [00:55:58.329] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 36/50)
+## INFO  [00:55:58.537] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 37/50)
+## INFO  [00:55:58.743] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 38/50)
+## INFO  [00:55:58.954] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 39/50)
+## INFO  [00:55:59.160] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 40/50)
+## INFO  [00:55:59.366] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 41/50)
+## INFO  [00:55:59.590] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 42/50)
+## INFO  [00:55:59.798] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 43/50)
+## INFO  [00:56:00.005] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 44/50)
+## INFO  [00:56:00.213] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 45/50)
+## INFO  [00:56:00.420] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 46/50)
+## INFO  [00:56:00.627] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 47/50)
+## INFO  [00:56:00.841] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 48/50)
+## INFO  [00:56:01.047] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 49/50)
+## INFO  [00:56:01.255] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 50/50)
+## INFO  [00:56:01.474] [mlr3] Finished benchmark</code></pre>
 <p>In benchmarking, we can compare different measures. Here, we look at the misclassification rate and the AUC:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="sample-for-classification-problems.html#cb59-1" aria-hidden="true" tabindex="-1"></a>measures <span class="ot">=</span> <span class="fu">msrs</span>(<span class="fu">c</span>(<span class="st">&quot;classif.ce&quot;</span>, <span class="st">&quot;classif.auc&quot;</span>))</span>
 <span id="cb59-2"><a href="sample-for-classification-problems.html#cb59-2" aria-hidden="true" tabindex="-1"></a>performances <span class="ot">=</span> bmr<span class="sc">$</span><span class="fu">aggregate</span>(measures)</span>
 <span id="cb59-3"><a href="sample-for-classification-problems.html#cb59-3" aria-hidden="true" tabindex="-1"></a>performances[, <span class="fu">c</span>(<span class="st">&quot;learner_id&quot;</span>, <span class="st">&quot;classif.ce&quot;</span>, <span class="st">&quot;classif.auc&quot;</span>)]</span></code></pre></div>
 <pre><code>##         learner_id classif.ce classif.auc
-## 1: classif.log_reg      0.249   0.7675573
-## 2:  classif.ranger      0.230   0.7892183</code></pre>
+## 1: classif.log_reg      0.248   0.7828609
+## 2:  classif.ranger      0.228   0.7974390</code></pre>
 </div>
-<div id="deviating-from-hyperparameters-defaults" class="section level3 hasAnchor" number="4.4.3">
-<h3><span class="header-section-number">4.4.3</span> Deviating from hyperparameters defaults<a href="sample-for-classification-problems.html#deviating-from-hyperparameters-defaults" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="deviating-from-hyperparameters-defaults" class="section level3 hasAnchor" number="4.3.7">
+<h3><span class="header-section-number">4.3.7</span> Deviating from Hyperparameters Defaults<a href="sample-for-classification-problems.html#deviating-from-hyperparameters-defaults" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The techniques previously demonstrated build the backbone of the machine learning workflow that features mlr3. However, in most cases, people will never proceed as we did. While many R packages have carefully chosen default Settings, they do not operate optimally under any circumstances. In general, we can choose the value of such a hyperparameter. The learner’s (super) parameter can be accessed and set via its ParamSet $param_set:</p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="sample-for-classification-problems.html#cb61-1" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span>param_set</span></code></pre></div>
 <pre><code>## &lt;ParamSet&gt;
@@ -1237,38 +1235,38 @@ It can be seen that the first seven variables play an important role in predicti
 <span id="cb67-5"><a href="sample-for-classification-problems.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamplings =</span> <span class="fu">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="at">folds =</span> <span class="dv">10</span>)</span>
 <span id="cb67-6"><a href="sample-for-classification-problems.html#cb67-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb67-7"><a href="sample-for-classification-problems.html#cb67-7" aria-hidden="true" tabindex="-1"></a>bmr <span class="ot">=</span> <span class="fu">benchmark</span>(bm_design)</span></code></pre></div>
-<pre><code>## INFO  [00:44:19.423] [mlr3] Running benchmark with 30 resampling iterations
-## INFO  [00:44:19.426] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [00:44:19.438] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [00:44:19.451] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [00:44:19.463] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [00:44:19.475] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [00:44:19.488] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [00:44:19.500] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [00:44:19.512] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [00:44:19.530] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [00:44:19.542] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 10/10)
-## INFO  [00:44:19.554] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [00:44:19.758] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [00:44:19.956] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [00:44:20.160] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [00:44:20.368] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [00:44:20.570] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [00:44:20.769] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [00:44:20.964] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [00:44:21.169] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [00:44:21.366] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 10/10)
-## INFO  [00:44:21.565] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [00:44:22.166] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [00:44:22.767] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [00:44:23.355] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [00:44:23.938] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [00:44:24.515] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [00:44:25.102] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [00:44:25.683] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [00:44:26.265] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [00:44:26.852] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 10/10)
-## INFO  [00:44:27.437] [mlr3] Finished benchmark</code></pre>
+<pre><code>## INFO  [00:56:01.754] [mlr3] Running benchmark with 30 resampling iterations
+## INFO  [00:56:01.757] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [00:56:01.770] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [00:56:01.787] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [00:56:01.800] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [00:56:01.812] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [00:56:01.824] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [00:56:01.837] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [00:56:01.849] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [00:56:01.861] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [00:56:01.873] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 10/10)
+## INFO  [00:56:01.885] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [00:56:02.082] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [00:56:02.280] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [00:56:02.489] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [00:56:02.692] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [00:56:02.887] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [00:56:03.084] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [00:56:03.287] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [00:56:03.483] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [00:56:03.682] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 10/10)
+## INFO  [00:56:03.889] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [00:56:04.488] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [00:56:05.091] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [00:56:05.669] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [00:56:06.249] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [00:56:06.824] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [00:56:07.411] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [00:56:07.989] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [00:56:08.568] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [00:56:09.156] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 10/10)
+## INFO  [00:56:09.753] [mlr3] Finished benchmark</code></pre>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="sample-for-classification-problems.html#cb69-1" aria-hidden="true" tabindex="-1"></a>bmr</span></code></pre></div>
 <pre><code>## &lt;BenchmarkResult&gt; of 30 rows with 3 resampling runs
 ##  nr      task_id learner_id resampling_id iters warnings errors
@@ -1280,9 +1278,9 @@ It can be seen that the first seven variables play an important role in predicti
 <span id="cb71-2"><a href="sample-for-classification-problems.html#cb71-2" aria-hidden="true" tabindex="-1"></a>performances <span class="ot">=</span> bmr<span class="sc">$</span><span class="fu">aggregate</span>(measures)</span>
 <span id="cb71-3"><a href="sample-for-classification-problems.html#cb71-3" aria-hidden="true" tabindex="-1"></a>performances[, .(learner_id, classif.ce, classif.auc)]</span></code></pre></div>
 <pre><code>##    learner_id classif.ce classif.auc
-## 1:        low      0.265   0.7322205
-## 2:        med      0.229   0.8059448
-## 3:       high      0.230   0.8015941</code></pre>
+## 1:        low      0.288   0.6996411
+## 2:        med      0.227   0.7946750
+## 3:       high      0.234   0.7940926</code></pre>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="sample-for-classification-problems.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(bmr)</span></code></pre></div>
 <p><img src="cc-mlr3tutorial_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 <p>Compared with the three parameter tuning models, the default parameter model in this example is better.</p>

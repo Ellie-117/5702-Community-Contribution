@@ -159,7 +159,7 @@ ggplot(data=importance,
 It can be seen that the first seven variables play an important role in predicting the dependent variable.
 
 
-## Prediction
+### Prediction
 
 Next we will use the trained model to make predictions. After training the model, the model can be used for prediction. In general, prediction is the main purpose of machine learning models. 
  
@@ -199,7 +199,7 @@ learner_logreg$predict(task, row_ids = test_set)
 ```
 
 
-## Performance Evaluation
+### Performance Evaluation
 
 To measure the learner's performance on new data, we usually simulate a sight unseen data by dividing the data into training sets and test sets. The training set is used to train the learner, and the test set is only used to predict and evaluate the performance of the trained learner. Many resampling methods (cross-validation, bootstrap) repeat the segmentation process in different ways. 
  
@@ -248,7 +248,7 @@ rr = resample(task, learner = learner_logreg, resampling = resampling)
 rr$aggregate()
 ```
 
-## Performance Comparision and Benchmarks
+### Performance Comparision and Benchmarks
 
 We can compare the learner by manually evaluating the resample() for each learning period. However, benchmark() automatically performs resampling evaluations for multiple learners and tasks. benchmark_grid() Create a fully interleaved design: compare multiple learners on multiple tasks. Resampling multiple times.
 
@@ -271,7 +271,7 @@ measures = msrs(c("classif.ce", "classif.auc"))
 performances = bmr$aggregate(measures)
 performances[, c("learner_id", "classif.ce", "classif.auc")]
 ```
-## Deviating from Hyperparameters Defaults
+### Deviating from Hyperparameters Defaults
 
 The techniques previously demonstrated build the backbone of the machine learning workflow that features mlr3. However, in most cases, people will never proceed as we did. While many R packages have carefully chosen default Settings, they do not operate optimally under any circumstances. In general, we can choose the value of such a hyperparameter. The learner's (super) parameter can be accessed and set via its ParamSet $param_set:
 
