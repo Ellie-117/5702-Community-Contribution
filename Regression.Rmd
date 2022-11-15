@@ -6,6 +6,8 @@ First, we load the data and create a machine learning task.
 
 ```{r,echo = TRUE}
 library(mlr3)
+library(mlr3fselect)
+library(mlr3viz)
 
 my_data =read.csv("./winequality-red.csv", sep = ";")
 head(my_data)
@@ -50,7 +52,6 @@ prediction$score()
 We can select the best feature set by using mlr3fselect package and use the auto tuner:
 
 ```{r,echo = TRUE}
-library(mlr3fselect)
 # auto tuner
 autos = auto_fselector(
   method = "random_search",
@@ -64,21 +65,17 @@ autos = auto_fselector(
 autos$train(my_task, row_ids = train_set)
 ```
 
-Here we can see that the regr.mse increases after performing feature selection, that means it does not get better.
-
-```{r, echo = TRUE}
-
+```{r}
+autos$fselect_result
 ```
+
+Here we can see that the regr.mse decreases after performing feature selection, that means it does get better after feature selection.
 
 ## Visualization
 
-```{r}
-library(mlr3viz)
-```
-
 We will use mlr3viz to create some visualizations.
 
-```{r}
+```{r, echo = TRUE}
 autoplot(my_task)
 ```
 
@@ -86,13 +83,13 @@ Autoplot is the default plot for my task. Here it shows a boxplot for the red wi
 
 The resample result prediction plot and the prediction plot can only compare one or two features:
 
-```{r}
+```{r,echo=TRUE}
 my_task1 = my_task$select(c("citric.acid","alcohol"))
 rr = resample(my_task1, learner, rsmp("cv", folds = 5), store_models = TRUE)
 autoplot(rr, type = "prediction")
 ```
 
-```{r}
+```{r, echo=TRUE}
 p = plot_learner_prediction(learner, my_task)
 print(p)
 
