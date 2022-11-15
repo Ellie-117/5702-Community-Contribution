@@ -2,9 +2,190 @@
 
 ## Basic Function
 
+-   as_bench_result(x, ) converts object to benchmark result for visualization
+
+-   mlr3 Dictionaries The dictionaries stores all the classes with functions that we can use in this mlr3 library.
+
+    -mlr_tasks
+
+    -mlr_task_generators
+
+    -mlr_learners
+
+    -mlr_measures
+
+    -mlr_resampling
+
+Example usages: The function keys() returns all learners keys prebuilt in mlr3 package. If we install mlr3learners package, we will get an extension version of it. Installing the according libraries and extend the dictionaries.
+
+```{r}
+library(mlr3)
+mlr_learners$keys(pattern = NULL)
+```
+
+For a brief introduction, we will explain the keywords in these six to get a better understanding:
+
+-classif means it is used to solve classification related problems, regr means it is used to solve regression related problems.
+
+-featureless means that the learner will ignore all the features during train and only consider the response.
+
+-classif.rpart is a LearnerClassif for a classification tree implemented and regr.rpart is a LearnerRegr for a regression tree implemented. These two functions will take in features during training.
+
+-debug learner used for debugging purposes.
+
+The function get() retrieves object by key. It will show all the information about the key.
+
+```{r}
+mlr_learners$get("classif.rpart")
+```
+
+The function makes dictionary to data.table form.
+
+```{r}
+head(as.data.table(mlr_tasks))
+```
+
+-   Tasks
+
+Target determines the machine learning Task. We can create a classification task:
+
+```{r}
+task1 = as_task_classif(x = iris, target = "Species")
+task1
+```
+
+We can create a regression task:
+
+```{r}
+age <- c(33, 55, 25)
+salary <- c(20000, 50000, 15000)
+df <- data.frame(age, salary)
+task2 = as_task_regr(x= df, target = "salary")
+task2
+```
+
+We can also use the example tasks in mlr_tasks by calling tsk(task_name):
+
+```{r}
+task3 = tsk("zoo")
+task3
+```
+
+We can perform some functions on the task: task\$positive = "<argument>" sets positive class for binary classification
+
+```{r}
+#return number of rows
+task1$nrow
+```
+
+```{r}
+#return number of columns
+task1$ncol
+```
+
+```{r}
+#subset the task by selecting features
+task1$select("Sepal.Length")
+```
+
+task\$cbind(data) adds columns
+
+task\$rbind(data) adds rows
+
+task\$feature_names return feature names in the task
+
+-   Learner
+
+To use a learner, we can call the method using:
+
+learner = mlr_learners\$get(method) or
+
+learner = lrn(method)
+
+Here is an example:
+
+```{r}
+learner = lrn("regr.rpart")
+learner
+```
+
+-   Train
+
+We train our task using the learner we chose:
+
+learner\$train(task, row_ids)
+
+learner\$model: the model is stored and viewed
+
+Split on test/train:
+
+train_set = sample(task\$nrow, (percentage) \* my_task\$nrow)
+
+test_set = setdiff(seq_len(task\$nrow), train_set)
+
+-   Predict
+
+These two methods will predict on the select data:
+prediction = learner\$predict(task, row_ids)
+
+prediction = learner\$predict_newdata(data)
+
+-   Model Evaluation
+
+Here are the model evaluation metrics in the mlr_measures library:
+
+```{r}
+mlr_measures$keys(pattern = NULL)
+```
+
+prediction\$score(measures): returns the model evaluation metrics of the selected learner
+
 ## Pipeline
 
 ## Hyperparameter Tuning
 
+```{r}
+library(mlr3learners)
+library(mlr3tuning)
+```
+
+The auto tuner:
+
+auto_tuner(
+
+method = tnr(\<method\>),
+
+learner = lrn(\<learner\>, cp = to_tune(lower bound, upperbound, logscale = \<TRUE/FALSE\>)),
+
+resampling = rsmp(\<method\>),
+
+measure = msr(\<measure\>),
+
+term_evals = \<#\>,
+
+batch_size = \<#\>
+
+)
+
 ## Feature Selection
 
+```{r}
+library(mlr3fselect)
+
+```
+
+Here is the auto feature selector：
+
+auto_fselector(
+
+method = \<method\>,
+
+learner = \<your learner\>,
+
+resampling = rsmp(\<method\>),
+
+measure = msr(\<measure\>),
+
+term_evals = \<#\>,
+
+batch_size = \<#\>)
