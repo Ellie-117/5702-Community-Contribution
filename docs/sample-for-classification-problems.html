@@ -151,13 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="cheat-sheets.html"><a href="cheat-sheets.html"><i class="fa fa-check"></i><b>3</b> Cheat Sheets</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="cheat-sheets.html"><a href="cheat-sheets.html#basic-function"><i class="fa fa-check"></i><b>3.1</b> Basic Function</a></li>
-<li class="chapter" data-level="3.2" data-path="cheat-sheets.html"><a href="cheat-sheets.html#pipeline"><i class="fa fa-check"></i><b>3.2</b> Pipeline</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="cheat-sheets.html"><a href="cheat-sheets.html#the-building-blocks-pipeops"><i class="fa fa-check"></i><b>3.2.1</b> The Building Blocks: PipeOps</a></li>
-<li class="chapter" data-level="3.2.2" data-path="cheat-sheets.html"><a href="cheat-sheets.html#nodes-edges-and-graphs"><i class="fa fa-check"></i><b>3.2.2</b> Nodes, Edges and Graphs</a></li>
-<li class="chapter" data-level="3.2.3" data-path="cheat-sheets.html"><a href="cheat-sheets.html#modeling"><i class="fa fa-check"></i><b>3.2.3</b> Modeling</a></li>
-<li class="chapter" data-level="3.2.4" data-path="cheat-sheets.html"><a href="cheat-sheets.html#non-linear-graphs"><i class="fa fa-check"></i><b>3.2.4</b> Non-Linear Graphs</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="cheat-sheets.html"><a href="cheat-sheets.html#pipeline"><i class="fa fa-check"></i><b>3.2</b> Pipeline</a></li>
 <li class="chapter" data-level="3.3" data-path="cheat-sheets.html"><a href="cheat-sheets.html#hyperparameter-tuning"><i class="fa fa-check"></i><b>3.3</b> Hyperparameter Tuning</a></li>
 <li class="chapter" data-level="3.4" data-path="cheat-sheets.html"><a href="cheat-sheets.html#feature-selection"><i class="fa fa-check"></i><b>3.4</b> Feature Selection</a></li>
 </ul></li>
@@ -168,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#load-the-data"><i class="fa fa-check"></i><b>4.2.1</b> Load the Data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#modeling-1"><i class="fa fa-check"></i><b>4.3</b> Modeling</a>
+<li class="chapter" data-level="4.3" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#modeling"><i class="fa fa-check"></i><b>4.3</b> Modeling</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#task-definition"><i class="fa fa-check"></i><b>4.3.1</b> Task Definition</a></li>
 <li class="chapter" data-level="4.3.2" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#leaner-definition"><i class="fa fa-check"></i><b>4.3.2</b> Leaner Definition</a></li>
@@ -207,23 +201,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 4</span> Sample for Classification Problems<a href="sample-for-classification-problems.html#sample-for-classification-problems" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="load-the-r-environment" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Load the R Environment<a href="sample-for-classification-problems.html#load-the-r-environment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="sample-for-classification-problems.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3)</span>
-<span id="cb42-2"><a href="sample-for-classification-problems.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3learners)</span>
-<span id="cb42-3"><a href="sample-for-classification-problems.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3viz)</span>
-<span id="cb42-4"><a href="sample-for-classification-problems.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb42-5"><a href="sample-for-classification-problems.html#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb42-6"><a href="sample-for-classification-problems.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="sample-for-classification-problems.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3)</span>
+<span id="cb34-2"><a href="sample-for-classification-problems.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3learners)</span>
+<span id="cb34-3"><a href="sample-for-classification-problems.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3viz)</span>
+<span id="cb34-4"><a href="sample-for-classification-problems.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb34-5"><a href="sample-for-classification-problems.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb34-6"><a href="sample-for-classification-problems.html#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <div id="data-description" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Data Description<a href="sample-for-classification-problems.html#data-description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To help readers quickly get started with this package, this section uses the the <code>German credit</code> dataset as an example to show full steps of machine learning.</p>
 <div id="load-the-data" class="section level3 hasAnchor" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Load the Data<a href="sample-for-classification-problems.html#load-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="sample-for-classification-problems.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;rchallenge&quot;)</span></span>
-<span id="cb43-2"><a href="sample-for-classification-problems.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;german&quot;</span>, <span class="at">package =</span> <span class="st">&quot;rchallenge&quot;</span>) </span>
-<span id="cb43-3"><a href="sample-for-classification-problems.html#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="sample-for-classification-problems.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co">#observe the data</span></span>
-<span id="cb43-5"><a href="sample-for-classification-problems.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(german) <span class="co"># Data Type</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="sample-for-classification-problems.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;rchallenge&quot;)</span></span>
+<span id="cb35-2"><a href="sample-for-classification-problems.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;german&quot;</span>, <span class="at">package =</span> <span class="st">&quot;rchallenge&quot;</span>) </span>
+<span id="cb35-3"><a href="sample-for-classification-problems.html#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="sample-for-classification-problems.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">#observe the data</span></span>
+<span id="cb35-5"><a href="sample-for-classification-problems.html#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(german) <span class="co"># Data Type</span></span></code></pre></div>
 <pre><code>## Rows: 1,000
 ## Columns: 21
 ## $ status                  &lt;fct&gt; no checking account, no checking account, ... …
@@ -247,14 +241,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ telephone               &lt;fct&gt; no, no, no, no, no, no, no, no, no, no, no, no…
 ## $ foreign_worker          &lt;fct&gt; no, no, no, yes, yes, yes, yes, yes, no, no, n…
 ## $ credit_risk             &lt;fct&gt; good, good, good, good, good, good, good, good…</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="sample-for-classification-problems.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(german) <span class="co"># dimension of data</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="sample-for-classification-problems.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(german) <span class="co"># dimension of data</span></span></code></pre></div>
 <pre><code>## [1] 1000   21</code></pre>
 <p>Through observation, it is found that the dataset has a total of 2000 observations and 21 attributes (columns). The dependent variable we want to predict is creadit_risk (good or bad), and there are 20 independent variables in total, among which duration, age and amount are numerical variables, and the rest are factor variables.</p>
 <p><code>skimr</code> packages can be used for a more detailed look at understanding variables.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="sample-for-classification-problems.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;skimr&quot;)</span></span>
-<span id="cb47-2"><a href="sample-for-classification-problems.html#cb47-2" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(german)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="sample-for-classification-problems.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;skimr&quot;)</span></span>
+<span id="cb39-2"><a href="sample-for-classification-problems.html#cb39-2" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(german)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-25">Table 4.1: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-23">Table 4.1: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -535,8 +529,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
-<div id="modeling-1" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Modeling<a href="sample-for-classification-problems.html#modeling-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="modeling" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Modeling<a href="sample-for-classification-problems.html#modeling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When solving the credit risk classification problem by using the mlr3 package, typical problems that arise when building machine learning workflows are:</p>
 <p>What is the problem we are trying to solve?
 What is the appropriate learning algorithm?
@@ -553,13 +547,13 @@ How do we evaluate “good” performance?</p>
 <h3><span class="header-section-number">4.3.1</span> Task Definition<a href="sample-for-classification-problems.html#task-definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Firstly, we need to determine the goal of the modeling. Most supervised machine learning problems are regression or classification problems. In mlr3, we define tasks to distinguish between these problems. If we want to solve a classification problem, we define a classification task, <code>TaskClassif</code>. For the regression problem, we define a regression task, <code>TaskRegr</code>.</p>
 <p>In our example, our goal is clearly to model or predict the two-factor variable credit_risk. Therefore, we define a <code>TaskClassif</code>:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="sample-for-classification-problems.html#cb48-1" aria-hidden="true" tabindex="-1"></a>task <span class="ot">=</span> TaskClassif<span class="sc">$</span><span class="fu">new</span>(<span class="st">&quot;germancredit&quot;</span>, german , <span class="at">target =</span> <span class="st">&quot;credit_risk&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="sample-for-classification-problems.html#cb40-1" aria-hidden="true" tabindex="-1"></a>task <span class="ot">=</span> TaskClassif<span class="sc">$</span><span class="fu">new</span>(<span class="st">&quot;germancredit&quot;</span>, german , <span class="at">target =</span> <span class="st">&quot;credit_risk&quot;</span>)</span></code></pre></div>
 </div>
 <div id="leaner-definition" class="section level3 hasAnchor" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> Leaner Definition<a href="sample-for-classification-problems.html#leaner-definition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>After defining the task, we need to decide how to model. This means we need to decide what learning algorithms or Learners are appropriate. Using prior knowledge (for example, knowing that this is a classification task or assuming that the class is linearly divisible) will eventually result in one or more suitable learners.</p>
 <p>Many learners are available through the <code>mlr3learners</code> package. In addition, many of the learners are provided via the <code>mlr3extralearners</code> package on GitHub. Together, these two resources account for a large portion of standard learning algorithms.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="sample-for-classification-problems.html#cb49-1" aria-hidden="true" tabindex="-1"></a>mlr_learners</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="sample-for-classification-problems.html#cb41-1" aria-hidden="true" tabindex="-1"></a>mlr_learners</span></code></pre></div>
 <pre><code>## &lt;DictionaryLearner&gt; with 27 stored values
 ## Keys: classif.cv_glmnet, classif.debug, classif.featureless,
 ##   classif.glmnet, classif.kknn, classif.lda, classif.log_reg,
@@ -571,9 +565,9 @@ How do we evaluate “good” performance?</p>
 <p>A suitable learner for our problem could be one of the following: Logistic regression, CART, random forest, etc.</p>
 <p>The learner can be initialized using the <code>lrn()</code> function and the name of the learner, such as <code>lrn(" classif.xxx ")</code>. Use <code>mlr_learners_xxx</code> opens the help page for a learner named xxx.</p>
 <p>For example, logistic regression can be initialized by the following way (logistic regression uses R’s glm() function, provided by the mlr3learners package) :</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="sample-for-classification-problems.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;mlr3learners&quot;</span>)</span>
-<span id="cb51-2"><a href="sample-for-classification-problems.html#cb51-2" aria-hidden="true" tabindex="-1"></a>learner_logreg <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.log_reg&quot;</span>)</span>
-<span id="cb51-3"><a href="sample-for-classification-problems.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(learner_logreg)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="sample-for-classification-problems.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;mlr3learners&quot;</span>)</span>
+<span id="cb43-2"><a href="sample-for-classification-problems.html#cb43-2" aria-hidden="true" tabindex="-1"></a>learner_logreg <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.log_reg&quot;</span>)</span>
+<span id="cb43-3"><a href="sample-for-classification-problems.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(learner_logreg)</span></code></pre></div>
 <pre><code>## &lt;LearnerClassifLogReg:classif.log_reg&gt;
 ## * Model: -
 ## * Parameters: list()
@@ -590,14 +584,14 @@ How do we evaluate “good” performance?</p>
 </ol>
 <p>Let’s start with an example of logistic regression. However, you will immediately see that this process is very easy to generalize to any learner.</p>
 <p>You can use <code>$train()</code> to train the initialized learner:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="sample-for-classification-problems.html#cb53-1" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span><span class="fu">train</span>(task)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="sample-for-classification-problems.html#cb45-1" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span><span class="fu">train</span>(task)</span></code></pre></div>
 <p>Typically, in machine learning, we don’t use the full data available, but instead use a subset, the so-called training data. To perform data splitting effectively, you can do the following:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="sample-for-classification-problems.html#cb54-1" aria-hidden="true" tabindex="-1"></a>train_set <span class="ot">=</span> <span class="fu">sample</span>(task<span class="sc">$</span>row_ids, <span class="fl">0.8</span> <span class="sc">*</span> task<span class="sc">$</span>nrow)</span>
-<span id="cb54-2"><a href="sample-for-classification-problems.html#cb54-2" aria-hidden="true" tabindex="-1"></a>test_set <span class="ot">=</span> <span class="fu">setdiff</span>(task<span class="sc">$</span>row_ids, train_set)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="sample-for-classification-problems.html#cb46-1" aria-hidden="true" tabindex="-1"></a>train_set <span class="ot">=</span> <span class="fu">sample</span>(task<span class="sc">$</span>row_ids, <span class="fl">0.8</span> <span class="sc">*</span> task<span class="sc">$</span>nrow)</span>
+<span id="cb46-2"><a href="sample-for-classification-problems.html#cb46-2" aria-hidden="true" tabindex="-1"></a>test_set <span class="ot">=</span> <span class="fu">setdiff</span>(task<span class="sc">$</span>row_ids, train_set)</span></code></pre></div>
 <p>80% of the data is used for training. The remaining 20% is used for subsequent evaluation. train_set is an integer vector that refers to the selected rows of the original dataset. In mlr3, you can declare training using a subset of the data by attaching the parameter row_ids = train_set:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sample-for-classification-problems.html#cb55-1" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span><span class="fu">train</span>(task, <span class="at">row_ids =</span> train_set)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="sample-for-classification-problems.html#cb47-1" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span><span class="fu">train</span>(task, <span class="at">row_ids =</span> train_set)</span></code></pre></div>
 <p>The model after training fitting can be displayed through the following commands:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="sample-for-classification-problems.html#cb56-1" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span>model</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="sample-for-classification-problems.html#cb48-1" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span>model</span></code></pre></div>
 <pre><code>## 
 ## Call:  stats::glm(formula = task$formula(), family = &quot;binomial&quot;, data = data, 
 ##     model = FALSE)
@@ -718,9 +712,9 @@ How do we evaluate “good” performance?</p>
 ## Null Deviance:       982.4 
 ## Residual Deviance: 720.9     AIC: 830.9</code></pre>
 <p>You can check the type and summary of the model after Logistic regression training:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="sample-for-classification-problems.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(learner_logreg<span class="sc">$</span>model)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="sample-for-classification-problems.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(learner_logreg<span class="sc">$</span>model)</span></code></pre></div>
 <pre><code>## [1] &quot;glm&quot; &quot;lm&quot;</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="sample-for-classification-problems.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(learner_logreg<span class="sc">$</span>model)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="sample-for-classification-problems.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(learner_logreg<span class="sc">$</span>model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## stats::glm(formula = task$formula(), family = &quot;binomial&quot;, data = data, 
@@ -858,9 +852,9 @@ How do we evaluate “good” performance?</p>
 </ol>
 <p>Just like logistic regression, we can train a random forest. We use the ranger package to do this quickly. To do this, we first need to define the learner and then actually train it.</p>
 <p>We now provide additional importance parameters (importance = “permutation”). In doing so, we override the default and let the learner determine the importance of the feature based on the ranking of the importance of the feature:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="sample-for-classification-problems.html#cb62-1" aria-hidden="true" tabindex="-1"></a>learner_rf <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.ranger&quot;</span>, <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>)</span>
-<span id="cb62-2"><a href="sample-for-classification-problems.html#cb62-2" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span><span class="fu">train</span>(task, <span class="at">row_ids =</span> train_set)</span></code></pre></div>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="sample-for-classification-problems.html#cb63-1" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span><span class="fu">importance</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="sample-for-classification-problems.html#cb54-1" aria-hidden="true" tabindex="-1"></a>learner_rf <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.ranger&quot;</span>, <span class="at">importance =</span> <span class="st">&quot;permutation&quot;</span>)</span>
+<span id="cb54-2"><a href="sample-for-classification-problems.html#cb54-2" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span><span class="fu">train</span>(task, <span class="at">row_ids =</span> train_set)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="sample-for-classification-problems.html#cb55-1" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span><span class="fu">importance</span>()</span></code></pre></div>
 <pre><code>##                  status                duration                  amount 
 ##            0.0354184416            0.0162090730            0.0123043308 
 ##          credit_history                 savings                property 
@@ -876,13 +870,13 @@ How do we evaluate “good” performance?</p>
 ##               telephone          foreign_worker 
 ##            0.0005376060            0.0001642216</code></pre>
 <p>To get a graph of importance values, we convert importance to data.table format and process it with ggplot2:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="sample-for-classification-problems.html#cb65-1" aria-hidden="true" tabindex="-1"></a>importance <span class="ot">=</span> <span class="fu">as.data.table</span>(learner_rf<span class="sc">$</span><span class="fu">importance</span>(), <span class="at">keep.rownames =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb65-2"><a href="sample-for-classification-problems.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(importance) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Feature&quot;</span>, <span class="st">&quot;Importance&quot;</span>)</span>
-<span id="cb65-3"><a href="sample-for-classification-problems.html#cb65-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-4"><a href="sample-for-classification-problems.html#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>importance,</span>
-<span id="cb65-5"><a href="sample-for-classification-problems.html#cb65-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Feature, Importance), <span class="at">y =</span> Importance)) <span class="sc">+</span> </span>
-<span id="cb65-6"><a href="sample-for-classification-problems.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="cc-mlr3tutorial_files/figure-html/unnamed-chunk-37-1.png" width="672" />
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="sample-for-classification-problems.html#cb57-1" aria-hidden="true" tabindex="-1"></a>importance <span class="ot">=</span> <span class="fu">as.data.table</span>(learner_rf<span class="sc">$</span><span class="fu">importance</span>(), <span class="at">keep.rownames =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb57-2"><a href="sample-for-classification-problems.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(importance) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Feature&quot;</span>, <span class="st">&quot;Importance&quot;</span>)</span>
+<span id="cb57-3"><a href="sample-for-classification-problems.html#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="sample-for-classification-problems.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>importance,</span>
+<span id="cb57-5"><a href="sample-for-classification-problems.html#cb57-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Feature, Importance), <span class="at">y =</span> Importance)) <span class="sc">+</span> </span>
+<span id="cb57-6"><a href="sample-for-classification-problems.html#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="cc-mlr3tutorial_files/figure-html/unnamed-chunk-35-1.png" width="672" />
 It can be seen that the first seven variables play an important role in predicting the dependent variable.</p>
 </div>
 <div id="prediction" class="section level3 hasAnchor" number="4.3.4">
@@ -892,10 +886,10 @@ It can be seen that the first seven variables play an important role in predicti
 <ol style="list-style-type: decimal">
 <li>Predict Classes</li>
 </ol>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="sample-for-classification-problems.html#cb66-1" aria-hidden="true" tabindex="-1"></a>pred_logreg <span class="ot">=</span> learner_logreg<span class="sc">$</span><span class="fu">predict</span>(task, <span class="at">row_ids =</span> test_set)</span>
-<span id="cb66-2"><a href="sample-for-classification-problems.html#cb66-2" aria-hidden="true" tabindex="-1"></a>pred_rf <span class="ot">=</span> learner_rf<span class="sc">$</span><span class="fu">predict</span>(task, <span class="at">row_ids =</span> test_set)</span>
-<span id="cb66-3"><a href="sample-for-classification-problems.html#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-4"><a href="sample-for-classification-problems.html#cb66-4" aria-hidden="true" tabindex="-1"></a>pred_logreg</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="sample-for-classification-problems.html#cb58-1" aria-hidden="true" tabindex="-1"></a>pred_logreg <span class="ot">=</span> learner_logreg<span class="sc">$</span><span class="fu">predict</span>(task, <span class="at">row_ids =</span> test_set)</span>
+<span id="cb58-2"><a href="sample-for-classification-problems.html#cb58-2" aria-hidden="true" tabindex="-1"></a>pred_rf <span class="ot">=</span> learner_rf<span class="sc">$</span><span class="fu">predict</span>(task, <span class="at">row_ids =</span> test_set)</span>
+<span id="cb58-3"><a href="sample-for-classification-problems.html#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-4"><a href="sample-for-classification-problems.html#cb58-4" aria-hidden="true" tabindex="-1"></a>pred_logreg</span></code></pre></div>
 <pre><code>## &lt;PredictionClassif&gt; for 200 observations:
 ##     row_ids truth response
 ##          11  good      bad
@@ -905,7 +899,7 @@ It can be seen that the first seven variables play an important role in predicti
 ##         995   bad      bad
 ##         996   bad      bad
 ##         997   bad      bad</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="sample-for-classification-problems.html#cb68-1" aria-hidden="true" tabindex="-1"></a>pred_rf</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="sample-for-classification-problems.html#cb60-1" aria-hidden="true" tabindex="-1"></a>pred_rf</span></code></pre></div>
 <pre><code>## &lt;PredictionClassif&gt; for 200 observations:
 ##     row_ids truth response
 ##          11  good     good
@@ -916,12 +910,12 @@ It can be seen that the first seven variables play an important role in predicti
 ##         996   bad     good
 ##         997   bad      bad</code></pre>
 <p>The $predict() method returns a Prediction object. If you want to use it later, you can convert it to data.table format. We can also display the prediction results in the confusion matrix:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="sample-for-classification-problems.html#cb70-1" aria-hidden="true" tabindex="-1"></a>pred_logreg<span class="sc">$</span>confusion</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="sample-for-classification-problems.html#cb62-1" aria-hidden="true" tabindex="-1"></a>pred_logreg<span class="sc">$</span>confusion</span></code></pre></div>
 <pre><code>##         truth
 ## response bad good
 ##     bad   25   16
 ##     good  32  127</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="sample-for-classification-problems.html#cb72-1" aria-hidden="true" tabindex="-1"></a>pred_rf<span class="sc">$</span>confusion</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="sample-for-classification-problems.html#cb64-1" aria-hidden="true" tabindex="-1"></a>pred_rf<span class="sc">$</span>confusion</span></code></pre></div>
 <pre><code>##         truth
 ## response bad good
 ##     bad   22    9
@@ -930,8 +924,8 @@ It can be seen that the first seven variables play an important role in predicti
 <li>Predict Probabilities</li>
 </ol>
 <p>Most learning period Learner can not only predict category variables (” response “), but also predict their”confidence”/” uncertainty “degree to a given response. Typically, we do this by setting the Learner’s $predict_type to”prob”. Sometimes this needs to be done before the learner is trained. Alternatively, we can create the learner directly using this option: <code>lrn(" classif.log_reg ", predict_type= "prob")</code></p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="sample-for-classification-problems.html#cb74-1" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span>predict_type <span class="ot">=</span> <span class="st">&quot;prob&quot;</span></span>
-<span id="cb74-2"><a href="sample-for-classification-problems.html#cb74-2" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span><span class="fu">predict</span>(task, <span class="at">row_ids =</span> test_set)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="sample-for-classification-problems.html#cb66-1" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span>predict_type <span class="ot">=</span> <span class="st">&quot;prob&quot;</span></span>
+<span id="cb66-2"><a href="sample-for-classification-problems.html#cb66-2" aria-hidden="true" tabindex="-1"></a>learner_logreg<span class="sc">$</span><span class="fu">predict</span>(task, <span class="at">row_ids =</span> test_set)</span></code></pre></div>
 <pre><code>## &lt;PredictionClassif&gt; for 200 observations:
 ##     row_ids truth response  prob.bad  prob.good
 ##          11  good      bad 0.5953696 0.40463043
@@ -946,177 +940,177 @@ It can be seen that the first seven variables play an important role in predicti
 <h3><span class="header-section-number">4.3.5</span> Performance Evaluation<a href="sample-for-classification-problems.html#performance-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To measure the learner’s performance on new data, we usually simulate a sight unseen data by dividing the data into training sets and test sets. The training set is used to train the learner, and the test set is only used to predict and evaluate the performance of the trained learner. Many resampling methods (cross-validation, bootstrap) repeat the segmentation process in different ways.</p>
 <p>In mlr3, we need to specify the resampling strategy using the rsmp() function:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="sample-for-classification-problems.html#cb76-1" aria-hidden="true" tabindex="-1"></a>resampling <span class="ot">=</span> <span class="fu">rsmp</span>(<span class="st">&quot;holdout&quot;</span>, <span class="at">ratio =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
-<span id="cb76-2"><a href="sample-for-classification-problems.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resampling)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="sample-for-classification-problems.html#cb68-1" aria-hidden="true" tabindex="-1"></a>resampling <span class="ot">=</span> <span class="fu">rsmp</span>(<span class="st">&quot;holdout&quot;</span>, <span class="at">ratio =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb68-2"><a href="sample-for-classification-problems.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(resampling)</span></code></pre></div>
 <pre><code>## &lt;ResamplingHoldout&gt;: Holdout
 ## * Iterations: 1
 ## * Instantiated: FALSE
 ## * Parameters: ratio=0.6667</code></pre>
 <p>In this case, we use a “holdout,” which is a simple train-test split (only one iteration). We use the resample() function for resampling calculation:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="sample-for-classification-problems.html#cb78-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">resample</span>(task, <span class="at">learner =</span> learner_logreg, <span class="at">resampling =</span> resampling)</span></code></pre></div>
-<pre><code>## INFO  [03:56:13.614] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/1)</code></pre>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="sample-for-classification-problems.html#cb80-1" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="sample-for-classification-problems.html#cb70-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">=</span> <span class="fu">resample</span>(task, <span class="at">learner =</span> learner_logreg, <span class="at">resampling =</span> resampling)</span></code></pre></div>
+<pre><code>## INFO  [16:24:27.209] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/1)</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="sample-for-classification-problems.html#cb72-1" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
 <pre><code>## &lt;ResampleResult&gt; of 1 iterations
 ## * Task: germancredit
 ## * Learner: classif.log_reg
 ## * Warnings: 0 in 0 iterations
 ## * Errors: 0 in 0 iterations</code></pre>
 <p>The default score for the measure is included in <code>$aggregate()</code>:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="sample-for-classification-problems.html#cb82-1" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span><span class="fu">aggregate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="sample-for-classification-problems.html#cb74-1" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span><span class="fu">aggregate</span>()</span></code></pre></div>
 <pre><code>## classif.ce 
 ##  0.2942943</code></pre>
 <p>The default metric in this case is classification error. The lower the better.</p>
 <p>We can run different resampling strategies, such as repeated adherence (” secondary sampling “), or cross-validation. Most methods perform repeated training/prediction cycles on different subsets of data and aggregate the results (usually as averages). Doing this manually requires us to write a loop. mlr3 does the job for us:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="sample-for-classification-problems.html#cb84-1" aria-hidden="true" tabindex="-1"></a>resampling <span class="ot">=</span> <span class="fu">rsmp</span>(<span class="st">&quot;subsampling&quot;</span>, <span class="at">repeats=</span><span class="dv">10</span>)</span>
-<span id="cb84-2"><a href="sample-for-classification-problems.html#cb84-2" aria-hidden="true" tabindex="-1"></a>rr <span class="ot">=</span> <span class="fu">resample</span>(task, <span class="at">learner =</span> learner_logreg, <span class="at">resampling =</span> resampling)</span></code></pre></div>
-<pre><code>## INFO  [03:56:13.750] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [03:56:13.793] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [03:56:13.818] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [03:56:13.859] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [03:56:13.896] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [03:56:13.934] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [03:56:13.972] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [03:56:13.998] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [03:56:14.035] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [03:56:14.059] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/10)</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="sample-for-classification-problems.html#cb86-1" aria-hidden="true" tabindex="-1"></a>rr<span class="sc">$</span><span class="fu">aggregate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="sample-for-classification-problems.html#cb76-1" aria-hidden="true" tabindex="-1"></a>resampling <span class="ot">=</span> <span class="fu">rsmp</span>(<span class="st">&quot;subsampling&quot;</span>, <span class="at">repeats=</span><span class="dv">10</span>)</span>
+<span id="cb76-2"><a href="sample-for-classification-problems.html#cb76-2" aria-hidden="true" tabindex="-1"></a>rr <span class="ot">=</span> <span class="fu">resample</span>(task, <span class="at">learner =</span> learner_logreg, <span class="at">resampling =</span> resampling)</span></code></pre></div>
+<pre><code>## INFO  [16:24:27.327] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [16:24:27.371] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [16:24:27.396] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [16:24:27.439] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [16:24:27.476] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [16:24:27.514] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [16:24:27.552] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [16:24:27.579] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [16:24:27.616] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [16:24:27.640] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/10)</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="sample-for-classification-problems.html#cb78-1" aria-hidden="true" tabindex="-1"></a>rr<span class="sc">$</span><span class="fu">aggregate</span>()</span></code></pre></div>
 <pre><code>## classif.ce 
 ##   0.254955</code></pre>
 <p>In addition, we can also use cross validation:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="sample-for-classification-problems.html#cb88-1" aria-hidden="true" tabindex="-1"></a>resampling <span class="ot">=</span> resampling <span class="ot">=</span> <span class="fu">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="at">folds=</span><span class="dv">10</span>)</span>
-<span id="cb88-2"><a href="sample-for-classification-problems.html#cb88-2" aria-hidden="true" tabindex="-1"></a>rr <span class="ot">=</span> <span class="fu">resample</span>(task, <span class="at">learner =</span> learner_logreg, <span class="at">resampling =</span> resampling)</span></code></pre></div>
-<pre><code>## INFO  [03:56:14.120] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [03:56:14.148] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [03:56:14.179] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [03:56:14.206] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [03:56:14.232] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [03:56:14.261] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [03:56:14.287] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [03:56:14.317] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [03:56:14.342] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [03:56:14.391] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/10)</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="sample-for-classification-problems.html#cb90-1" aria-hidden="true" tabindex="-1"></a>rr<span class="sc">$</span><span class="fu">aggregate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="sample-for-classification-problems.html#cb80-1" aria-hidden="true" tabindex="-1"></a>resampling <span class="ot">=</span> resampling <span class="ot">=</span> <span class="fu">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="at">folds=</span><span class="dv">10</span>)</span>
+<span id="cb80-2"><a href="sample-for-classification-problems.html#cb80-2" aria-hidden="true" tabindex="-1"></a>rr <span class="ot">=</span> <span class="fu">resample</span>(task, <span class="at">learner =</span> learner_logreg, <span class="at">resampling =</span> resampling)</span></code></pre></div>
+<pre><code>## INFO  [16:24:27.701] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [16:24:27.729] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [16:24:27.759] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [16:24:27.787] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [16:24:27.817] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [16:24:27.842] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [16:24:27.868] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [16:24:27.897] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [16:24:27.922] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [16:24:27.970] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/10)</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="sample-for-classification-problems.html#cb82-1" aria-hidden="true" tabindex="-1"></a>rr<span class="sc">$</span><span class="fu">aggregate</span>()</span></code></pre></div>
 <pre><code>## classif.ce 
 ##      0.249</code></pre>
 </div>
 <div id="performance-comparision-and-benchmarks" class="section level3 hasAnchor" number="4.3.6">
 <h3><span class="header-section-number">4.3.6</span> Performance Comparision and Benchmarks<a href="sample-for-classification-problems.html#performance-comparision-and-benchmarks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can compare the learner by manually evaluating the resample() for each learning period. However, benchmark() automatically performs resampling evaluations for multiple learners and tasks. benchmark_grid() Create a fully interleaved design: compare multiple learners on multiple tasks. Resampling multiple times.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="sample-for-classification-problems.html#cb92-1" aria-hidden="true" tabindex="-1"></a>learners <span class="ot">=</span> <span class="fu">lrns</span>(<span class="fu">c</span>(<span class="st">&quot;classif.log_reg&quot;</span>, <span class="st">&quot;classif.ranger&quot;</span>), <span class="at">predict_type =</span> <span class="st">&quot;prob&quot;</span>)</span>
-<span id="cb92-2"><a href="sample-for-classification-problems.html#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-3"><a href="sample-for-classification-problems.html#cb92-3" aria-hidden="true" tabindex="-1"></a>bm_design <span class="ot">=</span> <span class="fu">benchmark_grid</span>(</span>
-<span id="cb92-4"><a href="sample-for-classification-problems.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">tasks =</span> task,</span>
-<span id="cb92-5"><a href="sample-for-classification-problems.html#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">learners =</span> learners,</span>
-<span id="cb92-6"><a href="sample-for-classification-problems.html#cb92-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamplings =</span> <span class="fu">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="at">folds =</span> <span class="dv">50</span>)</span>
-<span id="cb92-7"><a href="sample-for-classification-problems.html#cb92-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb92-8"><a href="sample-for-classification-problems.html#cb92-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-9"><a href="sample-for-classification-problems.html#cb92-9" aria-hidden="true" tabindex="-1"></a>bmr <span class="ot">=</span> <span class="fu">benchmark</span>(bm_design)</span></code></pre></div>
-<pre><code>## INFO  [03:56:14.531] [mlr3] Running benchmark with 100 resampling iterations
-## INFO  [03:56:14.535] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/50)
-## INFO  [03:56:14.563] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/50)
-## INFO  [03:56:14.596] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/50)
-## INFO  [03:56:14.623] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/50)
-## INFO  [03:56:14.650] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/50)
-## INFO  [03:56:14.682] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/50)
-## INFO  [03:56:14.709] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/50)
-## INFO  [03:56:14.740] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/50)
-## INFO  [03:56:14.766] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/50)
-## INFO  [03:56:14.793] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/50)
-## INFO  [03:56:14.941] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 11/50)
-## INFO  [03:56:14.967] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 12/50)
-## INFO  [03:56:14.994] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 13/50)
-## INFO  [03:56:15.022] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 14/50)
-## INFO  [03:56:15.075] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 15/50)
-## INFO  [03:56:15.104] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 16/50)
-## INFO  [03:56:15.134] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 17/50)
-## INFO  [03:56:15.162] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 18/50)
-## INFO  [03:56:15.191] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 19/50)
-## INFO  [03:56:15.224] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 20/50)
-## INFO  [03:56:15.253] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 21/50)
-## INFO  [03:56:15.281] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 22/50)
-## INFO  [03:56:15.310] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 23/50)
-## INFO  [03:56:15.342] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 24/50)
-## INFO  [03:56:15.369] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 25/50)
-## INFO  [03:56:15.395] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 26/50)
-## INFO  [03:56:15.422] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 27/50)
-## INFO  [03:56:15.448] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 28/50)
-## INFO  [03:56:15.478] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 29/50)
-## INFO  [03:56:15.505] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 30/50)
-## INFO  [03:56:15.531] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 31/50)
-## INFO  [03:56:15.557] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 32/50)
-## INFO  [03:56:15.587] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 33/50)
-## INFO  [03:56:15.613] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 34/50)
-## INFO  [03:56:15.640] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 35/50)
-## INFO  [03:56:15.666] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 36/50)
-## INFO  [03:56:15.696] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 37/50)
-## INFO  [03:56:15.757] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 38/50)
-## INFO  [03:56:15.791] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 39/50)
-## INFO  [03:56:15.820] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 40/50)
-## INFO  [03:56:15.852] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 41/50)
-## INFO  [03:56:15.879] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 42/50)
-## INFO  [03:56:15.906] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 43/50)
-## INFO  [03:56:15.936] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 44/50)
-## INFO  [03:56:15.963] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 45/50)
-## INFO  [03:56:15.990] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 46/50)
-## INFO  [03:56:16.016] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 47/50)
-## INFO  [03:56:16.046] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 48/50)
-## INFO  [03:56:16.073] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 49/50)
-## INFO  [03:56:16.100] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 50/50)
-## INFO  [03:56:16.129] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 1/50)
-## INFO  [03:56:16.340] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 2/50)
-## INFO  [03:56:16.548] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 3/50)
-## INFO  [03:56:16.759] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 4/50)
-## INFO  [03:56:16.970] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 5/50)
-## INFO  [03:56:17.176] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 6/50)
-## INFO  [03:56:17.388] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 7/50)
-## INFO  [03:56:17.597] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 8/50)
-## INFO  [03:56:17.818] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 9/50)
-## INFO  [03:56:18.024] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 10/50)
-## INFO  [03:56:18.231] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 11/50)
-## INFO  [03:56:18.438] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 12/50)
-## INFO  [03:56:18.644] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 13/50)
-## INFO  [03:56:18.849] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 14/50)
-## INFO  [03:56:19.063] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 15/50)
-## INFO  [03:56:19.268] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 16/50)
-## INFO  [03:56:19.473] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 17/50)
-## INFO  [03:56:19.680] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 18/50)
-## INFO  [03:56:19.887] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 19/50)
-## INFO  [03:56:20.101] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 20/50)
-## INFO  [03:56:20.309] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 21/50)
-## INFO  [03:56:20.516] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 22/50)
-## INFO  [03:56:20.721] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 23/50)
-## INFO  [03:56:20.931] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 24/50)
-## INFO  [03:56:21.136] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 25/50)
-## INFO  [03:56:21.343] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 26/50)
-## INFO  [03:56:21.554] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 27/50)
-## INFO  [03:56:21.760] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 28/50)
-## INFO  [03:56:21.977] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 29/50)
-## INFO  [03:56:22.183] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 30/50)
-## INFO  [03:56:22.389] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 31/50)
-## INFO  [03:56:22.593] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 32/50)
-## INFO  [03:56:22.798] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 33/50)
-## INFO  [03:56:23.003] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 34/50)
-## INFO  [03:56:23.214] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 35/50)
-## INFO  [03:56:23.419] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 36/50)
-## INFO  [03:56:23.625] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 37/50)
-## INFO  [03:56:23.829] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 38/50)
-## INFO  [03:56:24.034] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 39/50)
-## INFO  [03:56:24.243] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 40/50)
-## INFO  [03:56:24.448] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 41/50)
-## INFO  [03:56:24.652] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 42/50)
-## INFO  [03:56:24.858] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 43/50)
-## INFO  [03:56:25.069] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 44/50)
-## INFO  [03:56:25.275] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 45/50)
-## INFO  [03:56:25.481] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 46/50)
-## INFO  [03:56:25.700] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 47/50)
-## INFO  [03:56:25.913] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 48/50)
-## INFO  [03:56:26.133] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 49/50)
-## INFO  [03:56:26.339] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 50/50)
-## INFO  [03:56:26.558] [mlr3] Finished benchmark</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="sample-for-classification-problems.html#cb84-1" aria-hidden="true" tabindex="-1"></a>learners <span class="ot">=</span> <span class="fu">lrns</span>(<span class="fu">c</span>(<span class="st">&quot;classif.log_reg&quot;</span>, <span class="st">&quot;classif.ranger&quot;</span>), <span class="at">predict_type =</span> <span class="st">&quot;prob&quot;</span>)</span>
+<span id="cb84-2"><a href="sample-for-classification-problems.html#cb84-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-3"><a href="sample-for-classification-problems.html#cb84-3" aria-hidden="true" tabindex="-1"></a>bm_design <span class="ot">=</span> <span class="fu">benchmark_grid</span>(</span>
+<span id="cb84-4"><a href="sample-for-classification-problems.html#cb84-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">tasks =</span> task,</span>
+<span id="cb84-5"><a href="sample-for-classification-problems.html#cb84-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">learners =</span> learners,</span>
+<span id="cb84-6"><a href="sample-for-classification-problems.html#cb84-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamplings =</span> <span class="fu">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="at">folds =</span> <span class="dv">50</span>)</span>
+<span id="cb84-7"><a href="sample-for-classification-problems.html#cb84-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb84-8"><a href="sample-for-classification-problems.html#cb84-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-9"><a href="sample-for-classification-problems.html#cb84-9" aria-hidden="true" tabindex="-1"></a>bmr <span class="ot">=</span> <span class="fu">benchmark</span>(bm_design)</span></code></pre></div>
+<pre><code>## INFO  [16:24:28.073] [mlr3] Running benchmark with 100 resampling iterations
+## INFO  [16:24:28.077] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 1/50)
+## INFO  [16:24:28.114] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 2/50)
+## INFO  [16:24:28.177] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 3/50)
+## INFO  [16:24:28.204] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 4/50)
+## INFO  [16:24:28.232] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 5/50)
+## INFO  [16:24:28.264] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 6/50)
+## INFO  [16:24:28.291] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 7/50)
+## INFO  [16:24:28.318] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 8/50)
+## INFO  [16:24:28.349] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 9/50)
+## INFO  [16:24:28.376] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 10/50)
+## INFO  [16:24:28.404] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 11/50)
+## INFO  [16:24:28.435] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 12/50)
+## INFO  [16:24:28.462] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 13/50)
+## INFO  [16:24:28.489] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 14/50)
+## INFO  [16:24:28.543] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 15/50)
+## INFO  [16:24:28.695] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 16/50)
+## INFO  [16:24:28.724] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 17/50)
+## INFO  [16:24:28.753] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 18/50)
+## INFO  [16:24:28.782] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 19/50)
+## INFO  [16:24:28.811] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 20/50)
+## INFO  [16:24:28.845] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 21/50)
+## INFO  [16:24:28.875] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 22/50)
+## INFO  [16:24:28.905] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 23/50)
+## INFO  [16:24:28.933] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 24/50)
+## INFO  [16:24:28.959] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 25/50)
+## INFO  [16:24:28.992] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 26/50)
+## INFO  [16:24:29.019] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 27/50)
+## INFO  [16:24:29.046] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 28/50)
+## INFO  [16:24:29.072] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 29/50)
+## INFO  [16:24:29.100] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 30/50)
+## INFO  [16:24:29.131] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 31/50)
+## INFO  [16:24:29.158] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 32/50)
+## INFO  [16:24:29.185] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 33/50)
+## INFO  [16:24:29.212] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 34/50)
+## INFO  [16:24:29.243] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 35/50)
+## INFO  [16:24:29.270] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 36/50)
+## INFO  [16:24:29.297] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 37/50)
+## INFO  [16:24:29.323] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 38/50)
+## INFO  [16:24:29.350] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 39/50)
+## INFO  [16:24:29.381] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 40/50)
+## INFO  [16:24:29.408] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 41/50)
+## INFO  [16:24:29.434] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 42/50)
+## INFO  [16:24:29.461] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 43/50)
+## INFO  [16:24:29.491] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 44/50)
+## INFO  [16:24:29.518] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 45/50)
+## INFO  [16:24:29.544] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 46/50)
+## INFO  [16:24:29.571] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 47/50)
+## INFO  [16:24:29.601] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 48/50)
+## INFO  [16:24:29.628] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 49/50)
+## INFO  [16:24:29.655] [mlr3] Applying learner &#39;classif.log_reg&#39; on task &#39;germancredit&#39; (iter 50/50)
+## INFO  [16:24:29.682] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 1/50)
+## INFO  [16:24:29.895] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 2/50)
+## INFO  [16:24:30.104] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 3/50)
+## INFO  [16:24:30.315] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 4/50)
+## INFO  [16:24:30.524] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 5/50)
+## INFO  [16:24:30.738] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 6/50)
+## INFO  [16:24:30.945] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 7/50)
+## INFO  [16:24:31.152] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 8/50)
+## INFO  [16:24:31.364] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 9/50)
+## INFO  [16:24:31.601] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 10/50)
+## INFO  [16:24:31.825] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 11/50)
+## INFO  [16:24:32.034] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 12/50)
+## INFO  [16:24:32.241] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 13/50)
+## INFO  [16:24:32.450] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 14/50)
+## INFO  [16:24:32.656] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 15/50)
+## INFO  [16:24:32.866] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 16/50)
+## INFO  [16:24:33.082] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 17/50)
+## INFO  [16:24:33.293] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 18/50)
+## INFO  [16:24:33.501] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 19/50)
+## INFO  [16:24:33.716] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 20/50)
+## INFO  [16:24:33.924] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 21/50)
+## INFO  [16:24:34.136] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 22/50)
+## INFO  [16:24:34.346] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 23/50)
+## INFO  [16:24:34.551] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 24/50)
+## INFO  [16:24:34.760] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 25/50)
+## INFO  [16:24:34.973] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 26/50)
+## INFO  [16:24:35.177] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 27/50)
+## INFO  [16:24:35.387] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 28/50)
+## INFO  [16:24:35.604] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 29/50)
+## INFO  [16:24:35.815] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 30/50)
+## INFO  [16:24:36.029] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 31/50)
+## INFO  [16:24:36.248] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 32/50)
+## INFO  [16:24:36.467] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 33/50)
+## INFO  [16:24:36.675] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 34/50)
+## INFO  [16:24:36.883] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 35/50)
+## INFO  [16:24:37.090] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 36/50)
+## INFO  [16:24:37.299] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 37/50)
+## INFO  [16:24:37.513] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 38/50)
+## INFO  [16:24:37.719] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 39/50)
+## INFO  [16:24:37.924] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 40/50)
+## INFO  [16:24:38.131] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 41/50)
+## INFO  [16:24:38.341] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 42/50)
+## INFO  [16:24:38.557] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 43/50)
+## INFO  [16:24:38.764] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 44/50)
+## INFO  [16:24:38.972] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 45/50)
+## INFO  [16:24:39.179] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 46/50)
+## INFO  [16:24:39.393] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 47/50)
+## INFO  [16:24:39.604] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 48/50)
+## INFO  [16:24:39.812] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 49/50)
+## INFO  [16:24:40.026] [mlr3] Applying learner &#39;classif.ranger&#39; on task &#39;germancredit&#39; (iter 50/50)
+## INFO  [16:24:40.248] [mlr3] Finished benchmark</code></pre>
 <p>In benchmarking, we can compare different measures. Here, we look at the misclassification rate and the AUC:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="sample-for-classification-problems.html#cb94-1" aria-hidden="true" tabindex="-1"></a>measures <span class="ot">=</span> <span class="fu">msrs</span>(<span class="fu">c</span>(<span class="st">&quot;classif.ce&quot;</span>, <span class="st">&quot;classif.auc&quot;</span>))</span>
-<span id="cb94-2"><a href="sample-for-classification-problems.html#cb94-2" aria-hidden="true" tabindex="-1"></a>performances <span class="ot">=</span> bmr<span class="sc">$</span><span class="fu">aggregate</span>(measures)</span>
-<span id="cb94-3"><a href="sample-for-classification-problems.html#cb94-3" aria-hidden="true" tabindex="-1"></a>performances[, <span class="fu">c</span>(<span class="st">&quot;learner_id&quot;</span>, <span class="st">&quot;classif.ce&quot;</span>, <span class="st">&quot;classif.auc&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="sample-for-classification-problems.html#cb86-1" aria-hidden="true" tabindex="-1"></a>measures <span class="ot">=</span> <span class="fu">msrs</span>(<span class="fu">c</span>(<span class="st">&quot;classif.ce&quot;</span>, <span class="st">&quot;classif.auc&quot;</span>))</span>
+<span id="cb86-2"><a href="sample-for-classification-problems.html#cb86-2" aria-hidden="true" tabindex="-1"></a>performances <span class="ot">=</span> bmr<span class="sc">$</span><span class="fu">aggregate</span>(measures)</span>
+<span id="cb86-3"><a href="sample-for-classification-problems.html#cb86-3" aria-hidden="true" tabindex="-1"></a>performances[, <span class="fu">c</span>(<span class="st">&quot;learner_id&quot;</span>, <span class="st">&quot;classif.ce&quot;</span>, <span class="st">&quot;classif.auc&quot;</span>)]</span></code></pre></div>
 <pre><code>##         learner_id classif.ce classif.auc
 ## 1: classif.log_reg      0.248   0.7828609
 ## 2:  classif.ranger      0.228   0.7974390</code></pre>
@@ -1124,7 +1118,7 @@ It can be seen that the first seven variables play an important role in predicti
 <div id="deviating-from-hyperparameters-defaults" class="section level3 hasAnchor" number="4.3.7">
 <h3><span class="header-section-number">4.3.7</span> Deviating from Hyperparameters Defaults<a href="sample-for-classification-problems.html#deviating-from-hyperparameters-defaults" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The techniques previously demonstrated build the backbone of the machine learning workflow that features mlr3. However, in most cases, people will never proceed as we did. While many R packages have carefully chosen default Settings, they do not operate optimally under any circumstances. In general, we can choose the value of such a hyperparameter. The learner’s (super) parameter can be accessed and set via its ParamSet $param_set:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="sample-for-classification-problems.html#cb96-1" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span>param_set</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="sample-for-classification-problems.html#cb88-1" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span>param_set</span></code></pre></div>
 <pre><code>## &lt;ParamSet&gt;
 ##                               id    class lower upper nlevels        default
 ##  1:                        alpha ParamDbl  -Inf   Inf     Inf            0.5
@@ -1188,10 +1182,10 @@ It can be seen that the first seven variables play an important role in predicti
 ## 28:                       
 ## 29:                       
 ##        parents       value</code></pre>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="sample-for-classification-problems.html#cb98-1" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span>param_set<span class="sc">$</span>values <span class="ot">=</span> <span class="fu">list</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="sample-for-classification-problems.html#cb90-1" aria-hidden="true" tabindex="-1"></a>learner_rf<span class="sc">$</span>param_set<span class="sc">$</span>values <span class="ot">=</span> <span class="fu">list</span>(<span class="at">verbose =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>We can choose parameters for our learners in two different ways. If we had a prior knowledge of how the learner should be (hyper-) parameterized, the way to go would be to manually enter the parameters in the parameter set. In most cases, however, we want to tune the learner so that it can search for “good” model configurations on its own. For now, we only want to compare a few models.</p>
 <p>To see which parameters can be manipulated, we can investigate the original package version’s parameters or look at the learner’s parameter set:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="sample-for-classification-problems.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.table</span>(learner_rf<span class="sc">$</span>param_set)[,.(id, class, lower, upper)]</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="sample-for-classification-problems.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.table</span>(learner_rf<span class="sc">$</span>param_set)[,.(id, class, lower, upper)]</span></code></pre></div>
 <pre><code>##                               id    class lower upper
 ##  1:                        alpha ParamDbl  -Inf   Inf
 ##  2:       always.split.variables ParamUty    NA    NA
@@ -1229,69 +1223,69 @@ It can be seen that the first seven variables play an important role in predicti
 2) Random forest with low num.trees and low mtry.
 3) Random forest with high num.trees and high mtry.</p>
 <p>We will benchmark their performance against the German credit data set. To do this, we built three learners and set the parameters accordingly:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="sample-for-classification-problems.html#cb101-1" aria-hidden="true" tabindex="-1"></a>rf_med <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.ranger&quot;</span>, <span class="at">id =</span> <span class="st">&quot;med&quot;</span>, <span class="at">predict_type =</span> <span class="st">&quot;prob&quot;</span>)</span>
-<span id="cb101-2"><a href="sample-for-classification-problems.html#cb101-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-3"><a href="sample-for-classification-problems.html#cb101-3" aria-hidden="true" tabindex="-1"></a>rf_low <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.ranger&quot;</span>, <span class="at">id =</span> <span class="st">&quot;low&quot;</span>, <span class="at">predict_type =</span> <span class="st">&quot;prob&quot;</span>,</span>
-<span id="cb101-4"><a href="sample-for-classification-problems.html#cb101-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">num.trees =</span> <span class="dv">5</span>, <span class="at">mtry =</span> <span class="dv">2</span>)</span>
-<span id="cb101-5"><a href="sample-for-classification-problems.html#cb101-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-6"><a href="sample-for-classification-problems.html#cb101-6" aria-hidden="true" tabindex="-1"></a>rf_high <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.ranger&quot;</span>, <span class="at">id =</span> <span class="st">&quot;high&quot;</span>, <span class="at">predict_type =</span> <span class="st">&quot;prob&quot;</span>,</span>
-<span id="cb101-7"><a href="sample-for-classification-problems.html#cb101-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">num.trees =</span> <span class="dv">1000</span>, <span class="at">mtry =</span> <span class="dv">11</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="sample-for-classification-problems.html#cb93-1" aria-hidden="true" tabindex="-1"></a>rf_med <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.ranger&quot;</span>, <span class="at">id =</span> <span class="st">&quot;med&quot;</span>, <span class="at">predict_type =</span> <span class="st">&quot;prob&quot;</span>)</span>
+<span id="cb93-2"><a href="sample-for-classification-problems.html#cb93-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="sample-for-classification-problems.html#cb93-3" aria-hidden="true" tabindex="-1"></a>rf_low <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.ranger&quot;</span>, <span class="at">id =</span> <span class="st">&quot;low&quot;</span>, <span class="at">predict_type =</span> <span class="st">&quot;prob&quot;</span>,</span>
+<span id="cb93-4"><a href="sample-for-classification-problems.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">num.trees =</span> <span class="dv">5</span>, <span class="at">mtry =</span> <span class="dv">2</span>)</span>
+<span id="cb93-5"><a href="sample-for-classification-problems.html#cb93-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-6"><a href="sample-for-classification-problems.html#cb93-6" aria-hidden="true" tabindex="-1"></a>rf_high <span class="ot">=</span> <span class="fu">lrn</span>(<span class="st">&quot;classif.ranger&quot;</span>, <span class="at">id =</span> <span class="st">&quot;high&quot;</span>, <span class="at">predict_type =</span> <span class="st">&quot;prob&quot;</span>,</span>
+<span id="cb93-7"><a href="sample-for-classification-problems.html#cb93-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">num.trees =</span> <span class="dv">1000</span>, <span class="at">mtry =</span> <span class="dv">11</span>)</span></code></pre></div>
 <p>Once the learner is defined, we can benchmark them:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="sample-for-classification-problems.html#cb102-1" aria-hidden="true" tabindex="-1"></a>learners <span class="ot">=</span> <span class="fu">list</span>(rf_low, rf_med, rf_high)</span>
-<span id="cb102-2"><a href="sample-for-classification-problems.html#cb102-2" aria-hidden="true" tabindex="-1"></a>bm_design <span class="ot">=</span> <span class="fu">benchmark_grid</span>(</span>
-<span id="cb102-3"><a href="sample-for-classification-problems.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">tasks =</span> task,</span>
-<span id="cb102-4"><a href="sample-for-classification-problems.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">learners =</span> learners,</span>
-<span id="cb102-5"><a href="sample-for-classification-problems.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamplings =</span> <span class="fu">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="at">folds =</span> <span class="dv">10</span>)</span>
-<span id="cb102-6"><a href="sample-for-classification-problems.html#cb102-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb102-7"><a href="sample-for-classification-problems.html#cb102-7" aria-hidden="true" tabindex="-1"></a>bmr <span class="ot">=</span> <span class="fu">benchmark</span>(bm_design)</span></code></pre></div>
-<pre><code>## INFO  [03:56:26.834] [mlr3] Running benchmark with 30 resampling iterations
-## INFO  [03:56:26.837] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [03:56:26.851] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [03:56:26.863] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [03:56:26.875] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [03:56:26.887] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [03:56:26.905] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [03:56:26.918] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [03:56:26.930] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [03:56:26.942] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [03:56:26.953] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 10/10)
-## INFO  [03:56:26.965] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [03:56:27.166] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [03:56:27.361] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [03:56:27.564] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [03:56:27.766] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [03:56:27.967] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [03:56:28.166] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [03:56:28.361] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [03:56:28.555] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [03:56:28.751] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 10/10)
-## INFO  [03:56:28.955] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 1/10)
-## INFO  [03:56:29.540] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 2/10)
-## INFO  [03:56:30.120] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 3/10)
-## INFO  [03:56:30.699] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 4/10)
-## INFO  [03:56:31.275] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 5/10)
-## INFO  [03:56:31.847] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 6/10)
-## INFO  [03:56:32.433] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 7/10)
-## INFO  [03:56:33.007] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 8/10)
-## INFO  [03:56:33.586] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 9/10)
-## INFO  [03:56:34.166] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 10/10)
-## INFO  [03:56:34.763] [mlr3] Finished benchmark</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="sample-for-classification-problems.html#cb104-1" aria-hidden="true" tabindex="-1"></a>bmr</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="sample-for-classification-problems.html#cb94-1" aria-hidden="true" tabindex="-1"></a>learners <span class="ot">=</span> <span class="fu">list</span>(rf_low, rf_med, rf_high)</span>
+<span id="cb94-2"><a href="sample-for-classification-problems.html#cb94-2" aria-hidden="true" tabindex="-1"></a>bm_design <span class="ot">=</span> <span class="fu">benchmark_grid</span>(</span>
+<span id="cb94-3"><a href="sample-for-classification-problems.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">tasks =</span> task,</span>
+<span id="cb94-4"><a href="sample-for-classification-problems.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">learners =</span> learners,</span>
+<span id="cb94-5"><a href="sample-for-classification-problems.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">resamplings =</span> <span class="fu">rsmp</span>(<span class="st">&quot;cv&quot;</span>, <span class="at">folds =</span> <span class="dv">10</span>)</span>
+<span id="cb94-6"><a href="sample-for-classification-problems.html#cb94-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb94-7"><a href="sample-for-classification-problems.html#cb94-7" aria-hidden="true" tabindex="-1"></a>bmr <span class="ot">=</span> <span class="fu">benchmark</span>(bm_design)</span></code></pre></div>
+<pre><code>## INFO  [16:24:40.540] [mlr3] Running benchmark with 30 resampling iterations
+## INFO  [16:24:40.544] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [16:24:40.556] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [16:24:40.573] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [16:24:40.586] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [16:24:40.600] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [16:24:40.613] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [16:24:40.627] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [16:24:40.639] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [16:24:40.652] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [16:24:40.664] [mlr3] Applying learner &#39;low&#39; on task &#39;germancredit&#39; (iter 10/10)
+## INFO  [16:24:40.676] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [16:24:40.874] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [16:24:41.074] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [16:24:41.279] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [16:24:41.493] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [16:24:41.690] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [16:24:41.886] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [16:24:42.084] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [16:24:42.280] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [16:24:42.485] [mlr3] Applying learner &#39;med&#39; on task &#39;germancredit&#39; (iter 10/10)
+## INFO  [16:24:42.693] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 1/10)
+## INFO  [16:24:43.281] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 2/10)
+## INFO  [16:24:43.867] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 3/10)
+## INFO  [16:24:44.453] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 4/10)
+## INFO  [16:24:45.035] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 5/10)
+## INFO  [16:24:45.613] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 6/10)
+## INFO  [16:24:46.197] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 7/10)
+## INFO  [16:24:46.776] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 8/10)
+## INFO  [16:24:47.360] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 9/10)
+## INFO  [16:24:47.960] [mlr3] Applying learner &#39;high&#39; on task &#39;germancredit&#39; (iter 10/10)
+## INFO  [16:24:48.548] [mlr3] Finished benchmark</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="sample-for-classification-problems.html#cb96-1" aria-hidden="true" tabindex="-1"></a>bmr</span></code></pre></div>
 <pre><code>## &lt;BenchmarkResult&gt; of 30 rows with 3 resampling runs
 ##  nr      task_id learner_id resampling_id iters warnings errors
 ##   1 germancredit        low            cv    10        0      0
 ##   2 germancredit        med            cv    10        0      0
 ##   3 germancredit       high            cv    10        0      0</code></pre>
 <p>We can compare the classification error rate and AUC of different learners:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="sample-for-classification-problems.html#cb106-1" aria-hidden="true" tabindex="-1"></a>measures <span class="ot">=</span> <span class="fu">msrs</span>(<span class="fu">c</span>(<span class="st">&quot;classif.ce&quot;</span>, <span class="st">&quot;classif.auc&quot;</span>))</span>
-<span id="cb106-2"><a href="sample-for-classification-problems.html#cb106-2" aria-hidden="true" tabindex="-1"></a>performances <span class="ot">=</span> bmr<span class="sc">$</span><span class="fu">aggregate</span>(measures)</span>
-<span id="cb106-3"><a href="sample-for-classification-problems.html#cb106-3" aria-hidden="true" tabindex="-1"></a>performances[, .(learner_id, classif.ce, classif.auc)]</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="sample-for-classification-problems.html#cb98-1" aria-hidden="true" tabindex="-1"></a>measures <span class="ot">=</span> <span class="fu">msrs</span>(<span class="fu">c</span>(<span class="st">&quot;classif.ce&quot;</span>, <span class="st">&quot;classif.auc&quot;</span>))</span>
+<span id="cb98-2"><a href="sample-for-classification-problems.html#cb98-2" aria-hidden="true" tabindex="-1"></a>performances <span class="ot">=</span> bmr<span class="sc">$</span><span class="fu">aggregate</span>(measures)</span>
+<span id="cb98-3"><a href="sample-for-classification-problems.html#cb98-3" aria-hidden="true" tabindex="-1"></a>performances[, .(learner_id, classif.ce, classif.auc)]</span></code></pre></div>
 <pre><code>##    learner_id classif.ce classif.auc
 ## 1:        low      0.288   0.6996411
 ## 2:        med      0.227   0.7946750
 ## 3:       high      0.234   0.7940926</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="sample-for-classification-problems.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(bmr)</span></code></pre></div>
-<p><img src="cc-mlr3tutorial_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="sample-for-classification-problems.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(bmr)</span></code></pre></div>
+<p><img src="cc-mlr3tutorial_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <p>Compared with the three parameter tuning models, the default parameter model in this example is better.</p>
 
 </div>

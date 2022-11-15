@@ -151,13 +151,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="cheat-sheets.html"><a href="cheat-sheets.html"><i class="fa fa-check"></i><b>3</b> Cheat Sheets</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="cheat-sheets.html"><a href="cheat-sheets.html#basic-function"><i class="fa fa-check"></i><b>3.1</b> Basic Function</a></li>
-<li class="chapter" data-level="3.2" data-path="cheat-sheets.html"><a href="cheat-sheets.html#pipeline"><i class="fa fa-check"></i><b>3.2</b> Pipeline</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="cheat-sheets.html"><a href="cheat-sheets.html#the-building-blocks-pipeops"><i class="fa fa-check"></i><b>3.2.1</b> The Building Blocks: PipeOps</a></li>
-<li class="chapter" data-level="3.2.2" data-path="cheat-sheets.html"><a href="cheat-sheets.html#nodes-edges-and-graphs"><i class="fa fa-check"></i><b>3.2.2</b> Nodes, Edges and Graphs</a></li>
-<li class="chapter" data-level="3.2.3" data-path="cheat-sheets.html"><a href="cheat-sheets.html#modeling"><i class="fa fa-check"></i><b>3.2.3</b> Modeling</a></li>
-<li class="chapter" data-level="3.2.4" data-path="cheat-sheets.html"><a href="cheat-sheets.html#non-linear-graphs"><i class="fa fa-check"></i><b>3.2.4</b> Non-Linear Graphs</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="cheat-sheets.html"><a href="cheat-sheets.html#pipeline"><i class="fa fa-check"></i><b>3.2</b> Pipeline</a></li>
 <li class="chapter" data-level="3.3" data-path="cheat-sheets.html"><a href="cheat-sheets.html#hyperparameter-tuning"><i class="fa fa-check"></i><b>3.3</b> Hyperparameter Tuning</a></li>
 <li class="chapter" data-level="3.4" data-path="cheat-sheets.html"><a href="cheat-sheets.html#feature-selection"><i class="fa fa-check"></i><b>3.4</b> Feature Selection</a></li>
 </ul></li>
@@ -168,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#load-the-data"><i class="fa fa-check"></i><b>4.2.1</b> Load the Data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#modeling-1"><i class="fa fa-check"></i><b>4.3</b> Modeling</a>
+<li class="chapter" data-level="4.3" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#modeling"><i class="fa fa-check"></i><b>4.3</b> Modeling</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#task-definition"><i class="fa fa-check"></i><b>4.3.1</b> Task Definition</a></li>
 <li class="chapter" data-level="4.3.2" data-path="sample-for-classification-problems.html"><a href="sample-for-classification-problems.html#leaner-definition"><i class="fa fa-check"></i><b>4.3.2</b> Leaner Definition</a></li>
@@ -217,8 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>-mlr_resampling</p></li>
 </ul>
 <p>Example usages: The function keys() returns all learners keys prebuilt in mlr3 package. If we install mlr3learners package, we will get an extension version of it. Installing the according libraries and extend the dictionaries.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="cheat-sheets.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3)</span>
-<span id="cb7-2"><a href="cheat-sheets.html#cb7-2" aria-hidden="true" tabindex="-1"></a>mlr_learners<span class="sc">$</span><span class="fu">keys</span>(<span class="at">pattern =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="cheat-sheets.html#cb7-1" aria-hidden="true" tabindex="-1"></a>mlr_learners<span class="sc">$</span><span class="fu">keys</span>(<span class="at">pattern =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;classif.cv_glmnet&quot;   &quot;classif.debug&quot;       &quot;classif.featureless&quot;
 ##  [4] &quot;classif.glmnet&quot;      &quot;classif.kknn&quot;        &quot;classif.lda&quot;        
 ##  [7] &quot;classif.log_reg&quot;     &quot;classif.multinom&quot;    &quot;classif.naive_bayes&quot;
@@ -365,444 +358,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.2</span> Pipeline<a href="cheat-sheets.html#pipeline" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Machine learning workflows can be written as directed “Graphs”/“Pipelines” that represent data flows between preprocessing, model fitting, and ensemble learning units in an expressive and intuitive language. We will most often use the term “Graph” in this manual but it can interchangeably be used with “pipeline” or “workflow”.</p>
 <p>Single computational steps can be represented as so-called PipeOps, which can then be connected with directed edges in a Graph. The scope of mlr3pipelines is still growing. Currently supported features are:</p>
-<ul>
-<li><p>Data manipulation and preprocessing operations, e.g. PCA, feature filtering, imputation</p></li>
-<li><p>Task subsampling for speed and outcome class imbalance handling</p></li>
-<li><p>mlr3 Learner operations for prediction and stacking</p></li>
-<li><p>Ensemble methods and aggregation of predictions</p></li>
-</ul>
+<p>- Data manipulation and preprocessing operations, e.g. PCA, feature filtering, imputation</p>
+<p>- Task subsampling for speed and outcome class imbalance handling</p>
+<p>- mlr3 Learner operations for prediction and stacking</p>
+<p>- Ensemble methods and aggregation of predictions</p>
 <p>Additionally, we implement several meta operators that can be used to construct powerful pipelines:</p>
-<ul>
-<li><p>Simultaneous path branching (data going both ways)</p></li>
-<li><p>Alternative path branching (data going one specific way, controlled by hyperparameters)</p></li>
-</ul>
-<p>Using methods from <code>mlr3tuning</code>, it is even possible to simultaneously optimize parameters of multiple processing units.</p>
-<div id="the-building-blocks-pipeops" class="section level3 hasAnchor" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> The Building Blocks: PipeOps<a href="cheat-sheets.html#the-building-blocks-pipeops" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>- Simultaneous path branching (data going both ways)</p>
+<p>- Alternative path branching (data going one specific way, controlled by hyperparameters)</p>
+<p>Using methods from `mlr3tuning`, it is even possible to simultaneously optimize parameters of multiple processing units.</p>
+<p>### The Building Blocks: PipeOps</p>
 <p>The building blocks of mlr3pipelines are PipeOp-objects (PO). They can be constructed directly using PipeOp&lt;NAME&gt;$new(), but the recommended way is to retrieve them from the mlr_pipeops dictionary:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="cheat-sheets.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;mlr3pipelines&quot;</span>)</span>
-<span id="cb28-2"><a href="cheat-sheets.html#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="cheat-sheets.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.table</span>(mlr_pipeops)</span></code></pre></div>
-<pre><code>##                       key
-##  1:                boxcox
-##  2:                branch
-##  3:                 chunk
-##  4:        classbalancing
-##  5:            classifavg
-##  6:          classweights
-##  7:              colapply
-##  8:       collapsefactors
-##  9:              colroles
-## 10:                  copy
-## 11:          datefeatures
-## 12:                encode
-## 13:          encodeimpact
-## 14:            encodelmer
-## 15:          featureunion
-## 16:                filter
-## 17:            fixfactors
-## 18:               histbin
-## 19:                   ica
-## 20:        imputeconstant
-## 21:            imputehist
-## 22:         imputelearner
-## 23:            imputemean
-## 24:          imputemedian
-## 25:            imputemode
-## 26:             imputeoor
-## 27:          imputesample
-## 28:             kernelpca
-## 29:               learner
-## 30:            learner_cv
-## 31:               missind
-## 32:           modelmatrix
-## 33:     multiplicityexply
-## 34:     multiplicityimply
-## 35:                mutate
-## 36:                   nmf
-## 37:                   nop
-## 38:              ovrsplit
-## 39:              ovrunite
-## 40:                   pca
-## 41:                 proxy
-## 42:           quantilebin
-## 43:      randomprojection
-## 44:        randomresponse
-## 45:               regravg
-## 46:       removeconstants
-## 47:         renamecolumns
-## 48:             replicate
-## 49:                 scale
-## 50:           scalemaxabs
-## 51:            scalerange
-## 52:                select
-## 53:                 smote
-## 54:           spatialsign
-## 55:             subsample
-## 56:          targetinvert
-## 57:          targetmutate
-## 58: targettrafoscalerange
-## 59:        textvectorizer
-## 60:             threshold
-## 61:         tunethreshold
-## 62:              unbranch
-## 63:                vtreat
-## 64:            yeojohnson
-##                       key
-##                                                                         label
-##  1:                                Box-Cox Transformation of Numeric Features
-##  2:                                                            Path Branching
-##  3:                                         Chunk Input into Multiple Outputs
-##  4:                                                           Class Balancing
-##  5:                                                  Majority Vote Prediction
-##  6:                                        Class Weights for Sample Weighting
-##  7:                                 Apply a Function to each Column of a Task
-##  8:                                                          Collapse Factors
-##  9:                                             Change Column Roles of a Task
-## 10:                                                 Copy Input Multiple Times
-## 11:                                                  Preprocess Date Features
-## 12:                                                           Factor Encoding
-## 13:                                  Conditional Target Value Impact Encoding
-## 14:                              Impact Encoding with Random Intercept Models
-## 15:                                   Aggregate Features from Multiple Inputs
-## 16:                                                         Feature Filtering
-## 17:                                                         Fix Factor Levels
-## 18:                           Split Numeric Features into Equally Spaced Bins
-## 19:                                            Independent Component Analysis
-## 20:                                             Impute Features by a Constant
-## 21:                                    Impute Numerical Features by Histogram
-## 22:                                      Impute Features by Fitting a Learner
-## 23:                                   Impute Numerical Features by their Mean
-## 24:                                 Impute Numerical Features by their Median
-## 25:                                             Impute Features by their Mode
-## 26:                                                   Out of Range Imputation
-## 27:                                               Impute Features by Sampling
-## 28:                                   Kernelized Principle Component Analysis
-## 29:                                              Wrap a Learner into a PipeOp
-## 30: Wrap a Learner into a PipeOp with Cross-validated Predictions as Features
-## 31:                                             Add Missing Indicator Columns
-## 32:                          Transform Columns by Constructing a Model Matrix
-## 33:                                                  Explicate a Multiplicity
-## 34:                                                  Implicate a Multiplicity
-## 35:                                     Add Features According to Expressions
-## 36:                                         Non-negative Matrix Factorization
-## 37:                                                 Simply Push Input Forward
-## 38:              Split a Classification Task into Binary Classification Tasks
-## 39:                                         Unite Binary Classification Tasks
-## 40:                                              Principle Component Analysis
-## 41:                          Wrap another PipeOp or Graph as a Hyperparameter
-## 42:                                 Split Numeric Features into Quantile Bins
-## 43:                 Project Numeric Features onto a Randomly Sampled Subspace
-## 44:                                 Generate a Randomized Response Prediction
-## 45:                                             Weighted Prediction Averaging
-## 46:                                                  Remove Constant Features
-## 47:                                                            Rename Columns
-## 48:                                     Replicate the Input as a Multiplicity
-## 49:                                         Center and Scale Numeric Features
-## 50:       Scale Numeric Features with Respect to their Maximum Absolute Value
-## 51:             Linearly Transform Numeric Features to Match Given Boundaries
-## 52:                                   Remove Features Depending on a Selector
-## 53:                                                           SMOTE Balancing
-## 54:                                                   Normalize Data Row-wise
-## 55:                                                               Subsampling
-## 56:                                             Invert Target Transformations
-## 57:                                          Transform a Target by a Function
-## 58:             Linearly Transform a Numeric Target to Match Given Boundaries
-## 59:                          Bag-of-word Representation of Character Features
-## 60:                       Change the Threshold of a Classification Prediction
-## 61:                         Tune the Threshold of a Classification Prediction
-## 62:                                                  Unbranch Different Paths
-## 63:                                           Interface to the vtreat Package
-## 64:                            Yeo-Johnson Transformation of Numeric Features
-##                                                                         label
-##                             packages                             tags
-##  1:      mlr3pipelines,bestNormalize                   data transform
-##  2:                    mlr3pipelines                             meta
-##  3:                    mlr3pipelines                             meta
-##  4:                    mlr3pipelines   imbalanced data,data transform
-##  5:              mlr3pipelines,stats                         ensemble
-##  6:                    mlr3pipelines   imbalanced data,data transform
-##  7:                    mlr3pipelines                   data transform
-##  8:                    mlr3pipelines                   data transform
-##  9:                    mlr3pipelines                   data transform
-## 10:                    mlr3pipelines                             meta
-## 11:                    mlr3pipelines                   data transform
-## 12:              mlr3pipelines,stats            encode,data transform
-## 13:                    mlr3pipelines            encode,data transform
-## 14:        mlr3pipelines,lme4,nloptr            encode,data transform
-## 15:                    mlr3pipelines                         ensemble
-## 16:                    mlr3pipelines feature selection,data transform
-## 17:                    mlr3pipelines         robustify,data transform
-## 18:           mlr3pipelines,graphics                   data transform
-## 19:            mlr3pipelines,fastICA                   data transform
-## 20:                    mlr3pipelines                         missings
-## 21:           mlr3pipelines,graphics                         missings
-## 22:                    mlr3pipelines                         missings
-## 23:                    mlr3pipelines                         missings
-## 24:              mlr3pipelines,stats                         missings
-## 25:                    mlr3pipelines                         missings
-## 26:                    mlr3pipelines                         missings
-## 27:                    mlr3pipelines                         missings
-## 28:            mlr3pipelines,kernlab                   data transform
-## 29:                    mlr3pipelines                          learner
-## 30:                    mlr3pipelines  learner,ensemble,data transform
-## 31:                    mlr3pipelines          missings,data transform
-## 32:              mlr3pipelines,stats                   data transform
-## 33:                    mlr3pipelines                     multiplicity
-## 34:                    mlr3pipelines                     multiplicity
-## 35:                    mlr3pipelines                   data transform
-## 36:           mlr3pipelines,MASS,NMF                   data transform
-## 37:                    mlr3pipelines                             meta
-## 38:                    mlr3pipelines    target transform,multiplicity
-## 39:                    mlr3pipelines            multiplicity,ensemble
-## 40:                    mlr3pipelines                   data transform
-## 41:                    mlr3pipelines                             meta
-## 42:              mlr3pipelines,stats                   data transform
-## 43:                    mlr3pipelines                   data transform
-## 44:                    mlr3pipelines                         abstract
-## 45:                    mlr3pipelines                         ensemble
-## 46:                    mlr3pipelines         robustify,data transform
-## 47:                    mlr3pipelines                   data transform
-## 48:                    mlr3pipelines                     multiplicity
-## 49:                    mlr3pipelines                   data transform
-## 50:                    mlr3pipelines                   data transform
-## 51:                    mlr3pipelines                   data transform
-## 52:                    mlr3pipelines feature selection,data transform
-## 53:        mlr3pipelines,smotefamily   imbalanced data,data transform
-## 54:                    mlr3pipelines                   data transform
-## 55:                    mlr3pipelines                   data transform
-## 56:                    mlr3pipelines                         abstract
-## 57:                    mlr3pipelines                 target transform
-## 58:                    mlr3pipelines                 target transform
-## 59: mlr3pipelines,quanteda,stopwords                   data transform
-## 60:                    mlr3pipelines                 target transform
-## 61:              mlr3pipelines,bbotk                 target transform
-## 62:                    mlr3pipelines                             meta
-## 63:             mlr3pipelines,vtreat   encode,missings,data transform
-## 64:      mlr3pipelines,bestNormalize                   data transform
-##                             packages                             tags
-##                                            feature_types input.num output.num
-##  1:                                      numeric,integer         1          1
-##  2:                                                   NA         1         NA
-##  3:                                                   NA         1         NA
-##  4: logical,integer,numeric,character,factor,ordered,...         1          1
-##  5:                                                   NA        NA          1
-##  6: logical,integer,numeric,character,factor,ordered,...         1          1
-##  7: logical,integer,numeric,character,factor,ordered,...         1          1
-##  8:                                       factor,ordered         1          1
-##  9: logical,integer,numeric,character,factor,ordered,...         1          1
-## 10:                                                   NA         1         NA
-## 11:                                              POSIXct         1          1
-## 12:                                       factor,ordered         1          1
-## 13:                                       factor,ordered         1          1
-## 14:                                       factor,ordered         1          1
-## 15:                                                   NA        NA          1
-## 16: logical,integer,numeric,character,factor,ordered,...         1          1
-## 17:                                       factor,ordered         1          1
-## 18:                                      numeric,integer         1          1
-## 19:                                      numeric,integer         1          1
-## 20: logical,integer,numeric,character,factor,ordered,...         1          1
-## 21:                                      integer,numeric         1          1
-## 22:                               logical,factor,ordered         1          1
-## 23:                                      numeric,integer         1          1
-## 24:                                      numeric,integer         1          1
-## 25:               factor,integer,logical,numeric,ordered         1          1
-## 26:             character,factor,integer,numeric,ordered         1          1
-## 27:               factor,integer,logical,numeric,ordered         1          1
-## 28:                                      numeric,integer         1          1
-## 29:                                                   NA         1          1
-## 30: logical,integer,numeric,character,factor,ordered,...         1          1
-## 31: logical,integer,numeric,character,factor,ordered,...         1          1
-## 32: logical,integer,numeric,character,factor,ordered,...         1          1
-## 33:                                                   NA         1         NA
-## 34:                                                   NA        NA          1
-## 35: logical,integer,numeric,character,factor,ordered,...         1          1
-## 36:                                      numeric,integer         1          1
-## 37:                                                   NA         1          1
-## 38:                                                   NA         1          1
-## 39:                                                   NA         1          1
-## 40:                                      numeric,integer         1          1
-## 41:                                                   NA        NA          1
-## 42:                                      numeric,integer         1          1
-## 43:                                      numeric,integer         1          1
-## 44:                                                   NA         1          1
-## 45:                                                   NA        NA          1
-## 46: logical,integer,numeric,character,factor,ordered,...         1          1
-## 47: logical,integer,numeric,character,factor,ordered,...         1          1
-## 48:                                                   NA         1          1
-## 49:                                      numeric,integer         1          1
-## 50:                                      numeric,integer         1          1
-## 51:                                      numeric,integer         1          1
-## 52: logical,integer,numeric,character,factor,ordered,...         1          1
-## 53: logical,integer,numeric,character,factor,ordered,...         1          1
-## 54:                                      numeric,integer         1          1
-## 55: logical,integer,numeric,character,factor,ordered,...         1          1
-## 56:                                                   NA         2          1
-## 57:                                                   NA         1          2
-## 58:                                                   NA         1          2
-## 59:                                            character         1          1
-## 60:                                                   NA         1          1
-## 61:                                                   NA         1          1
-## 62:                                                   NA        NA          1
-## 63: logical,integer,numeric,character,factor,ordered,...         1          1
-## 64:                                      numeric,integer         1          1
-##                                            feature_types input.num output.num
-##     input.type.train  input.type.predict output.type.train output.type.predict
-##  1:             Task                Task              Task                Task
-##  2:                *                   *                 *                   *
-##  3:             Task                Task              Task                Task
-##  4:      TaskClassif         TaskClassif       TaskClassif         TaskClassif
-##  5:             NULL   PredictionClassif              NULL   PredictionClassif
-##  6:      TaskClassif         TaskClassif       TaskClassif         TaskClassif
-##  7:             Task                Task              Task                Task
-##  8:             Task                Task              Task                Task
-##  9:             Task                Task              Task                Task
-## 10:                *                   *                 *                   *
-## 11:             Task                Task              Task                Task
-## 12:             Task                Task              Task                Task
-## 13:             Task                Task              Task                Task
-## 14:             Task                Task              Task                Task
-## 15:             Task                Task              Task                Task
-## 16:             Task                Task              Task                Task
-## 17:             Task                Task              Task                Task
-## 18:             Task                Task              Task                Task
-## 19:             Task                Task              Task                Task
-## 20:             Task                Task              Task                Task
-## 21:             Task                Task              Task                Task
-## 22:             Task                Task              Task                Task
-## 23:             Task                Task              Task                Task
-## 24:             Task                Task              Task                Task
-## 25:             Task                Task              Task                Task
-## 26:             Task                Task              Task                Task
-## 27:             Task                Task              Task                Task
-## 28:             Task                Task              Task                Task
-## 29:      TaskClassif         TaskClassif              NULL   PredictionClassif
-## 30:      TaskClassif         TaskClassif       TaskClassif         TaskClassif
-## 31:             Task                Task              Task                Task
-## 32:             Task                Task              Task                Task
-## 33:              [*]                 [*]                 *                   *
-## 34:                *                   *               [*]                 [*]
-## 35:             Task                Task              Task                Task
-## 36:             Task                Task              Task                Task
-## 37:                *                   *                 *                   *
-## 38:      TaskClassif         TaskClassif     [TaskClassif]       [TaskClassif]
-## 39:           [NULL] [PredictionClassif]              NULL   PredictionClassif
-## 40:             Task                Task              Task                Task
-## 41:                *                   *                 *                   *
-## 42:             Task                Task              Task                Task
-## 43:             Task                Task              Task                Task
-## 44:             NULL          Prediction              NULL          Prediction
-## 45:             NULL      PredictionRegr              NULL      PredictionRegr
-## 46:             Task                Task              Task                Task
-## 47:             Task                Task              Task                Task
-## 48:                *                   *               [*]                 [*]
-## 49:             Task                Task              Task                Task
-## 50:             Task                Task              Task                Task
-## 51:             Task                Task              Task                Task
-## 52:             Task                Task              Task                Task
-## 53:             Task                Task              Task                Task
-## 54:             Task                Task              Task                Task
-## 55:             Task                Task              Task                Task
-## 56:        NULL,NULL function,Prediction              NULL          Prediction
-## 57:             Task                Task         NULL,Task       function,Task
-## 58:         TaskRegr            TaskRegr     NULL,TaskRegr   function,TaskRegr
-## 59:             Task                Task              Task                Task
-## 60:             NULL   PredictionClassif              NULL   PredictionClassif
-## 61:             Task                Task              NULL          Prediction
-## 62:                *                   *                 *                   *
-## 63:             Task                Task              Task                Task
-## 64:             Task                Task              Task                Task
-##     input.type.train  input.type.predict output.type.train output.type.predict</code></pre>
-</div>
-<div id="nodes-edges-and-graphs" class="section level3 hasAnchor" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Nodes, Edges and Graphs<a href="cheat-sheets.html#nodes-edges-and-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>```{r,echo=TRUE}</p>
+<p>library(“mlr3pipelines”)</p>
+<p>as.data.table(mlr_pipeops)</p>
+<p>```</p>
+<p>### Nodes, Edges and Graphs</p>
 <p>POs are combined into Graphs.</p>
 <p>POs are identified by their $id. Note that the operations all modify the object in-place and return the object itself. Therefore, multiple modifications can be chained.</p>
 <p>Connects PipeOps with edges to control data flow during training and prediction. Input is sent to sources (no in-edges), output is read from sinks (no out-edges).</p>
 <p>Important methods and slots:</p>
-<pre><code>
-Display:print(gr),gr\$plot(html = TRUE) Accessing PipeOps: gr\$pipeops
-
-Named list of all contained POs.
-</code></pre>
+<p>```</p>
+<p>Display:print(gr),gr$plot(html = TRUE) Accessing PipeOps: gr$pipeops</p>
+<p>Named list of all contained POs.</p>
+<p>```</p>
 <p>The %&gt;&gt;% operator takes either a PipeOp or a Graph on each of its sides and connects all left-hand outputs to the right-hand inputs. For full control, connect PipeOps explicitly:</p>
-<pre><code>
-gr = Graph\$new()
-
-gr\$add_pipeop(po(&quot;pca&quot;))
-
-gr\$add_pipeop(lrn(&quot;classif.rpart&quot;))
-
-gr\$add_edge(&quot;pca&quot;, &quot;classif.rpart&quot;)
-</code></pre>
+<p>```</p>
+<p>gr = Graph$new()</p>
+<p>gr$add_pipeop(po(“pca”))</p>
+<p>gr$add_pipeop(lrn(“classif.rpart”))</p>
+<p>gr$add_edge(“pca”, “classif.rpart”)</p>
+<p>```</p>
 <p>GraphLearner behave like Learner and enable all mlr3 features:</p>
-<pre><code>
-grl = GraphLearner\$new(gr).
-</code></pre>
+<p>```</p>
+<p>grl = GraphLearner$new(gr).</p>
+<p>```</p>
 <p>See slots $encapsulate for debugging and $model for results after training.</p>
 <p>Concatenate POs with %&gt;&gt;% to get linear graph.</p>
-</div>
-<div id="modeling" class="section level3 hasAnchor" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Modeling<a href="cheat-sheets.html#modeling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>### Modeling</p>
 <p>The main purpose of a Graph is to build combined preprocessing and model fitting pipelines that can be used as mlr3 Learner.</p>
-<div id="setting-hyperparameters" class="section level4 hasAnchor" number="3.2.3.1">
-<h4><span class="header-section-number">3.2.3.1</span> Setting Hyperparameters<a href="cheat-sheets.html#setting-hyperparameters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>#### Setting Hyperparameters</p>
 <p>Individual POs offer hyperparameters because they contain $param_set slots that can be read and written from $param_set$values (via the paradox package). The parameters get passed down to the Graph, and finally to the GraphLearner . This makes it not only possible to easily change the behavior of a Graph / GraphLearner and try different settings manually, but also to perform tuning using the mlr3tuning package.</p>
 <p>For POs: Exactly as in a Learner.</p>
-<pre><code>enc = po(&quot;encode&quot;)
-
-enc\$param_set
-
-enc\$param_set\$values = list(method=&quot;one-hot&quot;)
-
-po(&quot;encode&quot;, param_vals = list(method=&quot;one-hot&quot;))
-</code></pre>
+<p>```</p>
+<p>enc = po(“encode”)</p>
+<p>enc$param_set</p>
+<p>enc$param_set$values = list(method=“one-hot”)</p>
+<p>po(“encode”, param_vals = list(method=“one-hot”))</p>
+<p>```</p>
 <p>For Graph / GraphLearner: All HPs are collected in a global ParamSet stored in $param_set. IDs are prefixed with the respective PipeOp’s id.</p>
-</div>
-<div id="tuning" class="section level4 hasAnchor" number="3.2.3.2">
-<h4><span class="header-section-number">3.2.3.2</span> Tuning<a href="cheat-sheets.html#tuning" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>#### Tuning</p>
 <p>Can jointly tune any Pipeline. Usage of AutoTuner is identical.</p>
 <p>Details could be seen in below section.</p>
-</div>
-</div>
-<div id="non-linear-graphs" class="section level3 hasAnchor" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> Non-Linear Graphs<a href="cheat-sheets.html#non-linear-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>### Non-Linear Graphs</p>
 <p>The Graphs seen so far all have a linear structure. Some POs may have multiple input or output channels. These channels make it possible to create non-linear Graphs with alternative paths taken by the data.</p>
 <p>Possible types are:</p>
 <p>Branching: Splitting of a node into several paths, e.g. useful when comparing multiple feature-selection methods (pca, filters). Only one path will be executed.</p>
 <p>Copying: Splitting of a node into several paths, all paths will be executed (sequentially). Parallel execution is not yet supported.</p>
 <p>Stacking: Single graphs are stacked onto each other, i.e. the output of one Graph is the input for another. In machine learning this means that the prediction of one Graph is used as input for another Graph.</p>
-<div id="common-functions" class="section level4 hasAnchor" number="3.2.4.1">
-<h4><span class="header-section-number">3.2.4.1</span> Common functions:<a href="cheat-sheets.html#common-functions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><code>gunion()</code> arranges PipeOps or Graphs next to each other in a disjoint graph union.</p>
+<p>#### Common functions:</p>
+<p>`gunion()` arranges PipeOps or Graphs next to each other in a disjoint graph union.</p>
 <p>pipeline_greplicate() creates a new Graph containing n copies of the input (PipeOp or Graph).</p>
 <p>PipeOpFeatureUnion aggregates features from all input tasks into a single Task.</p>
-</div>
-<div id="branching-copying" class="section level4 hasAnchor" number="3.2.4.2">
-<h4><span class="header-section-number">3.2.4.2</span> Branching &amp; Copying<a href="cheat-sheets.html#branching-copying" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>#### Branching &amp; Copying</p>
 <p>The PipeOpBranch and PipeOpUnbranch POs make it possible to specify multiple alternative paths. Only one path is actually executed, the others are ignored. The active path is determined by a hyperparameter. This concept makes it possible to tune alternative preprocessing paths (or learner models).</p>
 <p>They controls the path execution. Only one branch can be active. Which one is controlled by a hyperparameter. Unbranching ends the forking.</p>
 <p>Example:</p>
-<pre><code>
-gr = ppl(&quot;branch&quot;, list(
-
-pca = po(&quot;pca&quot;), scale = po(&quot;scale&quot;))
-
-)
-
-# set the &quot;pca&quot; path as the active one:
-
-gr\$param_set\$values\$branch.selection = &quot;pca&quot;
-</code></pre>
+<p>```</p>
+<p>gr = ppl(“branch”, list(</p>
+<p>pca = po(“pca”), scale = po(“scale”))</p>
+<p>)</p>
+<p># set the “pca” path as the active one:</p>
+<p>gr$param_set$values$branch.selection = “pca”</p>
+<p>```</p>
 <p>Tuning the branching selection enables powerful model selection.</p>
-</div>
-</div>
 </div>
 <div id="hyperparameter-tuning" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Hyperparameter Tuning<a href="cheat-sheets.html#hyperparameter-tuning" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="cheat-sheets.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3learners)</span>
-<span id="cb35-2"><a href="cheat-sheets.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3tuning)</span></code></pre></div>
 <p>The table shows the terminator methods:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="cheat-sheets.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.table</span>(mlr_terminators)</span></code></pre></div>
 <pre><code>##                 key                label             properties        unit
 ## 1:       clock_time           Clock Time single-crit,multi-crit     seconds
 ## 2:            combo          Combination single-crit,multi-crit     percent
@@ -813,7 +446,7 @@ gr\$param_set\$values\$branch.selection = &quot;pca&quot;
 ## 7:       stagnation           Stagnation            single-crit     percent
 ## 8: stagnation_batch     Stagnation Batch            single-crit     percent</code></pre>
 <p>The table shows tuner search strategy we can choose from:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="cheat-sheets.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.table</span>(mlr_tuners) </span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="cheat-sheets.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.table</span>(mlr_tuners) </span></code></pre></div>
 <pre><code>##              key                                           label
 ## 1:         cmaes Covariance Matrix Adaptation Evolution Strategy
 ## 2: design_points                                   Design Points
@@ -856,10 +489,9 @@ gr\$param_set\$values\$branch.selection = &quot;pca&quot;
 </div>
 <div id="feature-selection" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Feature Selection<a href="cheat-sheets.html#feature-selection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="cheat-sheets.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mlr3fselect)</span></code></pre></div>
 <p>Here is the auto feature selector：</p>
 <p>The table shows fselectors method we can choose from:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="cheat-sheets.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.table</span>(mlr_fselectors) </span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="cheat-sheets.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.table</span>(mlr_fselectors) </span></code></pre></div>
 <pre><code>##                       key                         label
 ## 1:          design_points                 Design Points
 ## 2:      exhaustive_search             Exhaustive Search
