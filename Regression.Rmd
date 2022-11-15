@@ -4,7 +4,7 @@ Here we will perform and solve a classification problem using the mlr3 package.
 
 First, we load the data and create a machine learning task.
 
-```{r}
+```{r,echo = TRUE}
 library(mlr3)
 
 my_data =read.csv("./winequality-red.csv", sep = ";")
@@ -14,42 +14,42 @@ head(my_data)
 
 We create a machine learning task:
 
-```{r}
+```{r,echo = TRUE}
 my_task = as_task_regr(x = my_data, target = "quality")
 my_task
 ```
 
 Next we choose a learner to perform a regression task:
 
-```{r}
+```{r,echo = TRUE}
 learner = mlr_learners$get("regr.rpart")
 learner
 ```
 
 Since we have 1599 observations, we will split them into test/train using 2:8.
 
-```{r}
+```{r,echo = TRUE}
 train_set = sample(my_task$nrow, 0.8 * my_task$nrow)
 test_set = setdiff(seq_len(my_task$nrow), train_set)
 ```
 
 We train the model using the test set:
 
-```{r}
+```{r,echo = TRUE}
 learner$train(my_task, row_ids = train_set)
 learner$model
 ```
 
 We then predict using the test set:
 
-```{r}
+```{r,echo = TRUE}
 prediction = learner$predict(my_task, row_ids = test_set)
 prediction$score()
 ```
 
 We can select the best feature set by using mlr3fselect package and use the auto tuner:
 
-```{r}
+```{r,echo = TRUE}
 library(mlr3fselect)
 # auto tuner
 autos = auto_fselector(

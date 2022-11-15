@@ -18,7 +18,7 @@
 
 Example usages: The function keys() returns all learners keys prebuilt in mlr3 package. If we install mlr3learners package, we will get an extension version of it. Installing the according libraries and extend the dictionaries.
 
-```{r}
+```{r,echo = TRUE}
 library(mlr3)
 mlr_learners$keys(pattern = NULL)
 ```
@@ -35,13 +35,13 @@ For a brief introduction, we will explain the keywords in these six to get a bet
 
 The function get() retrieves object by key. It will show all the information about the key.
 
-```{r}
+```{r,echo = TRUE}
 mlr_learners$get("classif.rpart")
 ```
 
 The function makes dictionary to data.table form.
 
-```{r}
+```{r,echo = TRUE}
 head(as.data.table(mlr_tasks))
 ```
 
@@ -49,14 +49,14 @@ head(as.data.table(mlr_tasks))
 
 Target determines the machine learning Task. We can create a classification task:
 
-```{r}
+```{r,echo = TRUE}
 task1 = as_task_classif(x = iris, target = "Species")
 task1
 ```
 
 We can create a regression task:
 
-```{r}
+```{r,echo = TRUE}
 age <- c(33, 55, 25)
 salary <- c(20000, 50000, 15000)
 df <- data.frame(age, salary)
@@ -66,24 +66,24 @@ task2
 
 We can also use the example tasks in mlr_tasks by calling tsk(task_name):
 
-```{r}
+```{r,echo = TRUE}
 task3 = tsk("zoo")
 task3
 ```
 
 We can perform some functions on the task: task\$positive = "<argument>" sets positive class for binary classification
 
-```{r}
+```{r,echo = TRUE}
 #return number of rows
 task1$nrow
 ```
 
-```{r}
+```{r,echo = TRUE}
 #return number of columns
 task1$ncol
 ```
 
-```{r}
+```{r,echo = TRUE}
 #subset the task by selecting features
 task1$select("Sepal.Length")
 ```
@@ -104,7 +104,7 @@ learner = lrn(method)
 
 Here is an example:
 
-```{r}
+```{r,echo = TRUE}
 learner = lrn("regr.rpart")
 learner
 ```
@@ -134,7 +134,7 @@ prediction = learner\$predict_newdata(data)
 
 Here are the model evaluation metrics in the mlr_measures library:
 
-```{r}
+```{r,echo = TRUE}
 mlr_measures$keys(pattern = NULL)
 ```
 
@@ -144,7 +144,7 @@ prediction\$score(measures): returns the model evaluation metrics of the selecte
 
 ## Hyperparameter Tuning
 
-```{r}
+```{r,echo = TRUE}
 library(mlr3learners)
 library(mlr3tuning)
 ```
@@ -169,7 +169,7 @@ batch_size = \<#\>
 
 ## Feature Selection
 
-```{r}
+```{r,echo = TRUE}
 library(mlr3fselect)
 
 ```
