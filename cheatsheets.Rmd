@@ -125,8 +125,7 @@ test_set = setdiff(seq_len(task\$nrow), train_set)
 
 -   Predict
 
-These two methods will predict on the select data:
-prediction = learner\$predict(task, row_ids)
+These two methods will predict on the select data: prediction = learner\$predict(task, row_ids)
 
 prediction = learner\$predict_newdata(data)
 
@@ -141,6 +140,156 @@ mlr_measures$keys(pattern = NULL)
 prediction\$score(measures): returns the model evaluation metrics of the selected learner
 
 ## Pipeline
+
+Machine learning workflows can be written as directed "Graphs"/"Pipelines" that represent data flows between preprocessing, model fitting, and ensemble learning units in an expressive and intuitive language. We will most often use the term "Graph" in this manual but it can interchangeably be used with "pipeline" or "workflow".
+
+Single computational steps can be represented as so-called PipeOps, which can then be connected with directed edges in a Graph. The scope of mlr3pipelines is still growing. Currently supported features are:
+
+\- Data manipulation and preprocessing operations, e.g. PCA, feature filtering, imputation
+
+\- Task subsampling for speed and outcome class imbalance handling
+
+\- mlr3 Learner operations for prediction and stacking
+
+\- Ensemble methods and aggregation of predictions
+
+Additionally, we implement several meta operators that can be used to construct powerful pipelines:
+
+\- Simultaneous path branching (data going both ways)
+
+\- Alternative path branching (data going one specific way, controlled by hyperparameters)
+
+Using methods from \`mlr3tuning\`, it is even possible to simultaneously optimize parameters of multiple processing units.
+
+\### The Building Blocks: PipeOps
+
+The building blocks of mlr3pipelines are PipeOp-objects (PO). They can be constructed directly using PipeOp\<NAME\>\$new(), but the recommended way is to retrieve them from the mlr_pipeops dictionary:
+
+\`\`\`{r,echo=TRUE}
+
+library("mlr3pipelines")
+
+as.data.table(mlr_pipeops)
+
+\`\`\`
+
+\### Nodes, Edges and Graphs
+
+POs are combined into Graphs.
+
+POs are identified by their \$id. Note that the operations all modify the object in-place and return the object itself. Therefore, multiple modifications can be chained.
+
+Connects PipeOps with edges to control data flow during training and prediction. Input is sent to sources (no in-edges), output is read from sinks (no out-edges).
+
+Important methods and slots:
+
+\`\`\`
+
+Display:print(gr),gr\$plot(html = TRUE) Accessing PipeOps: gr\$pipeops
+
+Named list of all contained POs.
+
+\`\`\`
+
+The %\>\>% operator takes either a PipeOp or a Graph on each of its sides and connects all left-hand outputs to the right-hand inputs. For full control, connect PipeOps explicitly:
+
+\`\`\`
+
+gr = Graph\$new()
+
+gr\$add_pipeop(po("pca"))
+
+gr\$add_pipeop(lrn("classif.rpart"))
+
+gr\$add_edge("pca", "classif.rpart")
+
+\`\`\`
+
+GraphLearner behave like Learner and enable all mlr3 features:
+
+\`\`\`
+
+grl = GraphLearner\$new(gr).
+
+\`\`\`
+
+See slots \$encapsulate for debugging and \$model for results after training.
+
+Concatenate POs with %\>\>% to get linear graph.
+
+\### Modeling
+
+The main purpose of a Graph is to build combined preprocessing and model fitting pipelines that can be used as mlr3 Learner.
+
+\#### Setting Hyperparameters
+
+Individual POs offer hyperparameters because they contain \$param_set slots that can be read and written from \$param_set\$values (via the paradox package). The parameters get passed down to the Graph, and finally to the GraphLearner . This makes it not only possible to easily change the behavior of a Graph / GraphLearner and try different settings manually, but also to perform tuning using the mlr3tuning package.
+
+For POs: Exactly as in a Learner.
+
+\`\`\`
+
+enc = po("encode")
+
+enc\$param_set
+
+enc\$param_set\$values = list(method="one-hot")
+
+po("encode", param_vals = list(method="one-hot"))
+
+\`\`\`
+
+For Graph / GraphLearner: All HPs are collected in a global ParamSet stored in \$param_set. IDs are prefixed with the respective PipeOp's id.
+
+\#### Tuning
+
+Can jointly tune any Pipeline. Usage of AutoTuner is identical.
+
+Details could be seen in below section.
+
+\### Non-Linear Graphs
+
+The Graphs seen so far all have a linear structure. Some POs may have multiple input or output channels. These channels make it possible to create non-linear Graphs with alternative paths taken by the data.
+
+Possible types are:
+
+Branching: Splitting of a node into several paths, e.g. useful when comparing multiple feature-selection methods (pca, filters). Only one path will be executed.
+
+Copying: Splitting of a node into several paths, all paths will be executed (sequentially). Parallel execution is not yet supported.
+
+Stacking: Single graphs are stacked onto each other, i.e. the output of one Graph is the input for another. In machine learning this means that the prediction of one Graph is used as input for another Graph.
+
+\#### Common functions:
+
+\`gunion()\` arranges PipeOps or Graphs next to each other in a disjoint graph union.
+
+pipeline_greplicate() creates a new Graph containing n copies of the input (PipeOp or Graph).
+
+PipeOpFeatureUnion aggregates features from all input tasks into a single Task.
+
+\#### Branching & Copying
+
+The PipeOpBranch and PipeOpUnbranch POs make it possible to specify multiple alternative paths. Only one path is actually executed, the others are ignored. The active path is determined by a hyperparameter. This concept makes it possible to tune alternative preprocessing paths (or learner models).
+
+They controls the path execution. Only one branch can be active. Which one is controlled by a hyperparameter. Unbranching ends the forking.
+
+Example:
+
+\`\`\`
+
+gr = ppl("branch", list(
+
+pca = po("pca"), scale = po("scale"))
+
+)
+
+\# set the "pca" path as the active one:
+
+gr\$param_set\$values\$branch.selection = "pca"
+
+\`\`\`
+
+Tuning the branching selection enables powerful model selection.
 
 ## Hyperparameter Tuning
 
@@ -161,23 +310,17 @@ The table shows tuner search strategy we can choose from:
 as.data.table(mlr_tuners) 
 ```
 
-The parameter set is combined in mutivariate search space SS:
-ss = ps(\<id\> = p_int(lower, upper), \<id\>= p_dbl(lower, upper), \<id\> = p_dct(levels), \<id\> = p_lgl())
+The parameter set is combined in mutivariate search space SS: ss = ps(\<id\> = p_int(lower, upper), \<id\>= p_dbl(lower, upper), \<id\> = p_dct(levels), \<id\> = p_lgl())
 
 The \<id\> represents identifier, and lower, upper, levels are the bounds.
 
 Or, we can use to_tune() to set SS for each parameter.
 
-To tune by hand, we need to fill define all the arguments in the equation:
-instance = TuningInstanceSingleCrit\$new(task,learner, resampling, measure,terminator, ss)
-tuner = tnr(\<tuner\>)
-We need to use TunningInstanceMultiCrit for multi-criteria tuning.
+To tune by hand, we need to fill define all the arguments in the equation: instance = TuningInstanceSingleCrit\$new(task,learner, resampling, measure,terminator, ss) tuner = tnr(\<tuner\>) We need to use TunningInstanceMultiCrit for multi-criteria tuning.
 
 Then we access the results:
 
-tuner\$optimize(instance)
-as.data.table(instance\$archive)
-learner\$param_set\$values = instance\$result_learner_param_vals
+tuner\$optimize(instance) as.data.table(instance\$archive) learner\$param_set\$values = instance\$result_learner_param_vals
 
 The auto tuner:
 
@@ -212,14 +355,9 @@ The table shows fselectors method we can choose from:
 as.data.table(mlr_fselectors) 
 ```
 
-First, we make feature selection by hand, and the process is similar to hyper parameter tuning, we need to define all the arguments and then we can get the result:
-instance = FSelectInstanceSingleCrit\$new(task, learner, resampling, measure, terminator)
-fselector = fs(\<fs method\>, batch_size = \<number\>)
-fselector\$optimize(instance)
-instance\$result
+First, we make feature selection by hand, and the process is similar to hyper parameter tuning, we need to define all the arguments and then we can get the result: instance = FSelectInstanceSingleCrit\$new(task, learner, resampling, measure, terminator) fselector = fs(\<fs method\>, batch_size = \<number\>) fselector\$optimize(instance) instance\$result
 
-We can reselect the features we want using the code:
-task\$select(instance\$result_feature_set)
+We can reselect the features we want using the code: task\$select(instance\$result_feature_set)
 
 Next, we will introduce the auto feature selector that eases the process:
 
@@ -235,9 +373,7 @@ measure = msr(\<measure\>),
 
 term_evals = \<#\>,
 
-batch_size = \<#\>)
-autot\$train(task, row_ids)
-autot\$predict(task, row_ids)
+batch_size = \<#\>) autot\$train(task, row_ids) autot\$predict(task, row_ids)
 
 We can check the feature selection subset by calling the learner again:
 
